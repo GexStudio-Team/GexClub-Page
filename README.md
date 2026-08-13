@@ -43,24 +43,14 @@ Abre [http://localhost:3000](http://localhost:3000) para ver el sitio.
 
 ## Estructura del proyecto
 
-\`\`\`
-src/
-├── app/                  # Páginas (App Router) y rutas de API
-│   ├── about/
-│   ├── community/
-│   ├── hackathons/
-│   ├── projects/
-│   ├── api/              # Backend (events, members, projects)
-│   ├── layout.js         # Layout raíz (nav, footer, estilos globales)
-│   └── page.js           # Home
-├── components/           # Componentes de UI organizados por sección
-│   ├── layout/
-│   ├── home/
-│   ├── hackathons/
-│   ├── community/
-│   └── projects/
-└── lib/                  # Datos y utilidades compartidas
-\`\`\`
+- `src/app/` — Páginas (App Router) y rutas de API
+  - `about/`, `community/`, `hackathons/`, `projects/` — páginas de cada sección
+  - `api/` — Backend (events, members, projects)
+  - `layout.js` — Layout raíz (nav, footer, estilos globales)
+  - `page.js` — Home
+- `src/components/` — Componentes de UI organizados por sección
+  - `layout/`, `home/`, `hackathons/`, `community/`, `projects/`
+- `src/lib/` — Datos y utilidades compartidas
 
 ## Backend
 
