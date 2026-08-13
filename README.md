@@ -32,29 +32,31 @@ A jóvenes de 14 a 18 años interesados en tecnología, desarrollo de software, 
 
 ## Empezar
 
-\`\`\`bash
+```bash
 git clone https://github.com/GexStudio-Team/GexClub-Page.git
 cd GexClub-Page
 npm install
 npm run dev
-\`\`\`
+```
 
 Abre [http://localhost:3000](http://localhost:3000) para ver el sitio.
 
 ## Estructura del proyecto
 
-- `src/app/` — Páginas (App Router) y rutas de API
-  - `about/`, `community/`, `hackathons/`, `projects/` — páginas de cada sección
-  - `api/` — Backend (events, members, projects)
-  - `layout.js` — Layout raíz (nav, footer, estilos globales)
-  - `page.js` — Home
-- `src/components/` — Componentes de UI organizados por sección
-  - `layout/`, `home/`, `hackathons/`, `community/`, `projects/`
-- `src/lib/` — Datos y utilidades compartidas
+| Ruta | Contenido |
+|---|---|
+| `src/app/` | Páginas (App Router) y rutas de API |
+| `src/app/about/`, `community/`, `hackathons/`, `projects/` | Páginas de cada sección |
+| `src/app/api/` | Backend (events, members, projects) |
+| `src/app/layout.js` | Layout raíz (nav, footer, estilos globales) |
+| `src/app/page.js` | Home |
+| `src/components/` | Componentes de UI organizados por sección |
+| `src/components/layout/`, `home/`, `hackathons/`, `community/`, `projects/` | Componentes por sección |
+| `src/lib/` | Datos y utilidades compartidas |
 
 ## Backend
 
-El proyecto incluye un backend simple basado en **API Routes de Next.js**, con datos almacenados en memoria (\`src/lib/data.js\`). Esto permite probar flujos completos (registrarse a un evento, unirse a la comunidad) sin depender de una base de datos externa. Los datos se reinician cada vez que el servidor se reinicia — es un punto de partida pensado para conectarse más adelante a una base de datos real (Supabase, PostgreSQL, etc.) sin tener que modificar los componentes de UI.
+El proyecto incluye un backend simple basado en **API Routes de Next.js**, con datos almacenados en memoria (`src/lib/data.js`). Esto permite probar flujos completos (registrarse a un evento, unirse a la comunidad) sin depender de una base de datos externa. Los datos se reinician cada vez que el servidor se reinicia — es un punto de partida pensado para conectarse más adelante a una base de datos real (Supabase, PostgreSQL, etc.) sin tener que modificar los componentes de UI.
 
 ## Contribuir
 
