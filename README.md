@@ -64,7 +64,7 @@ Este proyecto es mantenido por el equipo fundador de Gex Club. Si eres miembro d
 
 ## Redes
 
-- Instagram [instagram.com/joingexclub](https://www.instagram.com/joingexclub/)
+- Instagram — [instagram.com/joingexclub](https://www.instagram.com/joingexclub/)
 - Discord
 - GitHub — [github.com/GexStudio-Team](https://github.com/GexStudio-Team)
 
