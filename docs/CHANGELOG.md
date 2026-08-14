@@ -2,6 +2,8 @@
 
 ## 14:08:2026
 
+- **docs** (updated - 09:00): Reescrito `SKILL.md` para adaptarlo al stack web (Next.js App Router + FastAPI), reemplazando las reglas de código Love2D por estándares del proyecto (estructura, path alias, Server Components, services layer, tema claro/oscuro, tuteo, accesibilidad).
+
 - **feature** (completed - 08:40): Mejoras de experiencia, contenido y SEO.
   - Dark mode: paleta clara en `:root` / oscura en `.dark`, `ThemeProvider` con persistencia en `localStorage` y anti-FOUC, y `ThemeToggle` en sidebar, header móvil y menú.
   - Layout refactorizado: `src/app/layout.js` pasa a Server Component (exporta `metadata` raíz) que renderiza `RootLayoutClient.jsx` con providers y navegación.
