@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import SectionHeader from '@/components/layout/SectionHeader';
 import MemberGrid from '@/components/community/MemberGrid';
 import JoinFlow from '@/components/community/JoinFlow';
+import GallerySection from '@/components/gallery/GallerySection';
 
 const TESTIMONIALS = [
   { quote: 'En un año pasé de no saber programar a ganar mi primer hackathon. Gex cambió mi forma de ver el futuro.', name: 'Valentina R.', role: 'Programadora' },
@@ -72,7 +73,9 @@ export default function Community() {
         <JoinFlow />
       </section>
 
-      <section>
+      <GallerySection />
+
+      <section className="mb-20">
         <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6">
           <span>[ 05 ]</span>
           <span className="h-px w-12 bg-primary/40" />

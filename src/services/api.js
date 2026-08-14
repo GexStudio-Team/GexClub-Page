@@ -52,11 +52,21 @@ export const authService = {
 // Servicios de Eventos
 export const eventsService = {
   getAll: () => apiFetch('/events/'),
+  getById: (id) => apiFetch(`/events/${id}`),
   create: (eventData) =>
     apiFetch('/events/', {
       method: 'POST',
       body: JSON.stringify(eventData),
     }),
+  register: (eventId) =>
+    apiFetch(`/events/${eventId}/register`, {
+      method: 'POST',
+    }),
+};
+
+// Servicios del usuario actual
+export const meService = {
+  getEvents: () => apiFetch('/me/events'),
 };
 
 // Servicios de Proyectos

@@ -2,6 +2,18 @@
 
 ## 14:08:2026
 
+- **feature** (completed - 08:20): Registro real a hackathons por usuario.
+  - Backend: tabla `Registration` (UNIQUE user+event), columnas `name`, `type`, `status`, `capacity` en `Event`.
+  - Endpoints nuevos: `POST /api/events/{id}/register`, `GET /api/events/{id}`, `GET /api/me/events`, y `registered`/`registered_by_me` en respuestas de eventos.
+  - Dependencia opcional `get_optional_current_user` (token opcional) para listar eventos sin login.
+  - Script de migración/seed `backend/seed.py`.
+  - Frontend: `src/services/api.js` con `eventsService.register` y `meService.getEvents`.
+  - Página `/hackathons` migrada de la API en memoria a FastAPI; registro exige sesión y redirige a `/login`.
+  - `EventList` muestra estado "Registrado" y controla cupos/finalizado.
+  - `ProfilePanel` carga "Mis eventos" reales desde `/api/me/events`.
+- **feature** (completed - 08:20): Galería de eventos en `/community` (`GallerySection`) con placeholders de marca listos para fotos reales en `public/gallery/`.
+- **feature** (completed - 08:20): Sección de hackathons pasados con podio de ganadores en `/hackathons` (`PastEditions` + `src/lib/hackathons.js`).
+
 - **feature** (completed - 07:18): Implementación de las Fases 2 y 3 (Frontend Next.js & Autenticación).
   - Creado cliente de API HTTP centralizado en `src/services/api.js`.
   - Creado proveedor de estado global de autenticación `AuthContext` en `src/features/auth/AuthContext.jsx`.

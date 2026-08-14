@@ -1,7 +1,9 @@
 'use client';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { UserRound, Mail, ShieldCheck, CalendarDays, FolderGit2, Trophy, LogOut } from 'lucide-react';
+import { UserRound, Mail, ShieldCheck, CalendarDays, Trophy, FolderGit2, LogOut, Calendar } from 'lucide-react';
 import { useAuth } from '@/features/auth/AuthContext';
+import { meService } from '@/services/api';
 
 function formatMemberSince(createdAt) {
   if (!createdAt) return '—';
@@ -12,8 +14,24 @@ function formatMemberSince(createdAt) {
   }
 }
 
+function formatDate(iso) {
+  if (!iso) return '—';
+  return new Date(iso).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+
 export default function ProfilePanel({ user }) {
   const { logout } = useAuth();
+  const [myEvents, setMyEvents] = useState([]);
+  const [eventsLoading, setEventsLoading] = useState(true);
+
+  useEffect(() => {
+    meService
+      .getEvents()
+      .then(setMyEvents)
+      .catch(() => setMyEvents([]))
+      .finally(() => setEventsLoading(false));
+  }, []);
+
   const roleLabel = user?.role === 'admin' ? 'Administrador' : user?.role === 'mentor' ? 'Mentor' : 'Miembro';
 
   return (
@@ -65,17 +83,42 @@ export default function ProfilePanel({ user }) {
         </dl>
       </div>
 
-      <div className="mt-8 grid sm:grid-cols-2 gap-px bg-border border border-border">
-        <Link
-          href="/hackathons"
-          className="group flex items-center justify-between gap-4 bg-background p-6 hover:bg-card transition-colors"
-        >
+      <div className="mt-8 border border-border bg-card">
+        <div className="flex items-center justify-between px-6 lg:px-10 py-4 border-b border-border">
           <div className="flex items-center gap-3">
-            <Trophy className="w-6 h-6 text-primary" />
+            <Trophy className="w-5 h-5 text-primary" />
             <span className="font-display font-bold uppercase tracking-tight text-sm">Mis eventos</span>
           </div>
-          <span className="font-mono text-[11px] text-muted-foreground group-hover:text-primary transition-colors">// próximo</span>
-        </Link>
+          <Link href="/hackathons" className="font-mono text-[11px] uppercase tracking-wider text-primary hover:underline">
+            Ver todos
+          </Link>
+        </div>
+        <div className="divide-y divide-border">
+          {eventsLoading ? (
+            <div className="p-6 space-y-px">
+              {[0, 1].map((i) => (
+                <div key={i} className="h-14 bg-border animate-pulse" />
+              ))}
+            </div>
+          ) : myEvents.length === 0 ? (
+            <div className="p-6 font-mono text-sm text-muted-foreground uppercase tracking-wider">
+              // todavía no te inscribiste a ningún evento
+            </div>
+          ) : (
+            myEvents.map((ev) => (
+              <div key={ev.id} className="flex items-center gap-4 px-6 lg:px-10 py-4">
+                <Calendar className="w-4 h-4 text-muted-foreground shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <div className="font-display font-bold uppercase tracking-tight text-sm truncate">{ev.name}</div>
+                  <div className="font-mono text-[11px] text-muted-foreground">{formatDate(ev.date)} · {ev.status}</div>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+
+      <div className="mt-8 grid sm:grid-cols-2 gap-px bg-border border border-border">
         <Link
           href="/projects"
           className="group flex items-center justify-between gap-4 bg-background p-6 hover:bg-card transition-colors"

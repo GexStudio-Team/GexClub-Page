@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .database import engine, Base
-from .routers import auth, events, projects
+from .routers import auth, events, projects, me
 
 # Crear las tablas en la base de datos SQLite si no existen
 Base.metadata.create_all(bind=engine)
@@ -31,6 +31,7 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(events.router)
 app.include_router(projects.router)
+app.include_router(me.router)
 
 @app.get("/")
 def read_root():

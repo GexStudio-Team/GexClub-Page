@@ -29,14 +29,38 @@ class Token(BaseModel):
 
 # Esquemas de Evento
 class EventCreate(BaseModel):
-    title: str
+    title: Optional[str] = None
+    name: Optional[str] = None
     description: Optional[str] = None
     date: Optional[str] = None
     location: Optional[str] = None
     category: Optional[str] = "general"
+    type: Optional[str] = "hackathon"
+    status: Optional[str] = "proximamente"
+    capacity: Optional[int] = 40
 
-class EventResponse(EventCreate):
+class EventResponse(BaseModel):
     id: int
+    title: Optional[str] = None
+    name: Optional[str] = None
+    description: Optional[str] = None
+    date: Optional[str] = None
+    location: Optional[str] = None
+    category: Optional[str] = None
+    type: Optional[str] = None
+    status: Optional[str] = None
+    capacity: Optional[int] = None
+    registered: int = 0
+    registered_by_me: bool = False
+    created_at: Optional[datetime] = None
+
+    class Config:
+        from_attributes = True
+
+class RegistrationResponse(BaseModel):
+    id: int
+    user_id: int
+    event_id: int
     created_at: Optional[datetime] = None
 
     class Config:
