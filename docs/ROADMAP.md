@@ -19,3 +19,19 @@
 - [x] Formulario e interfaz de Login (`/login`) con `LoginForm.jsx`
 - [x] Formulario e interfaz de Registro (`/register`) con `RegisterForm.jsx`
 - [x] Integración de botones y menú de usuario en `src/app/layout.js`
+
+### Fase 4: Experiencia, Contenido y SEO 🟢 (Completado)
+- [x] Dark mode (toggle con persistencia y respeto a `prefers-color-scheme`)
+- [x] Layout como Server Component con `metadata` raíz + `RootLayoutClient`
+- [x] Página de perfil de miembro (`/profile`)
+- [x] Blog (`/blog`) y FAQ (`/faq`) + enlaces reales de redes
+- [x] SEO: metadata por página, `sitemap.ts`, `robots.ts`
+- [x] Accesibilidad y consistencia de idioma
+
+### Fase 5: Registro Real a Hackathons y Contenido Comunitario 🟢 (Completado)
+- [x] Modelo `Registration` y columnas de `Event` para la UI (name/type/status/capacity)
+- [x] Endpoints `/api/events/{id}/register`, `/api/events/{id}`, `/api/me/events`
+- [x] Migración/seed `backend/seed.py`
+- [x] Migrar `/hackathons` a FastAPI con registro autenticado
+- [x] Galería de eventos en `/community`
+- [x] Sección de hackathons pasados con podio en `/hackathons`

@@ -2,6 +2,13 @@
 
 ## 14:08:2026
 
+- **feature** (completed - 08:40): Mejoras de experiencia, contenido y SEO.
+  - Dark mode: paleta clara en `:root` / oscura en `.dark`, `ThemeProvider` con persistencia en `localStorage` y anti-FOUC, y `ThemeToggle` en sidebar, header móvil y menú.
+  - Layout refactorizado: `src/app/layout.js` pasa a Server Component (exporta `metadata` raíz) que renderiza `RootLayoutClient.jsx` con providers y navegación.
+  - Página de perfil `/profile` con datos de sesión y protección de ruta.
+  - Blog (`/blog`, `/blog/[slug]`), FAQ (`/faq`) y enlaces reales de redes en el footer.
+  - Metadata/Open Graph por página, `sitemap.ts` y `robots.ts`.
+  - Accesibilidad y consistencia: idioma unificado a tuteo, `aria-current`/`aria-label`, animación `Reveal` con scroll.
 - **feature** (completed - 08:20): Registro real a hackathons por usuario.
   - Backend: tabla `Registration` (UNIQUE user+event), columnas `name`, `type`, `status`, `capacity` en `Event`.
   - Endpoints nuevos: `POST /api/events/{id}/register`, `GET /api/events/{id}`, `GET /api/me/events`, y `registered`/`registered_by_me` en respuestas de eventos.
