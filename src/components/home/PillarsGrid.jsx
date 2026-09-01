@@ -1,12 +1,13 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import { Code2, Gamepad2, Network, Trophy, ArrowUpRight } from 'lucide-react';
 
 const PILLARS = [
-  { code: 'P.01', title: 'Desarrollo Tecnológico', desc: 'Construimos software real: web, móvil, IA y herramientas que resuelven problemas del mundo.', icon: Code2, accent: '#CCFF00' },
-  { code: 'P.02', title: 'Desarrollo de Videojuegos', desc: 'Diseño, arte y programación de juegos. Del concepto al playable, con motor propio y pipelines profesionales.', icon: Gamepad2, accent: '#00E5FF' },
-  { code: 'P.03', title: 'Comunidad Tecnológica', desc: 'Una red de jóvenes talentos que aprenden, colaboran y crecen en un entorno seguro y exigente.', icon: Network, accent: '#FF6B6B' },
-  { code: 'P.04', title: 'Hackathons', desc: 'Competiciones de alto impacto donde el talento se transforma en soluciones bajo presión de tiempo.', icon: Trophy, accent: '#FFB800' },
+  { code: 'P.01', title: 'Desarrollo Tecnológico', desc: 'Construimos software real: web, móvil, IA y herramientas que resuelven problemas del mundo.', icon: Code2, accent: '#1687FF', href: '/projects' },
+  { code: 'P.02', title: 'Desarrollo de Videojuegos', desc: 'Diseño, arte y programación de juegos. Del concepto al playable, con motor propio y pipelines profesionales.', icon: Gamepad2, accent: '#7747FF', href: '/projects' },
+  { code: 'P.03', title: 'Comunidad Tecnológica', desc: 'Una red abierta para aprender, colaborar y crecer en un entorno seguro y exigente.', icon: Network, accent: '#3C6FFF', href: '/community' },
+  { code: 'P.04', title: 'Hackathons', desc: 'Retos de alto impacto donde el talento se transforma en soluciones bajo presión de tiempo.', icon: Trophy, accent: '#9B3DFF', href: '/hackathons' },
 ];
 
 export default function PillarsGrid() {
@@ -22,11 +23,14 @@ export default function PillarsGrid() {
         {PILLARS.map((p) => {
           const isActive = active === p.code;
           return (
-            <div
+            <Link
+              href={p.href}
               key={p.code}
               onMouseEnter={() => setActive(p.code)}
               onMouseLeave={() => setActive(null)}
-              className="group relative bg-background p-8 min-h-[320px] flex flex-col transition-colors duration-300 hover:bg-card cursor-default overflow-hidden"
+              onFocus={() => setActive(p.code)}
+              onBlur={() => setActive(null)}
+              className="group relative bg-background p-8 min-h-[320px] flex flex-col transition-all duration-300 hover:bg-card hover:-translate-y-1 focus-visible:-translate-y-1 overflow-hidden"
             >
               <div className="absolute inset-x-0 top-0 h-[2px] transition-all duration-300" style={{ backgroundColor: isActive ? p.accent : 'transparent' }} />
               <div className="flex items-center justify-between">
@@ -38,7 +42,7 @@ export default function PillarsGrid() {
               <div className="mt-6 flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider transition-all duration-300" style={{ color: isActive ? p.accent : 'var(--muted-foreground)' }}>
                 Explorar <ArrowUpRight className="w-3.5 h-3.5" />
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

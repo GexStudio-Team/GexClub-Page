@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { SiInstagram, SiGithub, SiDiscord } from '@icons-pack/react-simple-icons';
+import { SiInstagram, SiGithub } from '@icons-pack/react-simple-icons';
+import { SOCIALS as SOCIAL_LINKS } from '@/lib/content';
 
 const SOCIALS = [
-  { label: 'Instagram', href: 'https://instagram.com', icon: SiInstagram },
-  { label: 'GitHub', href: 'https://github.com', icon: SiGithub },
-  { label: 'Discord', href: 'https://discord.com', icon: SiDiscord },
+  { label: 'Instagram', href: SOCIAL_LINKS.instagram, icon: SiInstagram },
+  { label: 'GitHub', href: SOCIAL_LINKS.github, icon: SiGithub },
 ];
 
 const LINKS = [
@@ -14,6 +14,8 @@ const LINKS = [
   { label: 'Hackathons', href: '/hackathons' },
   { label: 'Comunidad', href: '/community' },
   { label: 'Proyectos', href: '/projects' },
+  { label: 'Preguntas frecuentes', href: '/faq' },
+  { label: 'Contacto y alianzas', href: '/contacto' },
 ];
 
 export default function Footer() {

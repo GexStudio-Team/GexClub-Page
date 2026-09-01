@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, Terminal } from 'lucide-react';
+import { HACKATHON_FORM_URL } from '@/lib/content';
 
 export default function Hero() {
   return (
@@ -15,14 +16,14 @@ export default function Hero() {
           together.
         </h1>
         <p className="mt-8 max-w-md text-lg text-muted-foreground leading-relaxed">
-          Comunidad de desarrollo de software, videojuegos y hackathons para jóvenes
-          de 14 a 18 años. Create. Learn. Collaborate. Excel.
+          Comunidad de desarrollo de software, videojuegos y hackathons para personas
+          de todas las edades. Create. Learn. Collaborate. Excel.
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
-          <Link href="/community" className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 font-mono text-sm uppercase tracking-wider font-bold hover:bg-primary/90 transition-colors">
-            Únete a la comunidad
+          <a href={HACKATHON_FORM_URL} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 font-mono text-sm uppercase tracking-wider font-bold hover:bg-primary/90 transition-colors">
+            Inscríbete al hackathon
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          </a>
           <Link href="/hackathons" className="inline-flex items-center gap-2 border border-border px-6 py-3.5 font-mono text-sm uppercase tracking-wider hover:border-primary hover:text-primary transition-colors">
             <Terminal className="w-4 h-4" /> Ver hackathons
           </Link>
@@ -34,15 +35,15 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(to right, rgba(163, 230, 53, 0.08) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(163, 230, 53, 0.08) 1px, transparent 1px)
+              linear-gradient(to right, rgba(22, 135, 255, 0.14) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(119, 71, 255, 0.14) 1px, transparent 1px)
             `,
             backgroundSize: '40px 40px',
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/60 to-primary/10" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-display font-bold text-primary/20 text-[20rem] leading-none select-none">G</span>
+          <img src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" className="gex-float h-64 w-64 object-contain opacity-90 mix-blend-screen" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
         <div className="absolute top-6 right-6 font-mono text-[10px] uppercase tracking-widest text-muted-foreground border border-border px-2 py-1 bg-background/60 backdrop-blur">

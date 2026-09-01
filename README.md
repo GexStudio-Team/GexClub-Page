@@ -28,7 +28,7 @@ A jóvenes de 14 a 18 años interesados en tecnología, desarrollo de software, 
 - **Framework:** [Next.js](https://nextjs.org) (App Router)
 - **UI:** React + Tailwind CSS
 - **Íconos:** [Lucide](https://lucide.dev) + [Simple Icons](https://github.com/icons-pack/react-simple-icons) (para íconos de marca)
-- **Backend:** API Routes de Next.js con almacenamiento en memoria (ver sección de Backend abajo)
+- **Publicación:** exportación estática compatible con Hostinger
 
 ## Empezar
 
@@ -41,22 +41,34 @@ npm run dev
 
 Abre [http://localhost:3000](http://localhost:3000) para ver el sitio.
 
+### Formulario de hackathons
+
+El botón **Unirme** abre el formulario público de inscripción de Gex Club. Allí se solicitan datos del participante, del acudiente responsable y un contacto de emergencia para actividades dirigidas a jóvenes de 14 a 18 años.
+
+### Publicar en Hostinger
+
+```bash
+npm run build
+```
+
+El sitio listo para publicar queda en la carpeta `out/`. Sube **el contenido** de esa carpeta al directorio público de Hostinger (normalmente `public_html`). No requiere Node.js, base de datos ni variables de entorno.
+
 ## Estructura del proyecto
 
 | Ruta | Contenido |
 |---|---|
-| `src/app/` | Páginas (App Router) y rutas de API |
-| `src/app/about/`, `community/`, `hackathons/`, `projects/` | Páginas de cada sección |
-| `src/app/api/` | Backend (events, members, projects) |
+| `src/app/` | Páginas estáticas (App Router) |
+| `src/app/about/`, `community/`, `hackathons/`, `projects/`, `faq/`, `contacto/` | Páginas de cada sección |
 | `src/app/layout.js` | Layout raíz (nav, footer, estilos globales) |
 | `src/app/page.js` | Home |
 | `src/components/` | Componentes de UI organizados por sección |
 | `src/components/layout/`, `home/`, `hackathons/`, `community/`, `projects/` | Componentes por sección |
-| `src/lib/` | Datos y utilidades compartidas |
+| `src/lib/content.js` | Datos editables, enlaces y eventos temporales |
+| `public/brand/` | Activos de marca de Gex Club |
 
-## Backend
+## Contenido y datos
 
-El proyecto incluye un backend simple basado en **API Routes de Next.js**, con datos almacenados en memoria (`src/lib/data.js`). Esto permite probar flujos completos (registrarse a un evento, unirse a la comunidad) sin depender de una base de datos externa. Los datos se reinician cada vez que el servidor se reinicia — es un punto de partida pensado para conectarse más adelante a una base de datos real (Supabase, PostgreSQL, etc.) sin tener que modificar los componentes de UI.
+La web no usa cuentas ni backend. Eventos, proyectos y enlaces viven en `src/lib/content.js`, para que puedas actualizarlos sin depender de una base de datos. Los datos recibidos en las inscripciones se gestionan desde Google Forms.
 
 ## Contribuir
 
@@ -65,7 +77,6 @@ Este proyecto es mantenido por el equipo fundador de Gex Club. Si eres miembro d
 ## Redes
 
 - Instagram — [instagram.com/joingexclub](https://www.instagram.com/joingexclub/)
-- Discord
 - GitHub — [github.com/GexStudio-Team](https://github.com/GexStudio-Team)
 
 ---

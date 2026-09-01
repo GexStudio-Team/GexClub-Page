@@ -7,13 +7,14 @@ export default function MissionSection() {
         className="relative border-b lg:border-b-0 lg:border-r border-border bg-card min-h-[40vh] overflow-hidden"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(163, 230, 53, 0.08) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(163, 230, 53, 0.08) 1px, transparent 1px)
+            linear-gradient(to right, rgba(22, 135, 255, 0.14) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(119, 71, 255, 0.14) 1px, transparent 1px)
           `,
           backgroundSize: '32px 32px',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-accent/20" />
+        <img src="/brand/gex-mark-dark.png" alt="" className="gex-float absolute inset-0 m-auto h-56 w-56 object-contain mix-blend-screen opacity-90" />
         <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase tracking-widest text-primary">// the_foundry</div>
       </div>
       <div className="px-6 lg:px-16 py-24">
@@ -22,9 +23,9 @@ export default function MissionSection() {
           <div className="border-l-2 border-primary pl-6">
             <div className="font-mono text-xs uppercase tracking-widest text-primary mb-2">&lt;mission&gt;</div>
             <p className="text-lg leading-relaxed">
-              Empoderar a jóvenes de 14 a 18 años con habilidades técnicas reales en
-              desarrollo de software, videojuegos y solución de problemas, formando
-              la próxima generación de creadores tecnológicos.
+              Abrir espacios para que personas de todas las edades desarrollen habilidades
+              reales en software, videojuegos y solución de problemas, formando una comunidad
+              de creadores tecnológicos.
             </p>
           </div>
           <div className="border-l-2 border-muted-foreground/40 pl-6">

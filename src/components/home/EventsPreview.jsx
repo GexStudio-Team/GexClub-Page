@@ -1,26 +1,12 @@
-'use client';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Calendar, Users, ArrowUpRight, Clock } from 'lucide-react';
+import { EVENTS } from '@/lib/content';
 
 function formatDate(iso) {
   return new Date(iso).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
 export default function EventsPreview() {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('/api/events')
-      .then((res) => res.json())
-      .then((data) => {
-        const sorted = [...data].sort((a, b) => new Date(b.date) - new Date(a.date));
-        setEvents(sorted.slice(0, 3));
-      })
-      .finally(() => setLoading(false));
-  }, []);
-
   return (
     <section className="px-6 lg:px-16 py-24 border-b border-border">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
@@ -37,15 +23,8 @@ export default function EventsPreview() {
         </Link>
       </div>
 
-      {loading ? (
-        <div className="space-y-px">
-          {[0, 1, 2].map((i) => (
-            <div key={i} className="h-28 bg-card animate-pulse border border-border" />
-          ))}
-        </div>
-      ) : (
-        <div className="border border-border">
-          {events.map((e) => (
+      <div className="border border-border">
+          {EVENTS.map((e) => (
             <div key={e.id} className="group grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-center gap-4 md:gap-8 border-b border-border last:border-b-0 p-6 hover:bg-card transition-colors">
               <div className="flex items-center gap-3">
                 <Calendar className="w-5 h-5 text-primary" />
@@ -62,13 +41,12 @@ export default function EventsPreview() {
                 <p className="text-sm text-muted-foreground mt-1 line-clamp-1">{e.description}</p>
               </div>
               <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
-                <Users className="w-4 h-4" /> {e.registered}/{e.capacity}
-                <Clock className="w-4 h-4 ml-3" />
+                <Users className="w-4 h-4" /> {e.capacity}
+                <Clock className="w-4 h-4 ml-3" /> {e.time}
               </div>
             </div>
           ))}
         </div>
-      )}
     </section>
   );
 }

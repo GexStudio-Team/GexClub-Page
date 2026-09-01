@@ -1,7 +1,8 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import SectionHeader from '@/components/layout/SectionHeader';
 import ProjectCard from '@/components/projects/ProjectCard';
+import { COMMUNITY_STATUS, PROJECTS } from '@/lib/content';
 
 const FILTERS = [
   { key: 'todos', label: 'Todos' },
@@ -11,18 +12,9 @@ const FILTERS = [
 ];
 
 export default function Projects() {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('todos');
 
-  useEffect(() => {
-    fetch('/api/projects')
-      .then((res) => res.json())
-      .then(setProjects)
-      .finally(() => setLoading(false));
-  }, []);
-
-  const filtered = filter === 'todos' ? projects : projects.filter((p) => p.category === filter);
+  const filtered = filter === 'todos' ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
 
   return (
     <div className="px-6 lg:px-16 py-20">
@@ -32,15 +24,18 @@ export default function Projects() {
         className="relative border border-border bg-card h-48 md:h-64 mb-16 overflow-hidden flex flex-col justify-center p-8 lg:p-12"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(163, 230, 53, 0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(163, 230, 53, 0.1) 1px, transparent 1px)
+            linear-gradient(to right, rgba(22, 135, 255, 0.14) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(119, 71, 255, 0.14) 1px, transparent 1px)
           `,
           backgroundSize: '32px 32px',
         }}
       >
+        <div className="gex-glow absolute right-[-1rem] bottom-[-1.5rem] h-60 w-60">
+          <img src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" className="gex-float h-full w-full object-contain mix-blend-screen" />
+        </div>
         <div className="font-mono text-xs uppercase tracking-widest text-primary mb-2">// the_vault</div>
         <div className="font-display text-2xl md:text-4xl font-bold uppercase tracking-tight text-balance max-w-lg">
-          {loading ? 'Build in progress…' : `${projects.length} proyectos construidos`}
+          {COMMUNITY_STATUS.projects}
         </div>
       </div>
 
@@ -58,13 +53,7 @@ export default function Projects() {
         ))}
       </div>
 
-      {loading ? (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[...Array(6)].map((_, i) => (
-            <div key={i} className="border border-border bg-card h-96 animate-pulse" />
-          ))}
-        </div>
-      ) : filtered.length === 0 ? (
+      {filtered.length === 0 ? (
         <div className="border border-border bg-card p-12 text-center font-mono text-sm text-muted-foreground uppercase tracking-wider">
           // sin proyectos en esta categoría
         </div>

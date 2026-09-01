@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Home, Info, Trophy, Users, FolderGit2 } from 'lucide-react';
+import { Menu, X, Home, Info, Trophy, Users, FolderGit2, CircleHelp, Handshake } from 'lucide-react';
 import Statusbar from '@/components/layout/Statusbar';
 import Footer from '@/components/layout/Footer';
 import './globals.css';
@@ -13,6 +13,8 @@ const NAV = [
   { href: '/hackathons', label: 'Hackathons', code: '02', icon: Trophy },
   { href: '/community', label: 'Comunidad', code: '03', icon: Users },
   { href: '/projects', label: 'Proyectos', code: '04', icon: FolderGit2 },
+  { href: '/faq', label: 'Preguntas frecuentes', code: '05', icon: CircleHelp },
+  { href: '/contacto', label: 'Contacto y alianzas', code: '06', icon: Handshake },
 ];
 
 export default function RootLayout({ children }) {
