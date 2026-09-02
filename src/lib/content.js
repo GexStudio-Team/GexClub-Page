@@ -16,9 +16,71 @@ export const EVENTS = [
 ];
 
 export const PROJECTS = [
-  { id: 1, name: 'Próximo proyecto', description: 'Aquí mostraremos los productos creados por la comunidad.', category: 'software', tech: ['En construcción'], members: '—' },
-  { id: 2, name: 'Próximo videojuego', description: 'Espacio reservado para el próximo proyecto jugable de Gex Club.', category: 'videojuego', tech: ['En construcción'], members: '—' },
-  { id: 3, name: 'Iniciativa de comunidad', description: 'Talleres, recursos y colaboraciones que nacerán dentro del club.', category: 'comunidad', tech: ['En construcción'], members: '—' },
+  {
+    id: 1,
+    slug: 'novavice-os97',
+    name: 'NovaVice OS97',
+    description: 'Asistente de admisiones con IA, inspirado en Vice City y Macintosh OS, construido con RAG híbrido.',
+    longDescription: 'Un asistente conversacional de admisiones que combina recuperación de información (RAG) con una interfaz de estética retro. El proyecto integra backend en FastAPI y frontend en Next.js 15.',
+    category: 'software',
+    tech: ['FastAPI', 'Next.js 15', 'RAG híbrido', 'IA'],
+    members: 'GexStudio Team',
+    repoUrl: 'https://github.com/nastex123/NovaVice_os97',
+    accent: 'from-sky-500/30 via-blue-600/10 to-violet-600/30',
+  },
+  {
+    id: 2,
+    slug: 'codequest',
+    name: 'CodeQuest',
+    description: 'Plataforma educativa gamificada para aprender programación desde cero mediante micro-lecciones.',
+    longDescription: 'Un proyecto de diseño curricular y prototipado que plantea lecciones cortas, práctica inmediata, repaso de errores y gamificación no punitiva. Su primer currículo se enfoca en fundamentos de Lua.',
+    category: 'software',
+    tech: ['HTML', 'Lua 5.4', 'Diseño instruccional', 'Gamificación'],
+    members: 'GexStudio Team',
+    repoUrl: 'https://github.com/nastex123/DuolingoProgramacion',
+    accent: 'from-violet-500/30 via-fuchsia-600/10 to-blue-600/30',
+  },
+  {
+    id: 3,
+    slug: 'snake-love2d',
+    name: 'Snake Love2D — Dungeon Crawler',
+    description: 'Juego táctico de acción y sigilo que reinventa Snake en mazmorras de estética arcade cyberpunk.',
+    longDescription: 'Un dungeon crawler hecho con Love2D que combina combate, IA táctica, biomas procedurales, jefes, tienda de objetos, perfiles locales y shaders CRT/Bloom.',
+    category: 'videojuego',
+    tech: ['Lua', 'Love2D', 'GLSL', 'Pixel art'],
+    members: 'GexStudio Team',
+    repoUrl: 'https://github.com/nastex123/Snake-with-Love2D',
+    accent: 'from-cyan-500/30 via-blue-600/10 to-purple-600/30',
+  },
+];
+
+export const BRANDON_CARRANZA = {
+  name: 'Brandon Carranza Rangel',
+  role: 'Desarrollador · GexStudio Team',
+  email: 'brandonr.nas@gmail.com',
+  github: 'https://github.com/nastex123',
+  linkedin: 'https://www.linkedin.com/in/brandon-carranza-rangel-0816a3379',
+};
+
+export const BRANDON_TIMELINE = [
+  {
+    date: '31 ago 2026',
+    title: 'NovaVice OS97',
+    detail: 'Evolucionó la interfaz retro del asistente de admisiones con IA, ajustando animaciones ambientales y configuración del frontend.',
+    url: 'https://github.com/nastex123/NovaVice_os97/commit/a7c5a52f3237d20c38b2483966cbb395e4d3c9d8',
+  },
+  {
+    date: '30 ago 2026',
+    title: 'CodeQuest',
+    detail: 'Incorporó el módulo de variables y tipos de datos, un sistema formativo de errores y prototipos interactivos para el aprendizaje de Lua.',
+    url: 'https://github.com/nastex123/DuolingoProgramacion/commit/c55d77e92392cf6d09a0b0d8e93490f3cd1a6fa2',
+  },
+  {
+    date: '30 ago 2026',
+    title: 'Snake Love2D',
+    detail: 'Integró una nueva entrega del dungeon crawler de acción táctica construido con Lua y Love2D.',
+    url: 'https://github.com/nastex123/Snake-with-Love2D/commit/87d5ac436e37890a128363183fda307b12374142',
+  },
 ];
 
 export const COMMUNITY_STATUS = {

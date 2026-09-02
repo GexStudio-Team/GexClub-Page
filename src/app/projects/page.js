@@ -30,7 +30,7 @@ export default function Projects() {
           backgroundSize: '32px 32px',
         }}
       >
-        <div className="gex-glow absolute right-[-1rem] bottom-[-1.5rem] h-60 w-60">
+        <div className="gex-glow pointer-events-none absolute right-8 bottom-0 h-64 w-64 md:right-16 md:bottom-2">
           <img src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" className="gex-float h-full w-full object-contain mix-blend-screen" />
         </div>
         <div className="font-mono text-xs uppercase tracking-widest text-primary mb-2">// the_vault</div>

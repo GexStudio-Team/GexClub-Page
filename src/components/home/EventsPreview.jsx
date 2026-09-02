@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { Calendar, Users, ArrowUpRight, Clock } from 'lucide-react';
 import { EVENTS } from '@/lib/content';

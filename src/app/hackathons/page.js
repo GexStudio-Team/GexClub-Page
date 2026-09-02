@@ -1,3 +1,5 @@
+'use client';
+
 import SectionHeader from '@/components/layout/SectionHeader';
 import CountdownTimer from '@/components/hackathons/CountdownTimer';
 import EventList from '@/components/hackathons/EventList';

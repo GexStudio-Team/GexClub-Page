@@ -1,3 +1,5 @@
+'use client';
+
 import SectionHeader from '@/components/layout/SectionHeader';
 import { Cpu, Users2, Rocket, ShieldCheck } from 'lucide-react';
 import { COMMUNITY_STATUS, PROJECTS } from '@/lib/content';

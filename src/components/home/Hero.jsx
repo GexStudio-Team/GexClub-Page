@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowRight, Terminal } from 'lucide-react';
 import { HACKATHON_FORM_URL } from '@/lib/content';

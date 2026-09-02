@@ -1,5 +1,8 @@
+'use client';
+
 import { Handshake, Mail } from 'lucide-react';
 import { SiInstagram } from '@icons-pack/react-simple-icons';
+import Link from 'next/link';
 import { CONTACT_EMAIL, SOCIALS } from '@/lib/content';
 
 export default function ContactPage() {
@@ -14,11 +17,13 @@ export default function ContactPage() {
           <h2 className="mt-5 font-display text-xl font-bold uppercase tracking-tight">Comunidad</h2>
           <p className="mt-2 text-sm text-muted-foreground">Sigue las novedades y próximas actividades en Instagram.</p>
         </a>
-        <a href={`mailto:${CONTACT_EMAIL}`} className="bg-background p-8 transition-colors hover:bg-card">
+        <Link href="/aliados" className="group relative overflow-hidden bg-background p-8 transition-colors hover:bg-card">
+          <span className="absolute inset-0 translate-y-full bg-gradient-to-br from-primary/15 to-accent/15 transition-transform duration-500 group-hover:translate-y-0" />
           <Handshake className="w-6 h-6 text-primary" />
-          <h2 className="mt-5 font-display text-xl font-bold uppercase tracking-tight">Mentores y aliados</h2>
-          <p className="mt-2 text-sm text-muted-foreground">Escríbenos para alianzas, mentorías, instituciones y patrocinios.</p>
-        </a>
+          <h2 className="relative mt-5 font-display text-xl font-bold uppercase tracking-tight">Mentores y aliados</h2>
+          <p className="relative mt-2 text-sm text-muted-foreground">Conoce a las personas que están construyendo GexStudio Team.</p>
+          <span className="relative mt-6 inline-flex font-mono text-xs uppercase tracking-wider text-primary">Abrir directorio →</span>
+        </Link>
       </div>
       <a href={`mailto:${CONTACT_EMAIL}`} className="mt-8 inline-flex items-center gap-2 text-sm text-primary hover:underline"><Mail className="w-4 h-4" /> {CONTACT_EMAIL}</a>
     </main>
