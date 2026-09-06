@@ -3,8 +3,8 @@ import { ArrowUpRight } from 'lucide-react';
 import { SiInstagram, SiGithub, SiDiscord } from '@icons-pack/react-simple-icons';
 
 const SOCIALS = [
-  { label: 'Instagram', href: 'https://instagram.com', icon: SiInstagram },
-  { label: 'GitHub', href: 'https://github.com', icon: SiGithub },
+  { label: 'Instagram', href: 'https://www.instagram.com/joingexclub/', icon: SiInstagram },
+  { label: 'GitHub', href: 'https://github.com/GexStudio-Team', icon: SiGithub },
   { label: 'Discord', href: 'https://discord.com', icon: SiDiscord },
 ];
 
@@ -14,6 +14,8 @@ const LINKS = [
   { label: 'Hackathons', href: '/hackathons' },
   { label: 'Comunidad', href: '/community' },
   { label: 'Proyectos', href: '/projects' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'FAQ', href: '/faq' },
 ];
 
 export default function Footer() {

@@ -1,4 +1,4 @@
-import { Users, Calendar } from 'lucide-react';
+import { Users, Calendar, Check } from 'lucide-react';
 
 export default function EventList({ events, onRegister }) {
   return (
@@ -6,6 +6,7 @@ export default function EventList({ events, onRegister }) {
       {events.map((ev) => {
         const full = ev.registered >= ev.capacity;
         const finished = ev.status === 'finalizado';
+        const registered = ev.registered_by_me;
         return (
           <div key={ev.id} className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
@@ -25,10 +26,22 @@ export default function EventList({ events, onRegister }) {
             </div>
             <button
               onClick={() => onRegister(ev)}
-              disabled={full || finished}
-              className="shrink-0 font-mono text-xs uppercase tracking-wider border border-border px-4 py-2 hover:border-primary hover:text-primary transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              disabled={registered || full || finished}
+              className={`shrink-0 font-mono text-xs uppercase tracking-wider border px-4 py-2 transition-colors disabled:cursor-not-allowed ${
+                registered
+                  ? 'border-primary/50 text-primary bg-primary/5'
+                  : 'border-border hover:border-primary hover:text-primary disabled:opacity-40'
+              }`}
             >
-              {finished ? 'Cerrado' : full ? 'Sin cupos' : 'Register >'}
+              {registered ? (
+                <span className="inline-flex items-center gap-1.5"><Check className="w-3.5 h-3.5" /> Registrado</span>
+              ) : finished ? (
+                'Cerrado'
+              ) : full ? (
+                'Sin cupos'
+              ) : (
+                'Register >'
+              )}
             </button>
           </div>
         );

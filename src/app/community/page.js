@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 import SectionHeader from '@/components/layout/SectionHeader';
 import MemberGrid from '@/components/community/MemberGrid';
 import JoinFlow from '@/components/community/JoinFlow';
+import GallerySection from '@/components/gallery/GallerySection';
 
 const TESTIMONIALS = [
   { quote: 'En un año pasé de no saber programar a ganar mi primer hackathon. Gex cambió mi forma de ver el futuro.', name: 'Valentina R.', role: 'Programadora' },
   { quote: 'Encontré un equipo que toma en serio a los jóvenes. Aquí mi arte vale tanto como mi edad.', name: 'Mateo G.', role: 'Diseñador de Videojuegos' },
-  { quote: 'No es un club escolar. Es una comunidad que te empuja a sobresalir sin bajarte la línea.', name: 'Camila P.', role: 'Artista' },
+  { quote: 'No es un club escolar. Es una comunidad que te empuja a sobresalir sin bajar la línea.', name: 'Camila P.', role: 'Artista' },
 ];
 
 export default function Community() {
@@ -26,16 +27,16 @@ export default function Community() {
       <SectionHeader
         index="03"
         title="Comunidad"
-        subtitle="Una red de nodos jóvenes conectados por el código. Aquí no sos un alumno: sos un miembro."
+        subtitle="Una red de nodos jóvenes conectados por el código. Aquí no eres un alumno: eres un miembro."
       />
 
       <section className="mb-16">
         <div className="grid md:grid-cols-4 gap-px bg-border border border-border">
           {[
-            { n: '01', t: 'Mentores de la industria', d: 'Aprendé de profesionales que trabajan en producto real.' },
-            { n: '02', t: 'Proyectos reales', d: 'Construí software y juegos que se publican, no ejercicios.' },
-            { n: '03', t: 'Hackathons y premios', d: 'Competí, ganá y demostrá tu talento.' },
-            { n: '04', t: 'Red de pares', d: 'Conocé a otros jóvenes con tu misma pasión.' },
+            { n: '01', t: 'Mentores de la industria', d: 'Aprende de profesionales que trabajan en producto real.' },
+            { n: '02', t: 'Proyectos reales', d: 'Construye software y juegos que se publican, no ejercicios.' },
+            { n: '03', t: 'Hackathons y premios', d: 'Compite, gana y demuestra tu talento.' },
+            { n: '04', t: 'Red de pares', d: 'Conoce a otros jóvenes con tu misma pasión.' },
           ].map((b) => (
             <div key={b.n} className="bg-background p-6">
               <span className="font-mono text-xs text-primary">{b.n}</span>
@@ -72,7 +73,9 @@ export default function Community() {
         <JoinFlow />
       </section>
 
-      <section>
+      <GallerySection />
+
+      <section className="mb-20">
         <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6">
           <span>[ 05 ]</span>
           <span className="h-px w-12 bg-primary/40" />
