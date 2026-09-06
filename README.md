@@ -1,12 +1,26 @@
-# GEX CLUB
+# GEX CLUB — Sitio Oficial (v0.1.0)
 
 > **Crear · Innovar · Conectar**
 
-Sitio oficial de **Gex Club**, la comunidad de tecnología de **GexStudio Team**. Un espacio para aprender, crear software, diseñar videojuegos y conectar ideas con personas que quieren construir el futuro.
+Sitio web oficial de **Gex Club**, la comunidad de tecnología de **GexStudio Team**: un espacio para aprender, crear software, diseñar videojuegos y conectar ideas con personas que quieren construir el futuro.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.3.0-0b1020?logo=nextdotjs)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-1687ff?logo=react)](https://react.dev/)
-[![Static export](https://img.shields.io/badge/deploy-static%20export-7c3aed)](#publicar-en-hostinger)
+[![Three.js](https://img.shields.io/badge/Three.js-0.185-000000?logo=threedotjs)](https://threejs.org/)
+[![Static export](https://img.shields.io/badge/deploy-static%20export-7c3aed)](#publicar)
+
+---
+
+## Estado del repositorio
+
+| Rama | Estado |
+|---|---|
+| `main` | **Fuente oficial y publicada.** Cambios de la "G 3D" ya incorporados. |
+| `edition` | Variante de experimentación visual (archivo histórico, ver `03-`). |
+| `main-anterior` | Respaldo del estado anterior de `main`. |
+| `codex/site-updates` | Cambios revisados antes de integrarse a `main`. |
+
+> El sitio publica una **exportación estática** (`out/`); no requiere Node.js, base de datos ni variables de entorno en producción.
 
 ---
 
@@ -14,130 +28,109 @@ Sitio oficial de **Gex Club**, la comunidad de tecnología de **GexStudio Team**
 
 | Área | Qué ofrece |
 |---|---|
-| **Inicio** | Presentación de los cuatro pilares de Gex Club y próximos eventos. |
+| **Inicio** | Pilares de Gex Club, próximos eventos y la **G 3D animada** de marca. |
 | **Comunidad** | Espacio abierto para aprender, colaborar y construir en equipo. |
 | **Hackathons** | Información del reto activo e inscripción mediante Google Forms. |
 | **Proyectos** | Proyectos de GexStudio Team con fichas internas y repositorios. |
-| **Mentores y aliados** | Directorio interno del equipo, accesible desde Contacto. |
+| **Aliados** | Directorio de aliados y equipo (accesible desde Contacto). |
 | **FAQ y contacto** | Respuestas clave, Instagram y correo de contacto. |
 
-La comunidad está pensada para personas de todas las edades. Algunas actividades puntuales —como el Hackathon 2026— tienen requisitos propios; actualmente está dirigido a jóvenes de 14 a 18 años.
+## ✦ La "G" 3D (`src/components/brand/`)
 
-## 🧭 Sitio estático, fácil de publicar
+El logo del Hero es una escena **Three.js** generada por código (dependencia `three@^0.185`):
 
-Gex Club no necesita servidor Node.js, base de datos ni cuentas de usuario para funcionar. Todo el contenido público vive en archivos del proyecto y Next.js genera una versión estática lista para Hostinger.
+- **Geometría**: cajas `BoxGeometry` formando la G — grafito metálico (`metalness 0.85`), bloques de vidrio translúcido (`transmission`) y una espina neón central.
+- **Iluminación**: `RoomEnvironment` (lighting de estudio) vía `Environment`.
+- **Conexiones neón lima** (`#c8ff3d`) como tubos entre bloques, con nodos esféricos luminosos en cada unión.
+- **Postprocesado**: `UnrealBloomPass` para que el neón tenga brillo real.
+- **Partículas** de "polvo digital" (lima, blanco, cian) rotando en el fondo.
+- **Auto-fit**: la cámara se recalculó sobre el tamaño real de la pieza para que la G **llene el panel completo** del Hero en cualquier resolución.
+- **Accesibilidad**: respeta `prefers-reduced-motion`.
+
+`GexMark.jsx` conserva una variante 2D (SVG) como referencia.
+
+## 🧭 Estructura
 
 ```text
-src/lib/content.js  → eventos, proyectos, perfiles, enlaces y datos editables
-public/brand/       → activos visuales de Gex Club
-out/                → versión lista para subir al hosting (generada al compilar)
+src/
+├── app/              # Rutas y páginas (App Router)
+│   ├── about/        # Quiénes somos
+│   ├── aliados/      # Directorio de aliados y equipo
+│   ├── community/    # Comunidad
+│   ├── contacto/     # Contacto
+│   ├── faq/          # Preguntas frecuentes
+│   ├── hackathons/   # Reto activo e inscripción
+│   ├── projects/     # Catálogo y fichas de proyectos
+│   ├── layout.js     # Layout raíz (nav, footer, estilos)
+│   └── page.js       # Home (Hero con G 3D)
+├── components/       # UI por sección
+│   └── brand/        # GexMark (SVG) y GexMark3D (Three.js)
+├── lib/content.js    # Contenido centralizado y editable
+└── globals.css       # Estilos globales (Tailwind + tema)
+public/brand/         # Activos estáticos de marca
+out/                  # Export estática lista para publicar (generada)
 ```
 
+### Stack
+
+- [Next.js](https://nextjs.org/) 16 (App Router, exportación estática)
+- [React](https://react.dev/) 19 · [Three.js](https://threejs.org/) 0.185
+- [Tailwind CSS](https://tailwindcss.com/) 4 + `tw-animate-css`
+- [Lucide](https://lucide.dev/) + [Simple Icons](https://github.com/icons-pack/react-simple-icons)
+- Google Forms para inscripciones de hackathons
+
 ## 🚀 Desarrollo local
-
-### Requisitos
-
-- Node.js 20 o superior
-- npm
-
-### Instalar y ejecutar
 
 ```bash
 git clone https://github.com/GexStudio-Team/GexClub-Page.git
 cd GexClub-Page
 npm install
-npm run dev
-```
-
-Abre [http://localhost:3000](http://localhost:3000).
-
-Si ya tienes otra copia ejecutándose, usa otro puerto:
-
-```bash
+npm run dev            # http://localhost:3000
+# si hay otra copia usando el puerto:
 npm run dev -- -p 3001
 ```
 
+Requisitos: **Node.js 20 o superior** y npm.
+
 ## ✏️ Actualizar contenido
 
-La fuente principal de datos es [`src/lib/content.js`](src/lib/content.js).
+Fuente principal de datos: [`src/lib/content.js`](src/lib/content.js).
 
 | Para actualizar… | Edita… |
 |---|---|
 | Hackathons y horario | `EVENTS` |
 | Enlace de inscripción | `HACKATHON_FORM_URL` |
 | Proyectos y tecnologías | `PROJECTS` |
-| Perfiles del equipo | objetos de perfil y su línea de tiempo |
+| Perfiles / aliados | objetos de perfil y su línea de tiempo |
 | Correo y redes | `CONTACT_EMAIL` y `SOCIALS` |
 
-Al añadir un proyecto a `PROJECTS`, el contador visible del sitio se ajusta automáticamente al generar una nueva versión.
-
-## 📦 Publicar en Hostinger
-
-Genera la versión final:
+## 📦 Publicar
 
 ```bash
 npm run build
 ```
 
-El resultado queda en `out/`. Sube **el contenido interno** de esa carpeta a la raíz del dominio en Hostinger, normalmente `public_html`.
+El resultado queda en `out/`. Sube **el contenido interno** de `out/` a la raíz del dominio en Hostinger (normalmente `public_html`):
 
 ```text
 public_html/
 ├── index.html
 ├── _next/
-├── about/
-├── aliados/
-├── brand/
-├── community/
-├── contacto/
-├── faq/
-├── hackathons/
-├── projects/
+├── about/ · aliados/ · brand/ · community/ · contacto/ · faq/ · hackathons/ · projects/
 ├── robots.txt
 └── sitemap.xml
 ```
 
-No subas `node_modules`, `src`, `.next` ni el repositorio Git. Solo el contenido generado en `out/`.
-
-## 🏗️ Arquitectura
-
-```text
-src/
-├── app/              # Rutas y páginas de Next.js
-│   ├── aliados/       # Directorio interno de GexStudio Team
-│   ├── projects/      # Catálogo y fichas de proyectos
-│   └── ...
-├── components/        # Componentes reutilizables por sección
-└── lib/content.js     # Contenido centralizado
-```
-
-### Stack
-
-- [Next.js](https://nextjs.org/) 16, App Router y exportación estática
-- [React](https://react.dev/) 19
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Lucide](https://lucide.dev/) y [Simple Icons](https://github.com/icons-pack/react-simple-icons)
-- Google Forms para inscripciones de hackathons
-
-## 🌿 Flujo de ramas
-
-| Rama | Propósito |
-|---|---|
-| `main` | Versión aprobada para publicar. |
-| `main-anterior` | Respaldo del estado anterior de `main`. |
-| `codex/site-updates` | Cambios revisados antes de integrarse a `main`. |
-| `edition` | Espacio separado para probar ideas visuales. |
-
-Trabajamos y verificamos los cambios en una rama; cuando estén aprobados, se integran a `main`.
+No subas `node_modules`, `src`, `.next` ni `.git`. Antes de desplegar, revisa el estado de `main` con `git status` y `git diff`.
 
 ## 🔒 Datos y privacidad
 
-La web no almacena cuentas de usuarios. Las inscripciones se realizan mediante Google Forms. Para actividades de menores de edad, el formulario solicita datos de acudiente y contacto de emergencia únicamente con fines de organización y seguridad.
+La web no almacena cuentas de usuario. Las inscripciones se gestionan con Google Forms (para menores se solicitan datos de acudiente y contacto de emergencia, solo con fines de organización y seguridad).
 
 ---
 
 <p align="center">
-  Hecho por <strong>GexStudio Team</strong><br />
+  Hecho por <strong>GexStudio Team</strong> ·
   <a href="https://www.instagram.com/joingexclub/">Instagram</a> ·
   <a href="https://github.com/GexStudio-Team">GitHub</a> ·
   <a href="mailto:gexstudioteam@gmail.com">Contacto</a>

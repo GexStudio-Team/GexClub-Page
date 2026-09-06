@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { ArrowRight, Terminal } from 'lucide-react';
 import { HACKATHON_FORM_URL } from '@/lib/content';
+import GexMark3D from '@/components/brand/GexMark3D';
 
 export default function Hero() {
   return (
@@ -44,8 +45,8 @@ export default function Hero() {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background/60 to-primary/10" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <img src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" className="gex-float h-64 w-64 object-contain opacity-90 mix-blend-screen" />
+        <div className="absolute inset-0">
+          <GexMark3D className="w-full h-full" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
         <div className="absolute top-6 right-6 font-mono text-[10px] uppercase tracking-widest text-muted-foreground border border-border px-2 py-1 bg-background/60 backdrop-blur">
