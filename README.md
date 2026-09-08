@@ -1,4 +1,4 @@
-# GEX CLUB — Sitio Oficial (v0.1.0)
+# GEX CLUB — Sitio Oficial (v0.2.0)
 
 > **Crear · Innovar · Conectar**
 
@@ -8,6 +8,8 @@ Sitio web oficial de **Gex Club**, la comunidad de tecnología de **GexStudio Te
 [![React](https://img.shields.io/badge/React-19-1687ff?logo=react)](https://react.dev/)
 [![Three.js](https://img.shields.io/badge/Three.js-0.185-000000?logo=threedotjs)](https://threejs.org/)
 [![Static export](https://img.shields.io/badge/deploy-static%20export-7c3aed)](#publicar)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ---
 
@@ -126,6 +128,12 @@ No subas `node_modules`, `src`, `.next` ni `.git`. Antes de desplegar, revisa el
 ## 🔒 Datos y privacidad
 
 La web no almacena cuentas de usuario. Las inscripciones se gestionan con Google Forms (para menores se solicitan datos de acudiente y contacto de emergencia, solo con fines de organización y seguridad).
+
+## 🤝 Contribuir
+
+Gex Club es una comunidad abierta: las mejoras y correcciones son bienvenidas.
+
+Lee [CONTRIBUTING.md](CONTRIBUTING.md) antes de abrir un issue o pull request. Todas las contribuciones están bajo la licencia [MIT](LICENSE).
 
 ---
 

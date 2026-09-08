@@ -17,6 +17,9 @@
 .DS_Store
 *.pem
 
+# local notes (no publicar rutas locales del equipo)
+EXPLICACION_LOCAL.md
+
 # debug
 npm-debug.log*
 yarn-debug.log*
