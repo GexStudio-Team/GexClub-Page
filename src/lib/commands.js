@@ -137,7 +137,7 @@ const RUNNERS = {
     LINE.content({ text: `  ${padRight('Uptime', 14)} 2 años de comunidad` }),
   ],
 
-  matrix: () => LINE.matrix(),
+  matrix: () => [{ text: '', tone: 'matrix' }],
 
   sudo: () => [
     LINE.err('Permission denied...'),
@@ -148,10 +148,10 @@ const RUNNERS = {
     LINE.dim('  (PD: prueba "nosotros" o revisa /about)'),
   ],
 
-  clear: () => LINE.clear(),
+  clear: () => [{ text: '', tone: 'clear' }],
 
-  exit: () => LINE.exit(),
-  cerrar: () => LINE.exit(),
+  exit: () => [{ text: '', tone: 'exit' }],
+  cerrar: () => [{ text: '', tone: 'exit' }],
 
   pwd: () => [LINE.content({ text: '/home/guest/gex-club' })],
   date: () => [LINE.content({ text: new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }) })],

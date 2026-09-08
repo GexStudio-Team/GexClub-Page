@@ -30,10 +30,10 @@ export default function Terminal() {
   const print = useCallback((out, kind = 'cmd') => {
     if (Array.isArray(out)) {
       out.forEach((l) => {
-        if (!OUTPUT_TYPES.includes(l?.tone)) return;
         if (l.tone === 'matrix') return setMatrix(true);
         if (l.tone === 'clear') return setLines([]);
         if (l.tone === 'exit') return router.push('/');
+        if (!OUTPUT_TYPES.includes(l?.tone)) return;
         setLines((prev) => [...prev, { kind: 'out', ...l }]);
       });
       return;

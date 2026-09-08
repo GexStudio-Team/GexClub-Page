@@ -18,6 +18,10 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
   - Ruta `/gexos` integrada a la navegación (sidebar y menú móvil) y al `sitemap.xml`.
   - Registro de GEX_OS como proyecto en el vault (`PROJECTS` en `content.js`) con ficha dinámica (`/projects/gex-os`).
 
+### Fixed
+
+- **`clear`/`matrix`/`exit` en GEX_OS**: los comandos especiales fallaban porque el objeto `LINE` no exponía los tons reservados y el filtro `OUTPUT_TYPES` los descartaba antes de procesarlos. Se reordenó la evaluación en `Terminal.jsx` (tones especiales primero) y los runners de `commands.js` ahora devuelven el tone correcto directamente.
+
 ### Fixed (pendiente confirmar en revisión)
 
 - `npm run lint` presenta un error de configuración **pre-existente** (FlatCompat + ESLint 9, `next/core-web-vitals`) no relacionado con GEX_OS; el build estático se genera correctamente.
