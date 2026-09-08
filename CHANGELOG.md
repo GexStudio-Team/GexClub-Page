@@ -8,9 +8,21 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
 
 ## [Unreleased]
 
+### Planeado
+
+- Auditoría SEO: imagen OG, Twitter Cards, JSON-LD y metadatos canónicos.
+- Formulario de inscripción a hackathons con identidad de marca (embebido, sin salir del sitio).
+- Pipeline CI/CD con GitHub Actions y artefacto de publicación.
+- Documentación técnica profesional: `docs/`, arquitectura y guía de despliegue.
+- Resolver error de configuración de ESLint 9 (FlatCompat).
+
+---
+
+## [0.3.0] — 2026-09-08
+
 ### Added
 
-- **GEX_OS v1.0** — Terminal interactiva en `/gexos` (feature/gex-os-terminal):
+- **GEX_OS v1.0** — Terminal interactiva en `/gexos` (PR #2):
   - Librería de comandos (`src/lib/commands.js`) alimentada por `src/lib/content.js`.
   - Componentes: `Terminal.jsx` (shell con historial y autocompletado), `MatrixRain.jsx` (lluvia digital en Canvas), `GexAscii.jsx` (logo ASCII), `TerminalLauncher.jsx` (acceso global).
   - Comandos: `help`, `ls`, `cat <slug>`, `hackathon`, `social`, `contacto`, `whoami`, `neofetch`, `matrix`, `sudo`, `clear`, `exit`, `pwd`, `date` (con alias en español).
@@ -20,11 +32,9 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
 
 ### Fixed
 
-- **`clear`/`matrix`/`exit` en GEX_OS**: los comandos especiales fallaban porque el objeto `LINE` no exponía los tons reservados y el filtro `OUTPUT_TYPES` los descartaba antes de procesarlos. Se reordenó la evaluación en `Terminal.jsx` (tones especiales primero) y los runners de `commands.js` ahora devuelven el tone correcto directamente.
+- **`clear`/`matrix`/`exit` en GEX_OS**: los comandos especiales fallaban porque el objeto `LINE` no exponía los tones reservados y el filtro `OUTPUT_TYPES` los descartaba antes de procesarlos. Se reordenó la evaluación en `Terminal.jsx` (tones especiales primero) y los runners de `commands.js` ahora devuelven el tone correcto directamente.
 
-### Fixed (pendiente confirmar en revisión)
-
-- `npm run lint` presenta un error de configuración **pre-existente** (FlatCompat + ESLint 9, `next/core-web-vitals`) no relacionado con GEX_OS; el build estático se genera correctamente.
+> Nota: `npm run lint` presenta un error de configuración **pre-existente** (FlatCompat + ESLint 9, `next/core-web-vitals`) no relacionado con GEX_OS; el build estático se genera correctamente. Pendiente en `Unreleased`.
 
 ### Planeado
 

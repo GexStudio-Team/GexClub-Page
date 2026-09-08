@@ -9,12 +9,14 @@ Seguimiento de tareas del repositorio `GexStudio-Team/GexClub-Page`.
 - [x] Profesionalización del repo público: `LICENSE`, `CONTRIBUTING.md`, `CHANGELOG.md`, README v0.2.0, `.gitignore` — `ddb3824`
 - [x] Tags `v0.1.0` y `v0.2.0` + GitHub Releases con notas formales
 - [x] Perfil público de la organización `GexStudio-Team` (repo `.github`, PR #1 mergeado)
-- [x] **GEX_OS v1.0**: terminal interactiva `/gexos` + acceso global (`Ctrl+K`) — rama `feature/gex-os-terminal` (commits `7dadc64`, `d0c8ba7`)
+- [x] **GEX_OS v1.0**: terminal interactiva `/gexos` + acceso global (`Ctrl+K`) — mergeado a `main` vía PR #2 (`a023d2b`)
+- [x] Fix de comandos especiales `clear`/`matrix`/`exit` en GEX_OS — incluido en PR #2
+- [x] Build estático verificado (`npm run build` → `out/`)
+- [x] Release `v0.3.0` con notas formales (pendiente confirmar tag)
 
 ## 🔄 En progreso
 
-- [ ] PR de GEX_OS hacia `main` (título y descripción propuestos; esperar aprobación del CTO).
-- [ ] Build estático verificado (`npm run build` → `out/`).
+- [ ] Despliegue a producción (subir contenido de `out/` a Hostinger) — decisión del equipo.
 
 ## ⏳ Pendiente
 
