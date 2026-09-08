@@ -8,12 +8,17 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
 
 ## [Unreleased]
 
+### Docs
+
+- **Documentación técnica actualizada** a la realidad del proyecto v0.3.0 (`public/Docs/DOCUMENTACION_TECNICA.md`): se reemplazó la versión obsoleta (backend en memoria, API Routes) por la arquitectura actual (export estático, `content.js`, GEX_OS, "G" 3D, estrategia de contenido, versionado y backlog).
+- `README.md`: la tabla de ramas refleja `main` como única rama activa (post-merge de GEX_OS) y enlaza a la documentación técnica y a Releases.
+- `CONTRIBUTING.md`: el Definition of Done usa `npm run build` como verificación principal (el `lint` arrastra un fallo de configuración pre-existente) y documenta el flujo de squash merge.
+
 ### Planeado
 
 - Auditoría SEO: imagen OG, Twitter Cards, JSON-LD y metadatos canónicos.
 - Formulario de inscripción a hackathons con identidad de marca (embebido, sin salir del sitio).
 - Pipeline CI/CD con GitHub Actions y artefacto de publicación.
-- Documentación técnica profesional: `docs/`, arquitectura y guía de despliegue.
 - Resolver error de configuración de ESLint 9 (FlatCompat).
 
 ---

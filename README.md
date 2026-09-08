@@ -17,11 +17,10 @@ Sitio web oficial de **Gex Club**, la comunidad de tecnología de **GexStudio Te
 
 | Rama | Estado |
 |---|---|
-| `main` | **Fuente oficial y publicada.** Cambios de la "G 3D" y GEX_OS ya incorporados. |
-| `feature/gex-os-terminal` | GEX_OS v1.0: terminal interactiva + acceso global. |
-| `edition` | Variante de experimentación visual (archivo histórico, ver `03-`). |
-| `main-anterior` | Respaldo del estado anterior de `main`. |
-| `codex/site-updates` | Cambios revisados antes de integrarse a `main`. |
+| `main` | **Fuente oficial y publicada.** Única rama activa; contiene "G 3D", GEX_OS y todo el contenido actual. |
+
+> El historial de versiones está en [Releases](https://github.com/GexStudio-Team/GexClub-Page/releases) (`v0.1.0` → `v0.2.0` → `v0.3.0`).
+> Documentación técnica interna: [`public/Docs/DOCUMENTACION_TECNICA.md`](public/Docs/DOCUMENTACION_TECNICA.md).
 
 > El sitio publica una **exportación estática** (`out/`); no requiere Node.js, base de datos ni variables de entorno en producción.
 

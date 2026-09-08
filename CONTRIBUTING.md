@@ -48,22 +48,24 @@ docs: actualizar guía de despliegue
 
 ## 5. Estándares de código
 
-- **Stack**: Next.js (App Router) · React · Tailwind CSS · Three.js.
+- **Stack**: Next.js (App Router, export estático) · React · Tailwind CSS · Three.js · Lucide + Simple Icons.
 - Archivos en `src/` mantienen la estructura de carpetas existente.
 - Contenido editable en `src/lib/content.js` (no duplicar datos en componentes).
 - Respeta `prefers-reduced-motion` en animaciones nuevas.
-- Ejecuta `npm run lint` antes de abrir el PR.
 - Verifica que `npm run build` termine sin errores (genera `out/`).
+- Documentación técnica de referencia: `public/Docs/DOCUMENTACION_TECNICA.md`.
+
+> Nota: `npm run lint` arrastra un error de configuración pre-existente (FlatCompat vs. ESLint 9). No bloques tu PR por eso; se resolverá en una tarea de infraestructura aparte.
 
 ## 6. Definición de "Listo" (Definition of Done)
 
 Una contribución se considera terminada cuando:
 
 - [ ] Código implementado y verificado en local (`npm run dev`).
-- [ ] `npm run lint` sin errores.
-- [ ] `npm run build` exitoso.
-- [ ] README / CHANGELOG actualizados si el cambio afecta documentación.
+- [ ] `npm run build` exitoso (genera `out/` correctamente).
+- [ ] README / CHANGELOG / TODO actualizados si el cambio afecta documentación.
 - [ ] Sin secretos ni rutas locales del equipo en los archivos versionados.
+- [ ] Los PRs se integran con **squash merge** a `main`.
 
 ## 7. Contacto
 
