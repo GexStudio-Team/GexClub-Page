@@ -1,4 +1,4 @@
-# GEX CLUB — Sitio Oficial (v0.2.0)
+# GEX CLUB — Sitio Oficial (v0.3.0)
 
 > **Crear · Innovar · Conectar**
 
@@ -17,7 +17,8 @@ Sitio web oficial de **Gex Club**, la comunidad de tecnología de **GexStudio Te
 
 | Rama | Estado |
 |---|---|
-| `main` | **Fuente oficial y publicada.** Cambios de la "G 3D" ya incorporados. |
+| `main` | **Fuente oficial y publicada.** Cambios de la "G 3D" y GEX_OS ya incorporados. |
+| `feature/gex-os-terminal` | GEX_OS v1.0: terminal interactiva + acceso global. |
 | `edition` | Variante de experimentación visual (archivo histórico, ver `03-`). |
 | `main-anterior` | Respaldo del estado anterior de `main`. |
 | `codex/site-updates` | Cambios revisados antes de integrarse a `main`. |
@@ -31,11 +32,23 @@ Sitio web oficial de **Gex Club**, la comunidad de tecnología de **GexStudio Te
 | Área | Qué ofrece |
 |---|---|
 | **Inicio** | Pilares de Gex Club, próximos eventos y la **G 3D animada** de marca. |
+| **GEX_OS** | **Terminal interactiva** (`/gexos`): explora el vault con comandos, neofetch y modo matrix. Acceso global con **Ctrl+K**. |
 | **Comunidad** | Espacio abierto para aprender, colaborar y construir en equipo. |
 | **Hackathons** | Información del reto activo e inscripción mediante Google Forms. |
 | **Proyectos** | Proyectos de GexStudio Team con fichas internas y repositorios. |
 | **Aliados** | Directorio de aliados y equipo (accesible desde Contacto). |
 | **FAQ y contacto** | Respuestas clave, Instagram y correo de contacto. |
+
+## ✦ GEX_OS — Terminal interactiva (`src/components/gexos/` + `src/lib/commands.js`)
+
+La web incluye una **terminal navegable** con estética de sistema operativo:
+
+- **Ruta dedicada** `/gexos` y **acceso global** desde cualquier página (botón flotante + atajo `Ctrl+K`).
+- **Comandos**: `help` · `ls` · `cat <slug>` · `hackathon` · `social` · `contacto` · `whoami` · `neofetch` · `matrix` · `sudo` · `clear` · `exit`.
+- **Autocompletado** con `TAB` e **historial** con `↑/↓`.
+- **Modo matrix**: lluvia digital en Canvas activada con el comando `matrix` (ESC para salir; respeta `prefers-reduced-motion`).
+- **Logo ASCII** propio para `neofetch`, coherente con la identidad visual.
+- Los comandos leen datos de `src/lib/content.js` → contenido siempre sincronizado con el resto del sitio.
 
 ## ✦ La "G" 3D (`src/components/brand/`)
 
@@ -61,13 +74,16 @@ src/
 │   ├── community/    # Comunidad
 │   ├── contacto/     # Contacto
 │   ├── faq/          # Preguntas frecuentes
+│   ├── gexos/        # GEX_OS — terminal interactiva
 │   ├── hackathons/   # Reto activo e inscripción
 │   ├── projects/     # Catálogo y fichas de proyectos
 │   ├── layout.js     # Layout raíz (nav, footer, estilos)
 │   └── page.js       # Home (Hero con G 3D)
 ├── components/       # UI por sección
-│   └── brand/        # GexMark (SVG) y GexMark3D (Three.js)
+│   ├── brand/        # GexMark (SVG) y GexMark3D (Three.js)
+│   └── gexos/        # Terminal.jsx · MatrixRain.jsx · GexAscii.jsx · TerminalLauncher.jsx
 ├── lib/content.js    # Contenido centralizado y editable
+├── lib/commands.js   # Lógica de comandos de GEX_OS
 └── globals.css       # Estilos globales (Tailwind + tema)
 public/brand/         # Activos estáticos de marca
 out/                  # Export estática lista para publicar (generada)
