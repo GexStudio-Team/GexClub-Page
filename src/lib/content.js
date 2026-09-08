@@ -17,6 +17,18 @@ export const EVENTS = [
 
 export const PROJECTS = [
   {
+    id: 0,
+    slug: 'gex-os',
+    name: 'GEX_OS — Terminal Interactiva',
+    description: 'Terminal navegable dentro de la web: el core de Gex Club con comandos reales, neofetch y lluvia digital.',
+    longDescription: 'Una terminal interactiva embebida en el sitio que convierte la visita en una experiencia de sistema operativo. Escribe help, explora el vault con ls/cat, consulta el hackathon activo y activa el modo matrix. Todo alimentado desde el contenido central del sitio.',
+    category: 'software',
+    tech: ['React 19', 'Next.js 16', 'Tailwind CSS 4', 'Canvas'],
+    members: 'GexStudio Team',
+    repoUrl: 'https://github.com/GexStudio-Team/GexClub-Page',
+    accent: 'from-lime-500/30 via-green-600/10 to-cyan-600/30',
+  },
+  {
     id: 1,
     slug: 'novavice-os97',
     name: 'NovaVice OS97',

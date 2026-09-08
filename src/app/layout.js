@@ -2,9 +2,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Home, Info, Trophy, Users, FolderGit2, CircleHelp, Handshake } from 'lucide-react';
+import { Menu, X, Home, Info, Trophy, Users, FolderGit2, CircleHelp, Handshake, Terminal } from 'lucide-react';
 import Statusbar from '@/components/layout/Statusbar';
 import Footer from '@/components/layout/Footer';
+import TerminalLauncher from '@/components/gexos/TerminalLauncher';
 import './globals.css';
 
 const NAV = [
@@ -13,8 +14,9 @@ const NAV = [
   { href: '/hackathons', label: 'Hackathons', code: '02', icon: Trophy },
   { href: '/community', label: 'Comunidad', code: '03', icon: Users },
   { href: '/projects', label: 'Proyectos', code: '04', icon: FolderGit2 },
-  { href: '/faq', label: 'Preguntas frecuentes', code: '05', icon: CircleHelp },
-  { href: '/contacto', label: 'Contacto y alianzas', code: '06', icon: Handshake },
+  { href: '/gexos', label: 'GEX_OS Terminal', code: '05', icon: Terminal },
+  { href: '/faq', label: 'Preguntas frecuentes', code: '06', icon: CircleHelp },
+  { href: '/contacto', label: 'Contacto y alianzas', code: '07', icon: Handshake },
 ];
 
 export default function RootLayout({ children }) {
@@ -97,6 +99,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </main>
+        <TerminalLauncher />
       </body>
     </html>
   );

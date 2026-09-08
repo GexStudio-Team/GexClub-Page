@@ -1,4 +1,4 @@
-const ROUTES = ['', '/about', '/community', '/hackathons', '/projects', '/faq', '/contacto'];
+const ROUTES = ['', '/about', '/community', '/hackathons', '/projects', '/gexos', '/faq', '/contacto'];
 
 export const dynamic = 'force-static';
 
