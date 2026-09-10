@@ -5,8 +5,8 @@ import { ArrowRight } from 'lucide-react';
 
 export default function CtaBand() {
   return (
-    <section className="px-6 lg:px-16 py-24 border-b border-border bg-card">
-      <div className="border border-border p-10 md:p-16 relative overflow-hidden">
+    <section className="px-6 lg:px-16 py-12 lg:py-24 border-b border-border bg-card">
+      <div className="border border-border p-8 md:p-16 relative overflow-hidden">
         <div className="absolute inset-0 grid-blueprint opacity-40 pointer-events-none" />
         <div className="relative grid md:grid-cols-[1fr_auto] items-center gap-8">
           <div>

@@ -17,7 +17,7 @@ export default function MissionSection() {
         <img src="/brand/gex-mark-dark.png" alt="" className="gex-float absolute inset-0 m-auto h-56 w-56 object-contain mix-blend-screen opacity-90" />
         <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase tracking-widest text-primary">// the_foundry</div>
       </div>
-      <div className="px-6 lg:px-16 py-24">
+      <div className="px-6 lg:px-16 py-12 lg:py-24">
         <SectionHeader index="03" title="Misión y Visión" subtitle="El código es el lenguaje con el que construimos el futuro." />
         <div className="space-y-10">
           <div className="border-l-2 border-primary pl-6">

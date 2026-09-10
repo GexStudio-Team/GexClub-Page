@@ -13,7 +13,7 @@ const PILLARS = [
 export default function PillarsGrid() {
   const [active, setActive] = useState(null);
   return (
-    <section className="px-6 lg:px-16 py-24 border-b border-border">
+    <section className="px-6 lg:px-16 py-12 lg:py-24 border-b border-border">
       <div className="flex items-baseline gap-3 font-mono text-xs uppercase tracking-widest text-primary mb-10">
         <span>[ 02 ]</span>
         <span className="h-px w-12 bg-primary/40" />

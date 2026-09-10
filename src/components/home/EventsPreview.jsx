@@ -10,8 +10,8 @@ function formatDate(iso) {
 
 export default function EventsPreview() {
   return (
-    <section className="px-6 lg:px-16 py-24 border-b border-border">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+    <section className="px-6 lg:px-16 py-12 lg:py-24 border-b border-border">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 lg:mb-12">
         <div>
           <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-primary mb-5">
             <span>[ 04 ]</span>
