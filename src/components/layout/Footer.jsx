@@ -22,8 +22,8 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-card">
       <div className="px-6 lg:px-16 py-16">
-        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
-          <div>
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-[1.5fr_1fr_1fr]">
+          <div className="col-span-2 md:col-span-1">
             <div className="font-display text-2xl font-bold tracking-tighter">
               GEX<span className="text-primary">_CLUB</span>
             </div>

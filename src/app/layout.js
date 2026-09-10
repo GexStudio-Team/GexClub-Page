@@ -95,7 +95,7 @@ export default function RootLayout({ children }) {
           </div>
         )}
 
-        <main className="pt-8 lg:pl-16 min-h-screen">
+        <main className="pt-[88px] lg:pt-8 lg:pl-16 min-h-screen">
           {children}
           <Footer />
         </main>

@@ -3,10 +3,7 @@
 import Link from 'next/link';
 import { Calendar, Users, ArrowUpRight, Clock } from 'lucide-react';
 import { EVENTS } from '@/lib/content';
-
-function formatDate(iso) {
-  return new Date(iso).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' });
-}
+import { formatDateEs } from '@/lib/utils';
 
 export default function EventsPreview() {
   return (
@@ -27,24 +24,29 @@ export default function EventsPreview() {
 
       <div className="border border-border">
           {EVENTS.map((e) => (
-            <div key={e.id} className="group grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-center gap-4 md:gap-8 border-b border-border last:border-b-0 p-6 hover:bg-card transition-colors">
-              <div className="flex items-center gap-3">
-                <Calendar className="w-5 h-5 text-primary" />
-                <div className="font-mono text-sm text-foreground">{formatDate(e.date)}</div>
+            <div key={e.id} className="group grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-center gap-3 md:gap-8 border-b border-border last:border-b-0 p-5 py-4 md:p-6 hover:bg-card transition-colors">
+              <div className="flex md:flex-col md:items-start md:gap-1 items-center gap-2 flex-wrap">
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                  <div className="font-mono text-xs md:text-sm text-foreground whitespace-nowrap">{formatDateEs(e.date)}</div>
+                </div>
+                <span className={`md:hidden font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 border ${e.status === 'activo' ? 'border-primary text-primary' : 'border-border text-muted-foreground'}`}>
+                  {e.status}
+                </span>
               </div>
               <div>
-                <div className="flex items-center gap-2 mb-1">
+                <div className="hidden md:flex items-center gap-2 mb-1">
                   <span className={`font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 border ${e.status === 'activo' ? 'border-primary text-primary' : 'border-border text-muted-foreground'}`}>
                     {e.status}
                   </span>
                   <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{e.type}</span>
                 </div>
-                <h3 className="font-display text-lg font-bold uppercase tracking-tight">{e.name}</h3>
+                <h3 className="font-display text-base md:text-lg font-bold uppercase tracking-tight leading-tight">{e.name}</h3>
                 <p className="text-sm text-muted-foreground mt-1 line-clamp-1">{e.description}</p>
               </div>
-              <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
-                <Users className="w-4 h-4" /> {e.capacity}
-                <Clock className="w-4 h-4 ml-3" /> {e.time}
+              <div className="flex md:flex-row items-center gap-2 flex-wrap font-mono text-xs text-muted-foreground">
+                <span className="flex items-center gap-1.5"><Users className="w-4 h-4" /> {e.capacity}</span>
+                <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {e.time}</span>
               </div>
             </div>
           ))}

@@ -115,6 +115,8 @@
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
+  .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
   .grid-blueprint {
     background-image: linear-gradient(to right, color-mix(in oklch, var(--primary) 35%, transparent) 1px, transparent 1px);
     background-size: calc(100% / 12) 100%;

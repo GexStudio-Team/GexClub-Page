@@ -1,4 +1,5 @@
 import { ExternalLink, Users, Calendar, Clock, MapPin } from 'lucide-react';
+import { formatDateEs } from '@/lib/utils';
 
 export default function EventList({ events, registrationFormUrl }) {
   return (
@@ -18,7 +19,7 @@ export default function EventList({ events, registrationFormUrl }) {
                 <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {ev.capacity}</span>
                 <span className="flex items-center gap-1">
                   <Calendar className="w-3.5 h-3.5" />
-                  {new Date(ev.date).toLocaleDateString('es', { day: '2-digit', month: 'short', year: 'numeric' })}
+                  {formatDateEs(ev.date)}
                 </span>
                 <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {ev.time}</span>
                 <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> {ev.location}</span>

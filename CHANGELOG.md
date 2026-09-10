@@ -10,8 +10,16 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
 
 ### Changed
 
-- **Experiencia móvil de la home (Fase 1)**: espaciados adaptativos (`py-12 lg:py-24` en Pillars, Misión, Eventos y CTA; padding interior del CTA compacto), hero con **texto primero** en móvil (se invirtió el orden de la visual 3D), **hero compacto** (`lg:min-h-[88vh]`, título `text-4xl` en móvil, visual 3D `min-h` reducida) y **TerminalLauncher oculto cerca del final de página** (265px del bottom) para no tapar CTA ni footer. Sin cambios en desktop (`lg:` preserva el layout original).
+- **Experiencia móvil (Fase 2)**: los **4 pilares** ahora son un carrusel horizontal deslizable (`snap-x`, scrollbar oculta, hint "swipe →") en móvil/tablet y conservan la grilla en desktop (`lg`); las tarjetas de **eventos** se compactaron en móvil (fecha y estado en la misma fila, paddings reducidos, metadatos inline) manteniendo el layout de escritorio.
+- **Footer móvil**: la columna de **Redes** ahora queda a la **derecha** de **Navegación** en pantallas pequeñas (grilla de 2 columnas); en desktop se conserva el orden original (1.5fr / 1fr / 1fr).
+- **Espaciado superior del layout móvil**: el `main` ahora reserva `pt-[88px]` en móvil (statusbar 32px + header 56px) para que la frase "Global Ecosystem for eXcellence" del hero no quede oculta bajo el nav fijo; desktop mantiene `pt-8`.
+- **Imagen del vault** (`/projects`): reducida en móvil (`h-36 w-36` vs `h-64 w-64`) y pegada más a la derecha para que no sobresalga de la franja de título; en desktop conserva proporciones grandes (`h-52 w-52 md`).
+- **Experiencia móvil de la home (Fase 1)**: espaciados adaptativos (`py-12 lg:py-24` en Pillars, Misión, Eventos y CTA; padding interior del CTA compacto), hero con **texto primero** en móvil (se invirtió el orden de la visual 3D), **hero compacto** (`lg:min-h-[88vh]`, título `text-4xl` en móvil, visual 3D `min-h` reducida) y **TerminalLauncher oculto cerca del final de página** (260px del bottom) para no tapar CTA ni footer. Sin cambios en desktop (`lg:` preserva el layout original).
 - **`next.config.mjs`**: se añadió `allowedDevOrigins: ['192.168.1.23']` para permitir ver el sitio en desarrollo desde la red local (advertencias de cross-origin de Next.js al acceder por IP de red). Sin efecto en producción (solo aplica al modo dev).
+
+### Fixed
+
+- **Bug de fecha en eventos**: `2026-10-03` se mostraba como "02 oct" (o "2") porque `new Date('YYYY-MM-DD')` interpreta la fecha como medianoche UTC y en `America/Bogota` (UTC−5) caía en el día anterior. Se añadió `parseLocalDate`/`formatDateEs` en `src/lib/utils.js` (parsing local) y se aplicó en `EventsPreview.jsx` y `EventList.jsx`. El countdown se alimenta de `startAt` con offset `-05:00`, por lo que ya era correcto.
 
 ### Docs
 
