@@ -123,6 +123,41 @@
   }
   .gex-float { animation: gex-float 6s ease-in-out infinite; }
   .gex-glow { animation: gex-glow 4s ease-in-out infinite; }
+
+  /* Aurora boreal horizontal animada (colores del logo Gex Club) */
+  .aurora-boreal {
+    background-image:
+      radial-gradient(ellipse 55% 40% at 8% 45%, rgba(0, 139, 254, 0.5), transparent 62%),
+      radial-gradient(ellipse 45% 38% at 38% 28%, rgba(139, 92, 246, 0.45), transparent 62%),
+      radial-gradient(ellipse 50% 42% at 72% 62%, rgba(0, 180, 255, 0.42), transparent 62%),
+      radial-gradient(ellipse 38% 34% at 88% 22%, rgba(168, 85, 247, 0.38), transparent 62%),
+      linear-gradient(to right, rgba(0, 139, 254, 0.12), rgba(139, 92, 246, 0.1), rgba(0, 180, 255, 0.12));
+    background-size: 260% 260%, 260% 260%, 260% 260%, 260% 260%, 100% 100%;
+    animation: aurora-drift 16s ease-in-out infinite alternate;
+  }
+
+  /* Botón con aura giratoria */
+  .aura-btn { position: relative; isolation: isolate; overflow: hidden; }
+  .aura-btn::before {
+    content: '';
+    position: absolute;
+    inset: -80%;
+    z-index: -1;
+    background: conic-gradient(from 0deg, transparent 0deg, var(--aura-color, rgba(0, 139, 254, 0.75)) 40deg, transparent 90deg, transparent 180deg, rgba(139, 92, 246, 0.55) 220deg, transparent 270deg);
+    animation: aura-spin 5s linear infinite;
+  }
+  .aura-btn-red { --aura-color: rgba(255, 59, 48, 0.85); }
+}
+
+@keyframes aurora-drift {
+  0% { background-position: 0% 45%, 0% 45%, 0% 45%, 0% 45%, 0% 50%; }
+  50% { background-position: 55% 55%, 48% 40%, 60% 50%, 52% 35%, 55% 50%; }
+  100% { background-position: 100% 45%, 100% 45%, 100% 45%, 100% 45%, 100% 50%; }
+}
+
+@keyframes aura-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes gex-float {
