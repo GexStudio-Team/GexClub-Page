@@ -16,10 +16,10 @@ export default function MissionSection() {
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-accent/20" />
         <Image
-          src="/brand/imagen-mision-vision.jpeg"
+          src="/brand/frame2.jpg"
           alt="Comunidad Gex Club — jóvenes creando tecnología"
-          width={960}
-          height={1280}
+          width={736}
+          height={981}
           className="gex-float absolute inset-0 m-auto max-h-[72%] max-w-[88%] w-auto h-auto object-contain rounded-sm border border-primary/20 shadow-[0_0_35px_rgba(22,135,255,0.14)]"
         />
         <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase tracking-widest text-primary">{'// the_foundry'}</div>
