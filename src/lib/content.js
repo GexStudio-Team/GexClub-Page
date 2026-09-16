@@ -79,7 +79,7 @@ export const PROJECTS = [
 
 export const BRANDON_CARRANZA = {
   name: 'Brandon Carranza Rangel',
-  role: 'Desarrollador · GexStudio Team',
+  role: 'Co-fundador · GexStudio Team',
   email: 'brandonr.nas@gmail.com',
   github: 'https://github.com/nastex123',
   linkedin: 'https://www.linkedin.com/in/brandon-carranza-rangel-0816a3379',
@@ -93,16 +93,13 @@ export const DUVAN_ALTAMAR = {
   email: CONTACT_EMAIL,
 };
 
-export const DUVAN_TECH = [
-  'Diseñó y desarrolló GEX_OS: la terminal interactiva embebida en el sitio.',
-  'Arquitectura frontend del ecosistema Gex Club (Next.js 16, Tailwind 4, React 19).',
-  'Sistemas de contenido centralizado y export estático para la web de la comunidad.',
-];
-
-export const DUVAN_LEADERSHIP = [
-  'Construyó Gex Club desde cero: comunidad, marca y visión de ecosistema tecnológico juvenil.',
-  'Lidera el equipo de GEX Studio Team y coordina los proyectos del vault.',
-  'Define el estándar de calidad: Create. Learn. Collaborate. Excel. y el hackathon 2026.',
+export const DUVAN_ROLES = [
+  'Joven Creativo 2025',
+  'Técnico en Sistemas Informáticos — IUB Universidad de Barranquilla 2026',
+  'Candidato a CLJ · Consejos Locales de Juventud 2025',
+  'Líder de transformación · Activo 2026',
+  'Fundador de GEX Studio y Gex Club',
+  'Programador Joven con iniciativa',
 ];
 
 export const BRANDON_TIMELINE = [

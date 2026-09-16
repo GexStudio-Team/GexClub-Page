@@ -46,9 +46,9 @@ export default function AlliesPage() {
             <div className="relative flex h-full flex-col justify-between gap-12">
               <div>
                 <Code2 className="h-8 w-8 text-primary" />
-                <p className="mt-8 font-mono text-xs uppercase tracking-widest text-primary">Desarrollador</p>
+                <p className="mt-8 font-mono text-xs uppercase tracking-widest text-primary">{BRANDON_CARRANZA.role}</p>
                 <h2 className="mt-3 font-display text-3xl font-bold uppercase tracking-tight">{BRANDON_CARRANZA.name}</h2>
-                <p className="mt-3 max-w-xl text-muted-foreground">Desarrollador de GexStudio Team. Trabaja en experiencias con IA, plataformas de aprendizaje y videojuegos con identidad propia.</p>
+                <p className="mt-3 max-w-xl text-muted-foreground">Co-fundador de GexStudio Team. Trabaja en experiencias con IA, plataformas de aprendizaje y videojuegos con identidad propia.</p>
               </div>
               <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary">Ver perfil y proyectos <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" /></span>
             </div>
