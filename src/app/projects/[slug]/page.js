@@ -1,8 +1,28 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, ArrowUpRight, Link2, Mail, UserRound } from 'lucide-react';
-import { SiGithub } from '@icons-pack/react-simple-icons';
-import { BRANDON_CARRANZA, PROJECTS } from '@/lib/content';
+import { SiGithub, SiInstagram } from '@icons-pack/react-simple-icons';
+import { BRANDON_CARRANZA, DUVAN_ALTAMAR, PROJECTS } from '@/lib/content';
+
+const DEVELOPERS = {
+  'Duvan Altamar': {
+    name: DUVAN_ALTAMAR.name,
+    role: DUVAN_ALTAMAR.role,
+    links: [
+      { icon: SiGithub, label: 'GitHub', href: DUVAN_ALTAMAR.github },
+      { icon: SiInstagram, label: 'Instagram', href: DUVAN_ALTAMAR.instagram },
+    ],
+  },
+  'Brandon Carranza': {
+    name: BRANDON_CARRANZA.name,
+    role: BRANDON_CARRANZA.role,
+    links: [
+      { icon: SiGithub, label: 'GitHub', href: BRANDON_CARRANZA.github },
+      { icon: Link2, label: 'LinkedIn', href: BRANDON_CARRANZA.linkedin },
+      { icon: Mail, label: 'Contactar', href: `mailto:${BRANDON_CARRANZA.email}` },
+    ],
+  },
+};
 
 export function generateStaticParams() {
   return PROJECTS.map((project) => ({ slug: project.slug }));
@@ -13,6 +33,8 @@ export default async function ProjectDetail({ params }) {
   const project = PROJECTS.find((item) => item.slug === slug);
 
   if (!project) return null;
+
+  const developer = DEVELOPERS[project.developer] ?? DEVELOPERS['Brandon Carranza'];
 
   return (
     <main className="px-6 py-20 lg:px-16">
@@ -45,12 +67,14 @@ export default async function ProjectDetail({ params }) {
           <aside className="bg-card p-8 lg:p-10">
             <UserRound className="h-7 w-7 text-primary" />
             <p className="mt-5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Desarrollador</p>
-            <h2 className="mt-2 font-display text-2xl font-bold uppercase tracking-tight">{BRANDON_CARRANZA.name}</h2>
-            <p className="mt-2 text-sm text-muted-foreground">{BRANDON_CARRANZA.role}</p>
+            <h2 className="mt-2 font-display text-2xl font-bold uppercase tracking-tight">{developer.name}</h2>
+            <p className="mt-2 text-sm text-muted-foreground">{developer.role}</p>
             <div className="mt-7 space-y-3 font-mono text-xs uppercase tracking-wider">
-              <a href={BRANDON_CARRANZA.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 transition-colors hover:text-primary"><SiGithub className="h-4 w-4" /> GitHub <ArrowUpRight className="ml-auto h-3.5 w-3.5" /></a>
-              <a href={BRANDON_CARRANZA.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-2 transition-colors hover:text-primary"><Link2 className="h-4 w-4" /> LinkedIn <ArrowUpRight className="ml-auto h-3.5 w-3.5" /></a>
-              <a href={`mailto:${BRANDON_CARRANZA.email}`} className="flex items-center gap-2 transition-colors hover:text-primary"><Mail className="h-4 w-4" /> Contactar <ArrowUpRight className="ml-auto h-3.5 w-3.5" /></a>
+              {developer.links.map((link) => (
+                <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="flex items-center gap-2 transition-colors hover:text-primary">
+                  <link.icon className="h-4 w-4" /> {link.label} <ArrowUpRight className="ml-auto h-3.5 w-3.5" />
+                </a>
+              ))}
             </div>
           </aside>
         </div>
