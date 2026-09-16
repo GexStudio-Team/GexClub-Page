@@ -15,7 +15,7 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
   - CTA del **hero** (`Inscríbete al hackathon`), **flagship** de `/hackathons` y botón de cada **evento** en `EventList.jsx` ahora usan el botón Luma.
   - **Página del evento embebida** en `/hackathons`: iframe responsive (`luma.com/embed/.../simple`) en una grilla junto a la descripción "Detalle del evento" (mobile-first, `min-h-[420px]`, borde `border-border`).
   - Constantes centralizadas en `src/lib/content.js`: `LUMA_EVENT_ID`, `LUMA_EVENT_URL`, `LUMA_EMBED_URL`, `LUMA_CHECKOUT_SCRIPT`. El comando `hackathon` de GEX_OS muestra la URL oficial de Luma.
-- **Imagen de Misión y Visión** (`/home`): la imagen flotante de la sección 03 usa la fotografía oficial de la comunidad **`Frame2` del video institucional** (`public/brand/frame2.jpg`, 736×981) con marco sutil (`border-primary/20`), sombra `primary` y dimensiones adaptativas (`max-h-[72%] max-w-[88%]`, `object-contain`) que respetan el layout desktop y el móvil. Se eliminó el archivo anterior (`imagen-mision-vision.jpeg`) por reemplazo.
+- **Imagen de Misión y Visión** (`/home`): la imagen flotante de la sección 03 ya no es el isotipo con blend, sino la fotografía oficial de comunidad (`public/brand/imagen-mision-vision.jpeg`, 960×1280) con marco sutil (`border-primary/20`), sombra `primary` y dimensiones adaptativas (`max-h-[72%] max-w-[88%]`, `object-contain`) que respetan el layout desktop y el móvil.
 
 ### Changed
 
