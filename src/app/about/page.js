@@ -30,7 +30,7 @@ export default function About() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background/60 to-primary/10" />
           <div className="gex-glow absolute inset-0 flex items-center justify-center">
-            <Image src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" width={1254} height={1254} className="gex-float h-52 w-52 object-contain mix-blend-screen" />
+            <Image src="/brand/frame2.jpg" alt="Comunidad Gex Club — jóvenes creando tecnología" width={736} height={981} className="gex-float max-h-[80%] max-w-[82%] w-auto h-auto object-contain rounded-sm border border-primary/20 shadow-[0_0_35px_rgba(22,135,255,0.14)]" />
           </div>
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card to-transparent" />
           <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase tracking-widest text-primary">{'// since_2024'}</div>
