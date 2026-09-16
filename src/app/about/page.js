@@ -19,7 +19,7 @@ export default function About() {
 
       <section className="grid lg:grid-cols-2 border border-border mb-24">
         <div
-          className="relative border-b lg:border-b-0 lg:border-r border-border bg-card min-h-[40vh] overflow-hidden"
+          className="hidden lg:block relative border-r border-border bg-card min-h-[40vh] overflow-hidden"
           style={{
             backgroundImage: `
               linear-gradient(to right, rgba(22, 135, 255, 0.14) 1px, transparent 1px),
@@ -28,14 +28,13 @@ export default function About() {
             backgroundSize: '32px 32px',
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/60 to-primary/10" />
-          <div className="gex-glow absolute inset-0 flex items-center justify-center">
-            <Image src="/brand/frame2.jpg" alt="Comunidad Gex Club — jóvenes creando tecnología" width={736} height={981} className="gex-float max-h-[80%] max-w-[82%] w-auto h-auto object-contain rounded-sm border border-primary/20 shadow-[0_0_35px_rgba(22,135,255,0.14)]" />
-          </div>
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card to-transparent" />
-          <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase tracking-widest text-primary">{'// since_2024'}</div>
+          <Image src="/brand/frame2.jpg" alt="Comunidad Gex Club — jóvenes creando tecnología" width={736} height={981} className="h-full w-full object-cover object-center" fetchPriority="high" />
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
         </div>
-        <div className="p-8 lg:p-12 space-y-6">
+        <div className="p-6 sm:p-8 lg:p-12 space-y-6">
+          <div className="lg:hidden relative w-40 sm:w-48 float-right ml-5 mb-3 overflow-hidden rounded-sm border border-primary/20 shadow-[0_0_35px_rgba(22,135,255,0.14)]">
+            <Image src="/brand/frame2.jpg" alt="Comunidad Gex Club — jóvenes creando tecnología" width={736} height={981} className="h-full w-full object-cover" />
+          </div>
           <div className="font-mono text-xs uppercase tracking-widest text-primary">&lt;who_we_are&gt;</div>
           <p className="text-lg leading-relaxed">
             Somos una comunidad tecnológica donde personas de todas las edades desarrollan
