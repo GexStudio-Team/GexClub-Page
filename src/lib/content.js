@@ -1,3 +1,6 @@
+// Contacto — usado por aliados y secciones institucionales
+export const CONTACT_EMAIL = 'gexstudioteam@gmail.com';
+
 // Luma — inscripciones a eventos (reemplaza el formulario de Google Forms)
 export const LUMA_EVENT_ID = 'evt-Su6uoR5ZQOKufG4';
 export const LUMA_EVENT_URL = `https://luma.com/event/${LUMA_EVENT_ID}`;
@@ -138,5 +141,3 @@ export const SOCIALS = {
   instagram: 'https://www.instagram.com/joingexclub/',
   github: 'https://github.com/GexStudio-Team',
 };
-
-export const CONTACT_EMAIL = 'gexstudioteam@gmail.com';
