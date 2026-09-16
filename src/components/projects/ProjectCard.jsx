@@ -16,6 +16,21 @@ export default function ProjectCard({ project }) {
         }}
       >
         <div className={`absolute inset-0 bg-gradient-to-br ${project.accent}`} />
+        {project.slug === 'gex-os' ? (
+          <div className="absolute inset-0 flex flex-col justify-center px-6 gap-1.5 opacity-80">
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className="h-2 w-2 rounded-full bg-red-500/70" />
+              <span className="h-2 w-2 rounded-full bg-yellow-500/70" />
+              <span className="h-2 w-2 rounded-full bg-green-500/70" />
+              <span className="ml-2 font-mono text-[9px] uppercase tracking-widest text-muted-foreground">gex_os --boot</span>
+            </div>
+            {['> init gex_core ...', '> loading modules [ok]', '> system online'].map((line) => (
+              <span key={line} className="font-mono text-[9px] text-primary/80">{line}</span>
+            ))}
+          </div>
+        ) : (
+          <div className="aurora-boreal absolute inset-0 opacity-60" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/15 to-transparent" />
         <Image src="/brand/gex-mark-dark.png" alt="" width={1254} height={1254} className="absolute right-3 bottom-[-1.5rem] h-32 w-32 object-contain opacity-70 mix-blend-screen transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6" />
         <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-widest border border-border px-2 py-0.5 bg-background/70 backdrop-blur">
