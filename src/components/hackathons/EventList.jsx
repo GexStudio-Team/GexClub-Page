@@ -1,6 +1,5 @@
 import { Users, Calendar, Clock, MapPin } from 'lucide-react';
 import { formatDateEs } from '@/lib/utils';
-import LumaCheckoutButton from '@/components/events/LumaCheckoutButton';
 
 export default function EventList({ events }) {
   return (
@@ -31,7 +30,9 @@ export default function EventList({ events }) {
                 Cerrado
               </span>
             ) : (
-              <LumaCheckoutButton />
+              <span className="shrink-0 font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                Inscripción arriba ↑
+              </span>
             )}
           </div>
         );

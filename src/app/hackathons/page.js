@@ -57,10 +57,10 @@ export default function Hackathons() {
               </div>
               <h3 className="font-display text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">Todo lo que necesitas saber</h3>
               <p className="text-muted-foreground max-w-xl mb-6">
-                Agenda, requisitos, código de conducta y confirmación de asistencia, todo
-                desde la página oficial del evento en Luma. Puedes inscribirte directamente
-                con el botón o explorar el detalle completo aquí mismo.
+                Agenda, requisitos y confirmación de asistencia: la inscripción es un solo paso,
+                directo desde la página oficial del evento en Luma.
               </p>
+              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-3">Ya tienes tu cupo garantizado con el botón de arriba. 👇</p>
               <LumaCheckoutButton />
             </div>
             <div className="relative w-full overflow-hidden rounded-sm border border-border">
