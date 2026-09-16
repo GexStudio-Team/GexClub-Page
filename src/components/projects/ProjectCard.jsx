@@ -36,8 +36,11 @@ export default function ProjectCard({ project }) {
           ))}
         </div>
         <div className="mt-4 flex items-center justify-between gap-3 border-t border-border pt-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          <span>{project.members}</span>
-          <span className="inline-flex items-center gap-1 text-primary">Ver ficha <ArrowUpRight className="h-3.5 w-3.5" /></span>
+          <span className="truncate">
+            {project.members}
+            {project.developer ? <span className="text-primary/90"> · {project.developer}</span> : null}
+          </span>
+          <span className="inline-flex items-center gap-1 text-primary shrink-0">Ver ficha <ArrowUpRight className="h-3.5 w-3.5" /></span>
         </div>
       </div>
     </Link>
