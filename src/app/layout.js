@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Home, Info, Trophy, Users, FolderGit2, CircleHelp, Handshake, Terminal } from 'lucide-react';
 import Statusbar from '@/components/layout/Statusbar';
@@ -29,8 +30,8 @@ export default function RootLayout({ children }) {
         <Statusbar />
 
         <aside className="hidden lg:flex fixed top-8 bottom-0 left-0 w-16 flex-col items-center border-r border-border bg-card z-40">
-          <Link href="/" className="mt-6 font-display font-bold text-sm tracking-tighter" style={{ writingMode: 'vertical-rl' }}>
-            GEX<span className="text-primary">_</span>CLUB
+          <Link href="/" aria-label="GEX_CLUB — Inicio" className="mt-5 flex h-14 w-14 items-center justify-center">
+            <Image src="/brand/gex-mark-dark-square.png" alt="GEX_CLUB" width={300} height={300} className="h-full w-full object-contain" />
           </Link>
           <nav className="mt-12 flex flex-col items-center gap-1">
             {NAV.map((item) => {
@@ -53,13 +54,13 @@ export default function RootLayout({ children }) {
             })}
           </nav>
           <div className="mt-auto mb-6 font-mono text-[10px] uppercase tracking-widest text-muted-foreground" style={{ writingMode: 'vertical-rl' }}>
-            EST. 2024
+            EST. 2025
           </div>
         </aside>
 
         <header className="lg:hidden fixed top-8 inset-x-0 z-40 flex items-center justify-between h-14 px-4 border-b border-border bg-background/90 backdrop-blur">
-          <Link href="/" className="font-display font-bold tracking-tighter">
-            GEX<span className="text-primary">_</span>CLUB
+          <Link href="/" aria-label="GEX_CLUB — Inicio" className="flex items-center">
+            <Image src="/brand/gex-club-logo-dark.png" alt="GEX_CLUB" width={220} height={110} className="h-8 w-auto object-contain" />
           </Link>
           <button onClick={() => setOpen(true)} aria-label="Abrir menú" className="flex w-10 h-10 items-center justify-center text-foreground hover:text-primary transition-colors">
             <Menu className="w-5 h-5" />
@@ -69,8 +70,8 @@ export default function RootLayout({ children }) {
         {open && (
           <div className="lg:hidden fixed inset-0 z-[60] bg-background/95 backdrop-blur">
             <div className="flex items-center justify-between h-14 px-4 border-b border-border">
-              <span className="font-display font-bold tracking-tighter">
-                GEX<span className="text-primary">_</span>CLUB
+              <span className="flex items-center">
+                <Image src="/brand/gex-club-logo-dark.png" alt="GEX_CLUB" width={220} height={110} className="h-8 w-auto object-contain" />
               </span>
               <button onClick={() => setOpen(false)} aria-label="Cerrar menú" className="flex w-10 h-10 items-center justify-center text-primary">
                 <X className="w-5 h-5" />
