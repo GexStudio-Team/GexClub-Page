@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import SectionHeader from '@/components/layout/SectionHeader';
+import VideoLoop from '@/components/ui/VideoLoop';
 
 export default function MissionSection() {
   return (
@@ -15,14 +15,13 @@ export default function MissionSection() {
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background/20 to-accent/20" />
-        <Image
-          src="/brand/imagen-mision-vision.jpeg"
-          alt="Comunidad Gex Club — jóvenes creando tecnología"
-          width={960}
-          height={1280}
-          className="gex-float absolute inset-0 m-auto max-h-[72%] max-w-[88%] w-auto h-auto object-contain rounded-sm border border-primary/20 shadow-[0_0_35px_rgba(22,135,255,0.14)]"
+        <VideoLoop
+          src="/brand/corto-home.mp4"
+          className="absolute inset-0 h-full w-full object-cover"
+          aria-label="Video institucional corto de Gex Club"
         />
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-card/40 via-transparent to-transparent" />
+      </div>
       <div className="px-6 lg:px-16 py-12 lg:py-24">
         <SectionHeader index="03" title="Misión y Visión" subtitle="El código es el lenguaje con el que construimos el futuro." />
         <div className="space-y-10">
