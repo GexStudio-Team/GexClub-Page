@@ -1,6 +1,10 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowUpRight, Rocket } from 'lucide-react';
 import SectionHeader from '@/components/layout/SectionHeader';
 import CommunityCta from '@/components/community/CommunityCta';
 import Testimonials from '@/components/community/Testimonials';
+import VideoLoop from '@/components/ui/VideoLoop';
 import { COMMUNITY_STATUS } from '@/lib/content';
 
 export default function Community() {
@@ -12,20 +16,67 @@ export default function Community() {
         subtitle="Un espacio abierto para crear, aprender y conectar. Aquí no eres un espectador: eres parte de la comunidad."
       />
 
-      <section className="mb-16">
-        <div className="grid md:grid-cols-4 gap-px bg-border border border-border">
-          {[
-            { n: '01', t: 'Aprendizaje compartido', d: 'Construyamos las primeras actividades con curiosidad y práctica.' },
-            { n: '02', t: COMMUNITY_STATUS.projects, d: 'Software, videojuegos e iniciativas de comunidad listos para tomar forma.' },
-            { n: '03', t: 'Primer hackathon', d: 'Un reto para idear y crear soluciones con otros jóvenes creadores.' },
-            { n: '04', t: 'Red de pares', d: 'Conoce personas con intereses parecidos y construye conexiones.' },
-          ].map((b) => (
-            <div key={b.n} className="bg-background p-6">
-              <span className="font-mono text-xs text-primary">{b.n}</span>
-              <h3 className="mt-3 font-display font-bold uppercase tracking-tight text-sm">{b.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.d}</p>
+      <section className="mb-16 border border-border bg-border grid gap-px lg:grid-cols-2">
+        <div className="bg-background p-6 lg:p-8 relative overflow-hidden">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <span className="font-mono text-xs text-primary">01</span>
+              <h3 className="mt-3 font-display font-bold uppercase tracking-tight">Aprendizaje compartido</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">Construyamos las primeras actividades con curiosidad y práctica.</p>
             </div>
-          ))}
+            <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground shrink-0">+ video</span>
+          </div>
+        </div>
+        <div className="relative min-h-[260px] overflow-hidden bg-card">
+          <VideoLoop
+            src="/brand/video-programador.mp4"
+            speed={0.9}
+            className="absolute inset-0 h-full w-full object-cover"
+            aria-label="Joven programador en Gex Club"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-card/50 via-transparent to-transparent" />
+        </div>
+
+        <div className="bg-background p-6 lg:p-8 flex flex-col items-start justify-start">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Código</span>
+          <Link href="/projects" className="aura-btn group mt-auto inline-flex items-center gap-3 border border-primary bg-background px-6 py-4 font-mono text-sm uppercase tracking-wider text-primary transition-colors hover:text-primary-foreground">
+            <span className="relative z-10 inline-flex items-center gap-3">
+              Ver proyectos <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </span>
+          </Link>
+        </div>
+        <div className="relative overflow-hidden p-6 lg:p-8 flex flex-col justify-center">
+          <div className="aurora-boreal absolute inset-0 opacity-60" />
+          <div className="absolute inset-0 bg-background/70" />
+          <div className="relative">
+            <span className="font-mono text-xs text-primary">02</span>
+            <h3 className="mt-3 font-display font-bold uppercase tracking-tight">{COMMUNITY_STATUS.projects}</h3>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">Software, videojuegos e iniciativas de comunidad listos para tomar forma.</p>
+          </div>
+        </div>
+
+        <div className="bg-background p-6 lg:p-8 flex flex-col justify-center">
+          <span className="font-mono text-xs text-primary">03</span>
+          <h3 className="mt-3 font-display font-bold uppercase tracking-tight">Primer hackathon</h3>
+          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">Un reto para idear y crear soluciones con otros jóvenes creadores.</p>
+        </div>
+        <div className="bg-background p-6 lg:p-8 flex flex-col items-start justify-start">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Reto</span>
+          <Link href="/hackathons" className="aura-btn aura-btn-red group mt-auto inline-flex items-center gap-3 border border-red-500/70 bg-background px-6 py-4 font-mono text-sm uppercase tracking-wider text-red-400 transition-colors hover:text-red-100">
+            <span className="relative z-10 inline-flex items-center gap-3">
+              <Rocket className="h-4 w-4" /> ¡Build the future! <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </span>
+          </Link>
+        </div>
+
+        <div className="relative min-h-[220px] overflow-hidden bg-card">
+          <Image src="/brand/red-de-pares.jpg" alt="Red de pares de Gex Club" width={417} height={626} className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-card/60 to-transparent" />
+        </div>
+        <div className="bg-background p-6 lg:p-8 flex flex-col justify-center">
+          <span className="font-mono text-xs text-primary">04</span>
+          <h3 className="mt-3 font-display font-bold uppercase tracking-tight">Red de pares</h3>
+          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">Conoce personas con intereses parecidos y construye conexiones.</p>
         </div>
       </section>
 
