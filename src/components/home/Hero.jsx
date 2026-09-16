@@ -49,9 +49,6 @@ export default function Hero() {
         <div className="absolute top-6 right-6 font-mono text-[10px] uppercase tracking-widest text-muted-foreground border border-border px-2 py-1 bg-background/60 backdrop-blur">
           &lt;GEX_CORE /&gt;
         </div>
-        <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase tracking-widest text-primary">
-          {'// rendering future'}
-        </div>
       </div>
     </section>
   );

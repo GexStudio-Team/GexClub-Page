@@ -21,7 +21,7 @@ const WELCOME_LINES = [
   { kind: 'out', text: '', tone: 'div' },
   { kind: 'out', text: '╔══════════════════════════════════════════════╗', tone: 'lime' },
   { kind: 'out', text: '║        GEX_OS v1.0 — Gex Club Terminal        ║', tone: 'lime' },
-  { kind: 'out', text: '║   Global Ecosystem for eXcellence · EST. 2024 ║', tone: 'lime' },
+  { kind: 'out', text: '║   Global Ecosystem for eXcellence · EST. 2025 ║', tone: 'lime' },
   { kind: 'out', text: '╚══════════════════════════════════════════════╝', tone: 'lime' },
   { kind: 'out', text: '', tone: 'div' },
   { kind: 'out', text: 'Bienvenido al núcleo de Gex Club.', tone: 'default' },

@@ -22,7 +22,6 @@ export default function MissionSection() {
           height={1280}
           className="gex-float absolute inset-0 m-auto max-h-[72%] max-w-[88%] w-auto h-auto object-contain rounded-sm border border-primary/20 shadow-[0_0_35px_rgba(22,135,255,0.14)]"
         />
-        <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase tracking-widest text-primary">{'// the_foundry'}</div>
         </div>
       <div className="px-6 lg:px-16 py-12 lg:py-24">
         <SectionHeader index="03" title="Misión y Visión" subtitle="El código es el lenguaje con el que construimos el futuro." />

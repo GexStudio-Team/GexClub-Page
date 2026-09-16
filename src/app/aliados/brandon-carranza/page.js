@@ -14,7 +14,6 @@ export default function BrandonCarranzaPage() {
         <div className="relative overflow-hidden p-8 lg:p-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(22,135,255,.25),transparent_28%),radial-gradient(circle_at_72%_90%,rgba(119,71,255,.25),transparent_34%)]" />
           <div className="relative max-w-3xl">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary">{'// GexStudio Team · perfil'}</p>
             <h1 className="mt-5 font-display text-4xl font-bold uppercase tracking-tight md:text-6xl">{BRANDON_CARRANZA.name}</h1>
             <p className="mt-5 text-lg text-muted-foreground">{BRANDON_CARRANZA.role}. Construye productos que cruzan inteligencia artificial, educación tecnológica y experiencias de videojuego.</p>
           </div>

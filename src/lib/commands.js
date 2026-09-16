@@ -119,7 +119,7 @@ const RUNNERS = {
 
   whoami: () => [
     LINE.hl('guest'),
-    LINE.content({ text: '  Miembro de Gex Club · EST. 2024' }),
+    LINE.content({ text: '  Miembro de Gex Club · EST. 2025' }),
     LINE.content({ text: '  Filosofía: Create. Learn. Collaborate. Excel.' }),
     LINE.content({ text: '  Status  : apto para construir' }),
   ],
@@ -131,7 +131,7 @@ const RUNNERS = {
     LINE.content({ text: `  ${padRight('Sistema', 14)}GEX_OS v1.0 [WEB]` }),
     LINE.content({ text: `  ${padRight('Shell', 14)}gex-sh (react 19)` }),
     LINE.content({ text: `  ${padRight('Ecosistema', 14)}Global Ecosystem for eXcellence` }),
-    LINE.content({ text: `  ${padRight('Fundado', 14)}EST. 2024` }),
+    LINE.content({ text: `  ${padRight('Fundado', 14)}EST. 2025` }),
     LINE.content({ text: `  ${padRight('Proyectos', 14)}${PROJECTS.length}` }),
     LINE.content({ text: `  ${padRight('Hackathons', 14)}${EVENTS.length} activo` }),
     LINE.content({ text: `  ${padRight('Uptime', 14)} 2 años de comunidad` }),

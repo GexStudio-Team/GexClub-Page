@@ -25,7 +25,6 @@ export default async function ProjectDetail({ params }) {
           <div className="absolute inset-0 opacity-50" style={{ backgroundImage: 'linear-gradient(rgba(22,135,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(119,71,255,.16) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
           <Image src="/brand/gex-mark-dark.png" alt="" width={1254} height={1254} className="gex-float absolute right-[-1rem] bottom-[-2.5rem] h-72 w-72 object-contain mix-blend-screen opacity-80" />
           <div className="relative max-w-3xl">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary">{'// proyecto · GexStudio Team'}</p>
             <h1 className="mt-5 font-display text-4xl font-bold uppercase tracking-tight md:text-6xl">{project.name}</h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">{project.description}</p>
           </div>
