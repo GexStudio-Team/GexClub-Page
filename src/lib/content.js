@@ -1,4 +1,8 @@
-export const HACKATHON_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSf-oD62OK8vyiD1NCyAAsXEmdALE19RfgJ6PLlOHD0jriXcVQ/viewform?usp=publish-editor';
+// Luma — inscripciones a eventos (reemplaza el formulario de Google Forms)
+export const LUMA_EVENT_ID = 'evt-Su6uoR5ZQOKufG4';
+export const LUMA_EVENT_URL = `https://luma.com/event/${LUMA_EVENT_ID}`;
+export const LUMA_EMBED_URL = `https://luma.com/embed/event/${LUMA_EVENT_ID}/simple`;
+export const LUMA_CHECKOUT_SCRIPT = 'https://embed.lu.ma/checkout-button.js';
 
 export const EVENTS = [
   {

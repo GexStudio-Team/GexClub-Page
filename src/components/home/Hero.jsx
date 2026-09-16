@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Terminal } from 'lucide-react';
-import { HACKATHON_FORM_URL } from '@/lib/content';
+import { Terminal } from 'lucide-react';
+import LumaCheckoutButton from '@/components/events/LumaCheckoutButton';
 import GexMark3D from '@/components/brand/GexMark3D';
 
 export default function Hero() {
@@ -23,10 +23,7 @@ export default function Hero() {
           de todas las edades. Create. Learn. Collaborate. Excel.
         </p>
         <div className="mt-8 lg:mt-10 flex flex-wrap gap-4">
-          <a href={HACKATHON_FORM_URL} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 font-mono text-sm uppercase tracking-wider font-bold hover:bg-primary/90 transition-colors">
-            Inscríbete al hackathon
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </a>
+          <LumaCheckoutButton label="Inscríbete al hackathon" className="bg-primary text-primary-foreground border-primary font-bold hover:bg-primary/90 px-6 py-3.5 text-sm" />
           <Link href="/hackathons" className="inline-flex items-center gap-2 border border-border px-6 py-3.5 font-mono text-sm uppercase tracking-wider hover:border-primary hover:text-primary transition-colors">
             <Terminal className="w-4 h-4" /> Ver hackathons
           </Link>

@@ -3,8 +3,9 @@
 import SectionHeader from '@/components/layout/SectionHeader';
 import CountdownTimer from '@/components/hackathons/CountdownTimer';
 import EventList from '@/components/hackathons/EventList';
-import { Rocket } from 'lucide-react';
-import { EVENTS, HACKATHON_FORM_URL } from '@/lib/content';
+import LumaCheckoutButton from '@/components/events/LumaCheckoutButton';
+import { Rocket, CalendarDays } from 'lucide-react';
+import { EVENTS, LUMA_EVENT_ID, LUMA_EMBED_URL } from '@/lib/content';
 
 export default function Hackathons() {
   const flagship = EVENTS[0];
@@ -34,6 +35,9 @@ export default function Hackathons() {
                 <p className="text-muted-foreground max-w-2xl mb-10">{flagship.description}</p>
                 <p className="mb-6 font-mono text-xs uppercase tracking-widest text-primary">Sábado 3 de octubre · {flagship.time}</p>
                 <CountdownTimer targetDate={flagship.startAt} />
+                <div className="mt-10">
+                  <LumaCheckoutButton className="bg-primary text-primary-foreground border-primary font-bold hover:bg-primary/90 px-6 py-3.5" />
+                </div>
               </div>
             </section>
           )}
@@ -44,7 +48,36 @@ export default function Hackathons() {
             <span className="text-primary">{EVENTS.length} eventos</span>
           </div>
 
-          <EventList events={EVENTS} registrationFormUrl={HACKATHON_FORM_URL} />
+          <EventList events={EVENTS} />
+
+          <div className="mt-16 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] gap-8 items-start">
+            <div>
+              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-primary mb-4">
+                <CalendarDays className="w-4 h-4" /> Detalle del evento
+              </div>
+              <h3 className="font-display text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">Todo lo que necesitas saber</h3>
+              <p className="text-muted-foreground max-w-xl mb-6">
+                Agenda, requisitos, código de conducta y confirmación de asistencia, todo
+                desde la página oficial del evento en Luma. Puedes inscribirte directamente
+                con el botón o explorar el detalle completo aquí mismo.
+              </p>
+              <LumaCheckoutButton />
+            </div>
+            <div className="relative w-full overflow-hidden rounded-sm border border-border">
+              <iframe
+                src={LUMA_EMBED_URL}
+                title={`Detalle del evento ${flagship?.name || 'Gex Club'} en Luma`}
+                width="600"
+                height="450"
+                frameBorder="0"
+                style={{ border: 0 }}
+                allow="fullscreen; payment"
+                aria-hidden="false"
+                tabIndex="0"
+                className="w-full min-h-[420px] bg-card"
+              />
+            </div>
+          </div>
       </>
     </div>
   );

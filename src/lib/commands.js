@@ -1,4 +1,4 @@
-import { PROJECTS, EVENTS, SOCIALS, CONTACT_EMAIL, HACKATHON_FORM_URL } from '@/lib/content';
+import { PROJECTS, EVENTS, SOCIALS, CONTACT_EMAIL, LUMA_EVENT_URL } from '@/lib/content';
 import { GEX_ASCII_LOGO } from '@/components/gexos/GexAscii';
 
 /**
@@ -39,7 +39,7 @@ function formatEvent(ev) {
     LINE.content({ text: `  Cupos  : ${ev.capacity}` }),
     LINE.content({ text: `  Estado : ${ev.status} (${countdown})` }),
     LINE.content({ text: '' }),
-    LINE.content({ text: '  Inscripción: ' + HACKATHON_FORM_URL, tone: 'primary' }),
+    LINE.content({ text: '  Inscripción: ' + LUMA_EVENT_URL, tone: 'primary' }),
   ];
 }
 

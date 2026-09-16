@@ -1,7 +1,8 @@
-import { ExternalLink, Users, Calendar, Clock, MapPin } from 'lucide-react';
+import { Users, Calendar, Clock, MapPin } from 'lucide-react';
 import { formatDateEs } from '@/lib/utils';
+import LumaCheckoutButton from '@/components/events/LumaCheckoutButton';
 
-export default function EventList({ events, registrationFormUrl }) {
+export default function EventList({ events }) {
   return (
     <div className="border border-border divide-y divide-border">
       {events.map((ev) => {
@@ -29,19 +30,8 @@ export default function EventList({ events, registrationFormUrl }) {
               <span className="shrink-0 font-mono text-xs uppercase tracking-wider border border-border px-4 py-2 opacity-40">
                 Cerrado
               </span>
-            ) : registrationFormUrl ? (
-              <a
-                href={registrationFormUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="shrink-0 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider border border-border px-4 py-2 hover:border-primary hover:text-primary transition-colors"
-              >
-                Unirme <ExternalLink className="w-3.5 h-3.5" />
-              </a>
             ) : (
-              <span className="shrink-0 font-mono text-xs uppercase tracking-wider border border-border px-4 py-2 opacity-40">
-                Formulario próximamente
-              </span>
+              <LumaCheckoutButton />
             )}
           </div>
         );
