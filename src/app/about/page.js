@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import SectionHeader from '@/components/layout/SectionHeader';
 import { Cpu, Users2, Rocket, ShieldCheck } from 'lucide-react';
 import { COMMUNITY_STATUS, PROJECTS } from '@/lib/content';
@@ -29,10 +30,10 @@ export default function About() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background/60 to-primary/10" />
           <div className="gex-glow absolute inset-0 flex items-center justify-center">
-            <img src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" className="gex-float h-52 w-52 object-contain mix-blend-screen" />
+            <Image src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" width={1254} height={1254} className="gex-float h-52 w-52 object-contain mix-blend-screen" />
           </div>
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card to-transparent" />
-          <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase tracking-widest text-primary">// since_2024</div>
+          <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase tracking-widest text-primary">{'// since_2024'}</div>
         </div>
         <div className="p-8 lg:p-12 space-y-6">
           <div className="font-mono text-xs uppercase tracking-widest text-primary">&lt;who_we_are&gt;</div>

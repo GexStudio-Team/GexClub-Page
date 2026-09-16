@@ -53,7 +53,7 @@ export default function Hero() {
           &lt;GEX_CORE /&gt;
         </div>
         <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase tracking-widest text-primary">
-          // rendering future
+          {'// rendering future'}
         </div>
       </div>
     </section>

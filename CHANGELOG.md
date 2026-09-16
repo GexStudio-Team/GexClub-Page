@@ -8,8 +8,13 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
 
 ## [Unreleased]
 
+### Added
+
+- **Imagen de Misión y Visión** (`/home`): la imagen flotante de la sección 03 ya no es el isotipo con blend, sino la fotografía oficial de comunidad (`public/brand/imagen-mision-vision.jpeg`, 960×1280) con marco sutil (`border-primary/20`), sombra `primary` y dimensiones adaptativas (`max-h-[72%] max-w-[88%]`, `object-contain`) que respetan el layout desktop y el móvil.
+
 ### Changed
 
+- **Deuda técnica eliminada (ESLint)**: se reescribió `eslint.config.mjs` reemplazando el patrón `FlatCompat` (incompatible con ESLint 9.39, causaba `TypeError: Converting circular structure to JSON` y rompía `npm run lint`) por la configuración **flat nativa** (`defineConfig`/`globalIgnores` de `eslint/config` + `eslint-config-next/core-web-vitals`, que en v16 exporta flat directamente). `npm run lint` vuelve a funcionar.
 - **Experiencia móvil (Fase 2)**: los **4 pilares** ahora son un carrusel horizontal deslizable (`snap-x`, scrollbar oculta, hint "swipe →") en móvil/tablet y conservan la grilla en desktop (`lg`); las tarjetas de **eventos** se compactaron en móvil (fecha y estado en la misma fila, paddings reducidos, metadatos inline) manteniendo el layout de escritorio.
 - **Footer móvil**: la columna de **Redes** ahora queda a la **derecha** de **Navegación** en pantallas pequeñas (grilla de 2 columnas); en desktop se conserva el orden original (1.5fr / 1fr / 1fr).
 - **Espaciado superior del layout móvil**: el `main` ahora reserva `pt-[88px]` en móvil (statusbar 32px + header 56px) para que la frase "Global Ecosystem for eXcellence" del hero no quede oculta bajo el nav fijo; desktop mantiene `pt-8`.
@@ -20,6 +25,7 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
 ### Fixed
 
 - **Bug de fecha en eventos**: `2026-10-03` se mostraba como "02 oct" (o "2") porque `new Date('YYYY-MM-DD')` interpreta la fecha como medianoche UTC y en `America/Bogota` (UTC−5) caía en el día anterior. Se añadió `parseLocalDate`/`formatDateEs` en `src/lib/utils.js` (parsing local) y se aplicó en `EventsPreview.jsx` y `EventList.jsx`. El countdown se alimenta de `startAt` con offset `-05:00`, por lo que ya era correcto.
+- **Warnings y errores de lint residuales**: se corrigieron los 8 casos de `react/jsx-no-comment-textnodes` (textos `// …` en JSX ahora van entre llaves `{'// …'}`), el `react-hooks/set-state-in-effect` en `Terminal.jsx` (la bienvenida de GEX_OS se inicializa vía lazy `useState` en lugar de `boot()` dentro de `useEffect`), los 5 avisos `@next/next/no-img-element` (migración a `next/image` con `width`/`height` reales, aprovechando `images.unoptimized`) y el `@next/next/no-location-assign-relative-destination` en `TerminalLauncher.jsx` (ahora usa `useRouter().push('/gexos')`).
 
 ### Docs
 
@@ -33,7 +39,6 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
 - Auditoría SEO: imagen OG, Twitter Cards, JSON-LD y metadatos canónicos.
 - Formulario de inscripción a hackathons con identidad de marca (embebido, sin salir del sitio).
 - Pipeline CI/CD con GitHub Actions y artefacto de publicación.
-- Resolver error de configuración de ESLint 9 (FlatCompat).
 
 ---
 
@@ -53,7 +58,7 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
 
 - **`clear`/`matrix`/`exit` en GEX_OS**: los comandos especiales fallaban porque el objeto `LINE` no exponía los tones reservados y el filtro `OUTPUT_TYPES` los descartaba antes de procesarlos. Se reordenó la evaluación en `Terminal.jsx` (tones especiales primero) y los runners de `commands.js` ahora devuelven el tone correcto directamente.
 
-> Nota: `npm run lint` presenta un error de configuración **pre-existente** (FlatCompat + ESLint 9, `next/core-web-vitals`) no relacionado con GEX_OS; el build estático se genera correctamente. Pendiente en `Unreleased`.
+> Nota: `npm run lint` presentaba un error de configuración **pre-existente** (FlatCompat + ESLint 9, `next/core-web-vitals`) no relacionado con GEX_OS; el build estático se generaba correctamente. **Resuelto en `Unreleased`** (configuración flat nativa).
 
 ### Planeado
 

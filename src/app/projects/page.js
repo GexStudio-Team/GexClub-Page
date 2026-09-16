@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import SectionHeader from '@/components/layout/SectionHeader';
 import ProjectCard from '@/components/projects/ProjectCard';
 import { COMMUNITY_STATUS, PROJECTS } from '@/lib/content';
@@ -31,9 +32,9 @@ export default function Projects() {
         }}
       >
         <div className="gex-glow pointer-events-none absolute right-4 bottom-0 h-36 w-36 md:right-16 md:bottom-2 md:h-52 md:w-52">
-          <img src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" className="gex-float h-full w-full object-contain mix-blend-screen" />
+          <Image src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" width={1254} height={1254} className="gex-float h-full w-full object-contain mix-blend-screen" />
         </div>
-        <div className="font-mono text-xs uppercase tracking-widest text-primary mb-2">// the_vault</div>
+        <div className="font-mono text-xs uppercase tracking-widest text-primary mb-2">{'// the_vault'}</div>
         <div className="font-display text-2xl md:text-4xl font-bold uppercase tracking-tight text-balance max-w-lg">
           {COMMUNITY_STATUS.projects}
         </div>
@@ -55,7 +56,7 @@ export default function Projects() {
 
       {filtered.length === 0 ? (
         <div className="border border-border bg-card p-12 text-center font-mono text-sm text-muted-foreground uppercase tracking-wider">
-          // sin proyectos en esta categoría
+          {'// sin proyectos en esta categoría'}
         </div>
       ) : (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -17,9 +17,21 @@ const TONE_CLASS = {
 
 const OUTPUT_TYPES = Object.keys(TONE_CLASS);
 
+const WELCOME_LINES = [
+  { kind: 'out', text: '', tone: 'div' },
+  { kind: 'out', text: '╔══════════════════════════════════════════════╗', tone: 'lime' },
+  { kind: 'out', text: '║        GEX_OS v1.0 — Gex Club Terminal        ║', tone: 'lime' },
+  { kind: 'out', text: '║   Global Ecosystem for eXcellence · EST. 2024 ║', tone: 'lime' },
+  { kind: 'out', text: '╚══════════════════════════════════════════════╝', tone: 'lime' },
+  { kind: 'out', text: '', tone: 'div' },
+  { kind: 'out', text: 'Bienvenido al núcleo de Gex Club.', tone: 'default' },
+  { kind: 'out', text: 'Escribe "help" para ver los comandos disponibles.', tone: 'dim' },
+  { kind: 'out', text: '', tone: 'div' },
+];
+
 export default function Terminal() {
   const router = useRouter();
-  const [lines, setLines] = useState([]);
+  const [lines, setLines] = useState(WELCOME_LINES);
   const [input, setInput] = useState('');
   const [history, setHistory] = useState([]);
   const [historyIdx, setHistoryIdx] = useState(-1);
@@ -40,22 +52,6 @@ export default function Terminal() {
     }
     setLines((prev) => [...prev, { kind, text: out }]);
   }, [router]);
-
-  const boot = useCallback(() => {
-    print([
-      { text: '', tone: 'div' },
-      { text: '╔══════════════════════════════════════════════╗', tone: 'lime' },
-      { text: '║        GEX_OS v1.0 — Gex Club Terminal        ║', tone: 'lime' },
-      { text: '║   Global Ecosystem for eXcellence · EST. 2024 ║', tone: 'lime' },
-      { text: '╚══════════════════════════════════════════════╝', tone: 'lime' },
-      { text: '', tone: 'div' },
-      { text: 'Bienvenido al núcleo de Gex Club.', tone: 'default' },
-      { text: 'Escribe "help" para ver los comandos disponibles.', tone: 'dim' },
-      { text: '', tone: 'div' },
-    ]);
-  }, [print]);
-
-  useEffect(() => { boot(); }, [boot]);
 
   useEffect(() => {
     if (inputRef.current) inputRef.current.focus();

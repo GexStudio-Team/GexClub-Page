@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, ArrowUpRight, Link2, Mail, UserRound } from 'lucide-react';
 import { SiGithub } from '@icons-pack/react-simple-icons';
 import { BRANDON_CARRANZA, PROJECTS } from '@/lib/content';
@@ -22,9 +23,9 @@ export default async function ProjectDetail({ params }) {
       <section className="mt-8 overflow-hidden border border-border bg-card">
         <div className={`relative min-h-64 overflow-hidden bg-gradient-to-br ${project.accent} p-8 lg:min-h-80 lg:p-12`}>
           <div className="absolute inset-0 opacity-50" style={{ backgroundImage: 'linear-gradient(rgba(22,135,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(119,71,255,.16) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-          <img src="/brand/gex-mark-dark.png" alt="" className="gex-float absolute right-[-1rem] bottom-[-2.5rem] h-72 w-72 object-contain mix-blend-screen opacity-80" />
+          <Image src="/brand/gex-mark-dark.png" alt="" width={1254} height={1254} className="gex-float absolute right-[-1rem] bottom-[-2.5rem] h-72 w-72 object-contain mix-blend-screen opacity-80" />
           <div className="relative max-w-3xl">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary">// proyecto · GexStudio Team</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-primary">{'// proyecto · GexStudio Team'}</p>
             <h1 className="mt-5 font-display text-4xl font-bold uppercase tracking-tight md:text-6xl">{project.name}</h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">{project.description}</p>
           </div>

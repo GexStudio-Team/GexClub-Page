@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight, FolderOpen } from 'lucide-react';
 
 export default function ProjectCard({ project }) {
@@ -16,7 +17,7 @@ export default function ProjectCard({ project }) {
       >
         <div className={`absolute inset-0 bg-gradient-to-br ${project.accent}`} />
         <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/15 to-transparent" />
-        <img src="/brand/gex-mark-dark.png" alt="" className="absolute right-3 bottom-[-1.5rem] h-32 w-32 object-contain opacity-70 mix-blend-screen transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6" />
+        <Image src="/brand/gex-mark-dark.png" alt="" width={1254} height={1254} className="absolute right-3 bottom-[-1.5rem] h-32 w-32 object-contain opacity-70 mix-blend-screen transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6" />
         <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-widest border border-border px-2 py-0.5 bg-background/70 backdrop-blur">
           {project.category}
         </span>

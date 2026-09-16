@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { SquareTerminal } from 'lucide-react';
 
 /**
@@ -12,6 +12,7 @@ import { SquareTerminal } from 'lucide-react';
 
 export default function TerminalLauncher() {
   const pathname = usePathname();
+  const router = useRouter();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -31,13 +32,13 @@ export default function TerminalLauncher() {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         if (pathname !== '/gexos') {
-          window.location.href = '/gexos';
+          router.push('/gexos');
         }
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [pathname]);
+  }, [pathname, router]);
 
   if (pathname === '/gexos') return null;
 
