@@ -46,7 +46,7 @@ export default function DuvanAltamarPage() {
           <div className="bg-background p-8 lg:p-12">
             <p className="font-mono text-xs uppercase tracking-widest text-primary">&lt;quien_soy /&gt;</p>
             <p className="mt-3 text-2xl md:text-3xl font-bold uppercase tracking-tight">Cosas que soy</p>
-            <ul className="mt-8 space-y-5">
+            <ul className="mt-6 space-y-3.5">
               {DUVAN_ROLES.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-base leading-relaxed lg:text-lg">
                   <Crown className="mt-1 h-5 w-5 shrink-0 text-primary" />
@@ -58,12 +58,12 @@ export default function DuvanAltamarPage() {
 
           <div className="bg-background p-8 lg:p-12">
             <p className="font-mono text-xs uppercase tracking-widest text-primary">&lt;foto /&gt;</p>
-            <div className="mt-6 flex aspect-[3/4] items-center justify-center border border-dashed border-border bg-card/40 text-center">
-              <p className="px-6 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                Espacio reservado<br />para tu foto
-              </p>
+            <div className="mt-5 flex items-center justify-center lg:justify-start">
+              <div className="relative aspect-[3/4] w-44 overflow-hidden border border-primary/30 bg-card/40 shadow-[0_0_35px_rgba(22,135,255,0.18)] sm:w-52 lg:w-56">
+                <Image src="/brand/foto-duvan-altamar.jpeg" alt={`Foto de ${DUVAN_ALTAMAR.name}`} fill sizes="(max-width: 640px) 176px, 224px" className="object-cover object-center" />
+              </div>
             </div>
-            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">El video de presentación se movió a tu perfil antiguo (carpeta de borradores). Aquí va tu foto oficial.</p>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Fundador del ecosistema Gex Club. Imagen cortesía del archivo oficial.</p>
           </div>
         </div>
 
