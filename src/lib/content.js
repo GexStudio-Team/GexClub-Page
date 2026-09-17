@@ -102,6 +102,18 @@ export const DUVAN_ROLES = [
   'Programador Joven con iniciativa',
 ];
 
+export const DUVAN_TECH = [
+  'Diseñó y desarrolló GEX_OS: la terminal interactiva embebida en el sitio.',
+  'Arquitectura frontend del ecosistema Gex Club (Next.js 16, Tailwind 4, React 19).',
+  'Sistemas de contenido centralizado y export estático para la web de la comunidad.',
+];
+
+export const DUVAN_LEADERSHIP = [
+  'Construyó Gex Club desde cero: comunidad, marca y visión de ecosistema tecnológico juvenil.',
+  'Lidera el equipo de GEX Studio Team y coordina los proyectos del vault.',
+  'Define el estándar de calidad: Create. Learn. Collaborate. Excel. y el hackathon 2026.',
+];
+
 export const BRANDON_TIMELINE = [
   {
     date: '31 ago 2026',
