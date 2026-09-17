@@ -157,12 +157,13 @@
 
   /* ===== Auroras neón fluidas — banner Proyectos =====
      Fondo negro profundo + ondas etéreas de energía interna en
-     cian / magenta / violeta, oscilando suavemente con resplandor. */
+     los colores del logo: azul #1687FF, violeta #7747FF, celeste
+     #00B4FF — oscilando suavemente con resplandor. */
   .aurora-neon {
     background:
-      radial-gradient(ellipse 90% 70% at 50% 125%, rgba(0, 229, 255, 0.2), transparent 60%),
-      radial-gradient(ellipse 70% 55% at 12% -15%, rgba(255, 0, 212, 0.18), transparent 62%),
-      radial-gradient(ellipse 65% 48% at 92% 8%, rgba(139, 92, 246, 0.22), transparent 60%),
+      radial-gradient(ellipse 90% 70% at 50% 125%, rgba(22, 135, 255, 0.22), transparent 60%),
+      radial-gradient(ellipse 70% 55% at 12% -15%, rgba(119, 71, 255, 0.2), transparent 62%),
+      radial-gradient(ellipse 65% 48% at 92% 8%, rgba(0, 180, 255, 0.22), transparent 60%),
       linear-gradient(to bottom, #05040e, #000);
   }
 
@@ -176,17 +177,17 @@
   }
 
   .aurora-neon-wave-1 {
-    background: linear-gradient(115deg, rgba(0, 229, 255, 0.5), rgba(139, 92, 246, 0.42) 45%, rgba(255, 0, 212, 0.5));
+    background: linear-gradient(115deg, rgba(0, 180, 255, 0.5), rgba(119, 71, 255, 0.42) 45%, rgba(22, 135, 255, 0.5));
     animation: neon-drift-1 12s ease-in-out infinite alternate;
   }
 
   .aurora-neon-wave-2 {
-    background: linear-gradient(200deg, rgba(168, 85, 247, 0.42), rgba(0, 229, 255, 0.4) 55%, rgba(255, 0, 212, 0.36));
+    background: linear-gradient(200deg, rgba(139, 92, 246, 0.42), rgba(0, 180, 255, 0.4) 55%, rgba(22, 135, 255, 0.4));
     animation: neon-drift-2 16s ease-in-out infinite alternate;
   }
 
   .aurora-neon-wave-3 {
-    background: linear-gradient(70deg, rgba(0, 180, 255, 0.44), rgba(255, 0, 212, 0.36) 50%, rgba(139, 92, 246, 0.46));
+    background: linear-gradient(70deg, rgba(0, 139, 254, 0.44), rgba(119, 71, 255, 0.4) 50%, rgba(0, 180, 255, 0.46));
     animation: neon-drift-3 20s ease-in-out infinite alternate;
   }
 
@@ -195,9 +196,9 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(circle at 30% 38%, rgba(0, 229, 255, 0.3), transparent 44%),
-      radial-gradient(circle at 72% 55%, rgba(255, 0, 212, 0.28), transparent 44%),
-      radial-gradient(circle at 50% 88%, rgba(139, 92, 246, 0.32), transparent 50%);
+      radial-gradient(circle at 30% 38%, rgba(0, 180, 255, 0.3), transparent 44%),
+      radial-gradient(circle at 72% 55%, rgba(119, 71, 255, 0.3), transparent 44%),
+      radial-gradient(circle at 50% 88%, rgba(22, 135, 255, 0.34), transparent 50%);
     filter: blur(46px);
     mix-blend-mode: screen;
     animation: neon-pulse 7s ease-in-out infinite alternate;
@@ -206,7 +207,7 @@
 
   /* Línea superior de luz neón */
   .aurora-neon-line {
-    background: linear-gradient(to right, transparent, rgba(0, 229, 255, 0.85), rgba(255, 0, 212, 0.85), rgba(139, 92, 246, 0.85), transparent);
+    background: linear-gradient(to right, transparent, rgba(0, 180, 255, 0.85), rgba(22, 135, 255, 0.85), rgba(119, 71, 255, 0.85), transparent);
   }
 
   /* Cuadrícula blueprint reincorporada sobre las auroras del banner */
@@ -220,9 +221,9 @@
   /* Tipografía iluminada (resplandor suave) */
   .neon-title {
     text-shadow:
-      0 0 14px rgba(0, 229, 255, 0.5),
-      0 0 34px rgba(139, 92, 246, 0.45),
-      0 0 70px rgba(255, 0, 212, 0.32);
+      0 0 14px rgba(0, 139, 254, 0.5),
+      0 0 34px rgba(119, 71, 255, 0.5),
+      0 0 70px rgba(0, 180, 255, 0.35);
   }
 
   /* Botón con aura giratoria */
