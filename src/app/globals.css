@@ -136,6 +136,25 @@
     animation: aurora-drift 16s ease-in-out infinite alternate;
   }
 
+  /* Aurora viva para fondos de cards: colores pastel Gex en movimiento lento */
+  .aurora-card {
+    background-image:
+      radial-gradient(ellipse 62% 48% at 8% 40%, rgba(0, 139, 254, 0.7), transparent 60%),
+      radial-gradient(ellipse 52% 42% at 36% 22%, rgba(168, 85, 247, 0.62), transparent 60%),
+      radial-gradient(ellipse 56% 46% at 74% 62%, rgba(0, 180, 255, 0.6), transparent 60%),
+      radial-gradient(ellipse 42% 36% at 90% 18%, rgba(232, 121, 249, 0.5), transparent 60%),
+      linear-gradient(to right, rgba(0, 139, 254, 0.2), rgba(168, 85, 247, 0.16), rgba(0, 180, 255, 0.2));
+    background-size: 340% 340%, 300% 300%, 340% 340%, 300% 300%, 100% 100%;
+    animation: aurora-card-drift 7s ease-in-out infinite alternate;
+  }
+
+  /* Barrido de luz que atraviesa la card en diagonal (llamativo) */
+  .aurora-beam {
+    background: linear-gradient(115deg, transparent 32%, rgba(122, 190, 255, 0.18) 44%, rgba(196, 160, 255, 0.26) 50%, rgba(96, 220, 255, 0.18) 56%, transparent 68%);
+    background-size: 230% 230%;
+    animation: aurora-beam-sweep 4.5s ease-in-out infinite;
+  }
+
   /* Botón con aura giratoria */
   .aura-btn { position: relative; isolation: isolate; overflow: hidden; }
   .aura-btn::before {
@@ -153,6 +172,19 @@
   0% { background-position: 0% 45%, 0% 45%, 0% 45%, 0% 45%, 0% 50%; }
   50% { background-position: 55% 55%, 48% 40%, 60% 50%, 52% 35%, 55% 50%; }
   100% { background-position: 100% 45%, 100% 45%, 100% 45%, 100% 45%, 100% 50%; }
+}
+
+@keyframes aurora-card-drift {
+  0% { background-position: 0% 30%, 100% 55%, 0% 45%, 100% 20%, 0% 50%; }
+  50% { background-position: 55% 55%, 45% 30%, 60% 28%, 42% 68%, 55% 50%; }
+  100% { background-position: 100% 30%, 0% 55%, 100% 45%, 0% 20%, 100% 50%; }
+}
+
+@keyframes aurora-beam-sweep {
+  0% { background-position: -60% -60%; opacity: 0.25; }
+  30% { opacity: 1; }
+  55% { background-position: 160% 160%; opacity: 0.25; }
+  100% { background-position: 160% 160%; opacity: 0; }
 }
 
 @keyframes aura-spin {

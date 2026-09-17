@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import SectionHeader from '@/components/layout/SectionHeader';
 import ProjectCard from '@/components/projects/ProjectCard';
-import WormWave from '@/components/projects/WormWave';
 import { COMMUNITY_STATUS, PROJECTS } from '@/lib/content';
 
 const FILTERS = [
@@ -32,7 +31,6 @@ export default function Projects() {
           backgroundSize: '32px 32px',
         }}
       >
-        <WormWave className="absolute inset-0 w-full h-full mix-blend-screen" />
         <div className="gex-glow pointer-events-none absolute right-4 bottom-0 h-36 w-36 md:right-16 md:bottom-2 md:h-52 md:w-52">
           <Image src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" width={1254} height={1254} className="gex-float h-full w-full object-contain mix-blend-screen" />
         </div>

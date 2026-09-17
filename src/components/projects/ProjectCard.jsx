@@ -29,7 +29,10 @@ export default function ProjectCard({ project }) {
             ))}
           </div>
         ) : (
-          <div className="aurora-boreal absolute inset-0 opacity-60" />
+          <>
+            <div className="aurora-card absolute inset-0 mix-blend-screen" />
+            <div className="aurora-beam absolute inset-0 mix-blend-screen" />
+          </>
         )}
         <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/15 to-transparent" />
         <Image src="/brand/gex-mark-dark.png" alt="" width={1254} height={1254} className="absolute right-3 bottom-[-1.5rem] h-32 w-32 object-contain opacity-70 mix-blend-screen transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6" />
