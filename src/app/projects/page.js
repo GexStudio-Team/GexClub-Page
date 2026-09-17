@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import SectionHeader from '@/components/layout/SectionHeader';
 import ProjectCard from '@/components/projects/ProjectCard';
+import WormWave from '@/components/projects/WormWave';
 import { COMMUNITY_STATUS, PROJECTS } from '@/lib/content';
 
 const FILTERS = [
@@ -19,6 +20,7 @@ export default function Projects() {
 
   return (
     <div className="px-6 lg:px-16 py-20">
+      <WormWave />
       <SectionHeader index="04" title="Proyectos" subtitle="El vault. La prueba de que la excelencia no es una promesa: es un repositorio." />
 
       <div
