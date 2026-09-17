@@ -21,20 +21,19 @@ export default function Projects() {
     <div className="px-6 lg:px-16 py-20">
       <SectionHeader index="04" title="Proyectos" subtitle="El vault. La prueba de que la excelencia no es una promesa: es un repositorio." />
 
-      <div
-        className="relative border border-border bg-card h-48 md:h-64 mb-16 overflow-hidden flex flex-col justify-center p-8 lg:p-12"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(22, 135, 255, 0.14) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(119, 71, 255, 0.14) 1px, transparent 1px)
-          `,
-          backgroundSize: '32px 32px',
-        }}
-      >
+      <div className="relative border border-primary/25 h-48 md:h-64 mb-16 overflow-hidden flex flex-col justify-center p-8 lg:p-12">
+        {/* Fondo negro profundo + auroras neón fluidas */}
+        <div className="aurora-neon absolute inset-0" />
+        <div className="aurora-neon-core absolute inset-0" />
+        <div className="aurora-neon-wave aurora-neon-wave-1 absolute inset-0" />
+        <div className="aurora-neon-wave aurora-neon-wave-2 absolute inset-0" />
+        <div className="aurora-neon-wave aurora-neon-wave-3 absolute inset-0" />
+        <div className="aurora-neon-line absolute inset-x-0 top-0 h-px" />
+
         <div className="gex-glow pointer-events-none absolute right-4 bottom-0 h-36 w-36 md:right-16 md:bottom-2 md:h-52 md:w-52">
           <Image src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" width={1254} height={1254} className="gex-float h-full w-full object-contain mix-blend-screen" />
         </div>
-        <div className="relative font-display text-2xl md:text-4xl font-bold uppercase tracking-tight text-balance max-w-lg">
+        <div className="relative neon-title font-display text-2xl md:text-4xl font-bold uppercase tracking-tight text-balance max-w-lg">
           {COMMUNITY_STATUS.projects}
         </div>
       </div>

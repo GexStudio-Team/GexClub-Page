@@ -58,12 +58,24 @@ export default function DuvanAltamarPage() {
 
           <div className="bg-background p-8 lg:p-12">
             <p className="font-mono text-xs uppercase tracking-widest text-primary">&lt;foto /&gt;</p>
-            <div className="mt-5 flex items-center justify-center lg:justify-start">
-              <div className="relative aspect-[3/4] w-44 overflow-hidden border border-primary/30 bg-card/40 shadow-[0_0_35px_rgba(22,135,255,0.18)] sm:w-52 lg:w-56">
-                <Image src="/brand/foto-duvan-altamar.jpeg" alt={`Foto de ${DUVAN_ALTAMAR.name}`} fill sizes="(max-width: 640px) 176px, 224px" className="object-cover object-center" />
+            <div className="mt-5">
+              <div className="relative inline-block">
+                <div className="absolute -inset-2 bg-gradient-to-tr from-cyan-400/30 via-violet-500/25 to-fuchsia-500/30 blur-2xl" aria-hidden="true" />
+                <div className="relative border border-primary/40 bg-card/40 p-1.5 shadow-[0_0_45px_rgba(22,135,255,0.2)]">
+                  <Image
+                    src="/brand/foto-duvan-altamar.jpeg"
+                    alt={`Foto de ${DUVAN_ALTAMAR.name}`}
+                    width={640}
+                    height={853}
+                    className="aspect-[3/4] w-56 sm:w-72 lg:w-80 object-cover object-center"
+                  />
+                </div>
+                <span className="absolute -top-2 -right-2 border border-primary/50 bg-background/90 px-2 py-1 font-mono text-[9px] uppercase tracking-widest text-primary backdrop-blur">
+                  Fundador
+                </span>
               </div>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Fundador del ecosistema Gex Club. Imagen cortesía del archivo oficial.</p>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Fundador del ecosistema Gex Club. Imagen cortesía del archivo oficial.</p>
           </div>
         </div>
 

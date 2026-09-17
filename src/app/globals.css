@@ -155,6 +155,68 @@
     animation: aurora-beam-sweep 4.5s ease-in-out infinite;
   }
 
+  /* ===== Auroras neón fluidas — banner Proyectos =====
+     Fondo negro profundo + ondas etéreas de energía interna en
+     cian / magenta / violeta, oscilando suavemente con resplandor. */
+  .aurora-neon {
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 125%, rgba(0, 229, 255, 0.2), transparent 60%),
+      radial-gradient(ellipse 70% 55% at 12% -15%, rgba(255, 0, 212, 0.18), transparent 62%),
+      radial-gradient(ellipse 65% 48% at 92% 8%, rgba(139, 92, 246, 0.22), transparent 60%),
+      linear-gradient(to bottom, #05040e, #000);
+  }
+
+  .aurora-neon-wave {
+    position: absolute;
+    inset: -60% -40%;
+    filter: blur(30px) saturate(1.35);
+    mix-blend-mode: screen;
+    opacity: 0.85;
+    pointer-events: none;
+  }
+
+  .aurora-neon-wave-1 {
+    background: linear-gradient(115deg, rgba(0, 229, 255, 0.5), rgba(139, 92, 246, 0.42) 45%, rgba(255, 0, 212, 0.5));
+    animation: neon-drift-1 12s ease-in-out infinite alternate;
+  }
+
+  .aurora-neon-wave-2 {
+    background: linear-gradient(200deg, rgba(168, 85, 247, 0.42), rgba(0, 229, 255, 0.4) 55%, rgba(255, 0, 212, 0.36));
+    animation: neon-drift-2 16s ease-in-out infinite alternate;
+  }
+
+  .aurora-neon-wave-3 {
+    background: linear-gradient(70deg, rgba(0, 180, 255, 0.44), rgba(255, 0, 212, 0.36) 50%, rgba(139, 92, 246, 0.46));
+    animation: neon-drift-3 20s ease-in-out infinite alternate;
+  }
+
+  /* Núcleo luminoso pulsante (energía interna) */
+  .aurora-neon-core {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 38%, rgba(0, 229, 255, 0.3), transparent 44%),
+      radial-gradient(circle at 72% 55%, rgba(255, 0, 212, 0.28), transparent 44%),
+      radial-gradient(circle at 50% 88%, rgba(139, 92, 246, 0.32), transparent 50%);
+    filter: blur(46px);
+    mix-blend-mode: screen;
+    animation: neon-pulse 7s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+
+  /* Línea superior de luz neón */
+  .aurora-neon-line {
+    background: linear-gradient(to right, transparent, rgba(0, 229, 255, 0.85), rgba(255, 0, 212, 0.85), rgba(139, 92, 246, 0.85), transparent);
+  }
+
+  /* Tipografía iluminada (resplandor suave) */
+  .neon-title {
+    text-shadow:
+      0 0 14px rgba(0, 229, 255, 0.5),
+      0 0 34px rgba(139, 92, 246, 0.45),
+      0 0 70px rgba(255, 0, 212, 0.32);
+  }
+
   /* Botón con aura giratoria */
   .aura-btn { position: relative; isolation: isolate; overflow: hidden; }
   .aura-btn::before {
@@ -185,6 +247,27 @@
   30% { opacity: 1; }
   55% { background-position: 160% 160%; opacity: 0.25; }
   100% { background-position: 160% 160%; opacity: 0; }
+}
+
+@keyframes neon-drift-1 {
+  0% { transform: translateX(-8%) translateY(-4%) rotate(-2deg); }
+  50% { transform: translateX(6%) translateY(4%) rotate(1.5deg); }
+  100% { transform: translateX(-2%) translateY(-6%) rotate(-1deg); }
+}
+
+@keyframes neon-drift-2 {
+  0% { transform: translateX(6%) translateY(3%) rotate(1deg); }
+  100% { transform: translateX(-7%) translateY(-5%) rotate(-2.5deg); }
+}
+
+@keyframes neon-drift-3 {
+  0% { transform: translateX(-5%) translateY(6%) rotate(2deg); }
+  100% { transform: translateX(9%) translateY(-3%) rotate(-1.5deg); }
+}
+
+@keyframes neon-pulse {
+  0% { opacity: 0.62; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1.04); }
 }
 
 @keyframes aura-spin {
