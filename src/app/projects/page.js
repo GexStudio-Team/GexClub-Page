@@ -20,7 +20,6 @@ export default function Projects() {
 
   return (
     <div className="px-6 lg:px-16 py-20">
-      <WormWave />
       <SectionHeader index="04" title="Proyectos" subtitle="El vault. La prueba de que la excelencia no es una promesa: es un repositorio." />
 
       <div
@@ -33,10 +32,11 @@ export default function Projects() {
           backgroundSize: '32px 32px',
         }}
       >
+        <WormWave className="absolute inset-0 w-full h-full mix-blend-screen" />
         <div className="gex-glow pointer-events-none absolute right-4 bottom-0 h-36 w-36 md:right-16 md:bottom-2 md:h-52 md:w-52">
           <Image src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" width={1254} height={1254} className="gex-float h-full w-full object-contain mix-blend-screen" />
         </div>
-        <div className="font-display text-2xl md:text-4xl font-bold uppercase tracking-tight text-balance max-w-lg">
+        <div className="relative font-display text-2xl md:text-4xl font-bold uppercase tracking-tight text-balance max-w-lg">
           {COMMUNITY_STATUS.projects}
         </div>
       </div>

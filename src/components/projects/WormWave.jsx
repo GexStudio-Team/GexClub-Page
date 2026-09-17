@@ -1,25 +1,23 @@
 /**
- * WormWave — Gusano diagonal que barre la ventana de Proyectos.
+ * WormWave — Gusano de aurora boreal que barre el recuadro "Proyectos actuales"
+ * de la ventana de Proyectos (banner del vault).
  *
- * Un cuerpo segmentado (tipo lombriz, protuberancias redondeadas alternadas,
- * NO una onda de radio fina) que avanza en diagonal desde la esquina
- * inferior izquierda hacia la superior derecha, tapando toda la pantalla,
- * y que al volver se destapa desde el lugar donde comenzó. Loop infinito.
+ * Una banda segmentada (tipo lombriz, protuberancias redondeadas alternadas,
+ * NO una onda de radio fina) que cruza el recuadro en diagonal, de la esquina
+ * inferior izquierda a la superior derecha, con colores de aurora boreal viva
+ * en tonos pastel llamativos (rosa, fucsia, violeta, azul, cian esmeralda).
+ * La cola es transparente: al volver, el rastro se destapa desde el lugar
+ * donde comenzó. Loop infinito con regreso suave.
  *
- * - La banda/cuerpo es más ancha que la diagonal del viewport: al pasar por
- *   el centro cubre la pantalla completa (fase "tapa todo").
- * - Gradiente de opacidad a lo largo del cuerpo: cola transparente
- *   (destape desde el inicio) → frente opaco (tapa).
- * - Borde delantero con glow (feGaussianBlur + feMerge) en colores Gex Club.
- * - Animación SMIL pura (sin JS): translate a lo largo de la diagonal con
- *   regreso suave = "vuelva y empiece".
+ * Uso dentro de un contenedor con `relative overflow-hidden`:
+ *   <WormWave className="absolute inset-0 w-full h-full mix-blend-screen" />
  */
-const X0 = -2600;
-const X1 = 2600;
-const Y0 = 1500;
-const SEG = 240;
-const AMP1 = 190;
-const AMP2 = 100;
+const X0 = -1500;
+const X1 = 1500;
+const Y0 = 420;
+const SEG = 220;
+const AMP1 = 170;
+const AMP2 = 95;
 
 /** Borde superior ondulado (gusanos segmentados) de x0 a x1. */
 function buildTopEdge(x0 = X0, x1 = X1) {
@@ -52,12 +50,12 @@ function buildBody() {
   return `${d} Z`;
 }
 
-// Recorrido del frente sobre la pantalla local (viewBox 1000x1000, diagonal ±~707)
+// Recorrido del frente sobre el viewBox 1000x1000 (diagonal ±~707)
 const R = 1000 * Math.SQRT1_2; // ≈ 707
 const T_START = Math.round(-R - X1); // frente fuera por la izquierda
 const T_END = Math.round(R - X1); // frente fuera por la derecha
 
-export default function WormWave({ className = 'fixed inset-0 z-[80] pointer-events-none' }) {
+export default function WormWave({ className = 'absolute inset-0 w-full h-full mix-blend-screen' }) {
   const bodyD = buildBody();
   const topD = buildTopEdge();
   const translateValues = `${T_START} 0; ${T_END} 0; ${T_START} 0`;
@@ -65,26 +63,38 @@ export default function WormWave({ className = 'fixed inset-0 z-[80] pointer-eve
   return (
     <svg className={className} viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
       <defs>
+        {/* Cuerpo: aurora boreal pastel viva (rosa → fucsia → violeta → azul → cian → esmeralda) */}
         <linearGradient id="wormBody" gradientUnits="userSpaceOnUse" gradientTransform="rotate(-45 500 500)" x1={X0} y1="0" x2={X1} y2="0">
-          <stop offset="0%" stopColor="var(--background)" stopOpacity="0" />
-          <stop offset="25%" stopColor="var(--background)" stopOpacity="0" />
-          <stop offset="38%" stopColor="var(--background)" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="var(--background)" stopOpacity="0.97" />
+          <stop offset="0%" stopColor="#f9a8d4" stopOpacity="0" />
+          <stop offset="22%" stopColor="#f9a8d4" stopOpacity="0.45" />
+          <stop offset="36%" stopColor="#e879f9" stopOpacity="0.65" />
+          <stop offset="50%" stopColor="#c084fc" stopOpacity="0.8" />
+          <stop offset="63%" stopColor="#60a5fa" stopOpacity="0.85" />
+          <stop offset="78%" stopColor="#22d3ee" stopOpacity="0.8" />
+          <stop offset="92%" stopColor="#34d399" stopOpacity="0.6" />
+          <stop offset="100%" stopColor="#a78bfa" stopOpacity="0.5" />
         </linearGradient>
+
+        {/* Borde delantero: pastel brillante */}
         <linearGradient id="wormEdge" gradientUnits="userSpaceOnUse" gradientTransform="rotate(-45 500 500)" x1={X0} y1="0" x2={X1} y2="0">
-          <stop offset="0%" stopColor="#008BFE" />
-          <stop offset="50%" stopColor="#8b5cf6" />
-          <stop offset="100%" stopColor="#22d3ee" />
+          <stop offset="0%" stopColor="#f9a8d4" />
+          <stop offset="45%" stopColor="#e879f9" />
+          <stop offset="70%" stopColor="#22d3ee" />
+          <stop offset="100%" stopColor="#34d399" />
         </linearGradient>
+
+        {/* Glow Path Effect — brillo vivo alrededor del perfil del gusano */}
         <filter id="wormGlow" x="-60%" y="-260%" width="220%" height="620%">
-          <feGaussianBlur stdDeviation="14" result="blur" />
+          <feGaussianBlur stdDeviation="12" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
+
+        {/* Halo difuso — luz de aurora que envuelve al gusano */}
         <filter id="wormHalo" x="-60%" y="-260%" width="220%" height="620%">
-          <feGaussianBlur stdDeviation="34" result="blur" />
+          <feGaussianBlur stdDeviation="30" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
             <feMergeNode in="SourceGraphic" />
@@ -92,27 +102,15 @@ export default function WormWave({ className = 'fixed inset-0 z-[80] pointer-eve
         </filter>
       </defs>
 
-      {/* Cuerpo (tapón) alineado con la diagonal, animado de izq-inf → der-sup */}
+      {/* Cuerpo alineado con la diagonal, animado de izq-inf → der-sup */}
       <g transform="rotate(-45 500 500)">
-        <path d={bodyD} fill="url(#wormBody)">
-          <animateTransform
-            attributeName="transform"
-            type="translate"
-            dur="11s"
-            repeatCount="indefinite"
-            calcMode="spline"
-            keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"
-            keyTimes="0; 0.5; 1"
-            values={translateValues}
-          />
-        </path>
-
+        <path d={bodyD} fill="url(#wormBody)" />
         {/* Halo difuso del borde delantero */}
-        <path d={topD} fill="none" stroke="url(#wormEdge)" strokeWidth="34" strokeLinecap="round" filter="url(#wormHalo)" opacity="0.35">
+        <path d={topD} fill="none" stroke="url(#wormEdge)" strokeWidth="34" strokeLinecap="round" filter="url(#wormHalo)" opacity="0.4">
           <animateTransform
             attributeName="transform"
             type="translate"
-            dur="11s"
+            dur="10s"
             repeatCount="indefinite"
             calcMode="spline"
             keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"
@@ -120,13 +118,12 @@ export default function WormWave({ className = 'fixed inset-0 z-[80] pointer-eve
             values={translateValues}
           />
         </path>
-
         {/* Glow nítido del borde delantero (el perfil del gusano) */}
-        <path d={topD} fill="none" stroke="url(#wormEdge)" strokeWidth="10" strokeLinecap="round" filter="url(#wormGlow)" opacity="0.85">
+        <path d={topD} fill="none" stroke="url(#wormEdge)" strokeWidth="9" strokeLinecap="round" filter="url(#wormGlow)" opacity="0.95">
           <animateTransform
             attributeName="transform"
             type="translate"
-            dur="11s"
+            dur="10s"
             repeatCount="indefinite"
             calcMode="spline"
             keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"
