@@ -1,10 +1,11 @@
 import { Users, Calendar, Check } from 'lucide-react';
+import { Users, Calendar, Clock, MapPin } from 'lucide-react';
+import { formatDateEs } from '@/lib/utils';
 
-export default function EventList({ events, onRegister }) {
+export default function EventList({ events }) {
   return (
     <div className="border border-border divide-y divide-border">
       {events.map((ev) => {
-        const full = ev.registered >= ev.capacity;
         const finished = ev.status === 'finalizado';
         const registered = ev.registered_by_me;
         return (
@@ -16,12 +17,14 @@ export default function EventList({ events, onRegister }) {
               </div>
               <h4 className="font-display font-bold text-lg uppercase tracking-tight">{ev.name}</h4>
               <p className="text-sm text-muted-foreground mt-1 max-w-xl">{ev.description}</p>
-              <div className="flex items-center gap-4 mt-3 font-mono text-xs text-muted-foreground">
-                <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {ev.registered}/{ev.capacity}</span>
+              <div className="flex flex-wrap items-center gap-4 mt-3 font-mono text-xs text-muted-foreground">
+                <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {ev.capacity}</span>
                 <span className="flex items-center gap-1">
                   <Calendar className="w-3.5 h-3.5" />
-                  {new Date(ev.date).toLocaleDateString('es', { day: '2-digit', month: 'short', year: 'numeric' })}
+                  {formatDateEs(ev.date)}
                 </span>
+                <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {ev.time}</span>
+                <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> {ev.location}</span>
               </div>
             </div>
             <button
@@ -43,6 +46,15 @@ export default function EventList({ events, onRegister }) {
                 'Register >'
               )}
             </button>
+            {finished ? (
+              <span className="shrink-0 font-mono text-xs uppercase tracking-wider border border-border px-4 py-2 opacity-40">
+                Cerrado
+              </span>
+            ) : (
+              <span className="shrink-0 font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                Inscripción arriba ↑
+              </span>
+            )}
           </div>
         );
       })}

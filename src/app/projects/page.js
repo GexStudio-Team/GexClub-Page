@@ -1,7 +1,9 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import Image from 'next/image';
 import SectionHeader from '@/components/layout/SectionHeader';
 import ProjectCard from '@/components/projects/ProjectCard';
+import { COMMUNITY_STATUS, PROJECTS } from '@/lib/content';
 
 const FILTERS = [
   { key: 'todos', label: 'Todos' },
@@ -11,36 +13,29 @@ const FILTERS = [
 ];
 
 export default function Projects() {
-  const [projects, setProjects] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('todos');
 
-  useEffect(() => {
-    fetch('/api/projects')
-      .then((res) => res.json())
-      .then(setProjects)
-      .finally(() => setLoading(false));
-  }, []);
-
-  const filtered = filter === 'todos' ? projects : projects.filter((p) => p.category === filter);
+  const filtered = filter === 'todos' ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
 
   return (
     <div className="px-6 lg:px-16 py-20">
       <SectionHeader index="04" title="Proyectos" subtitle="El vault. La prueba de que la excelencia no es una promesa: es un repositorio." />
 
-      <div
-        className="relative border border-border bg-card h-48 md:h-64 mb-16 overflow-hidden flex flex-col justify-center p-8 lg:p-12"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(163, 230, 53, 0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(163, 230, 53, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '32px 32px',
-        }}
-      >
-        <div className="font-mono text-xs uppercase tracking-widest text-primary mb-2">// the_vault</div>
-        <div className="font-display text-2xl md:text-4xl font-bold uppercase tracking-tight text-balance max-w-lg">
-          {loading ? 'Build in progress…' : `${projects.length} proyectos construidos`}
+      <div className="relative border border-primary/25 h-48 md:h-64 mb-16 overflow-hidden flex flex-col justify-center p-8 lg:p-12">
+        {/* Fondo negro profundo + auroras neón fluidas */}
+        <div className="aurora-neon absolute inset-0" />
+        <div className="aurora-neon-core absolute inset-0" />
+        <div className="aurora-neon-wave aurora-neon-wave-1 absolute inset-0" />
+        <div className="aurora-neon-wave aurora-neon-wave-2 absolute inset-0" />
+        <div className="aurora-neon-wave aurora-neon-wave-3 absolute inset-0" />
+        <div className="aurora-neon-line absolute inset-x-0 top-0 h-px" />
+        <div className="aurora-neon-grid pointer-events-none absolute inset-0" />
+
+        <div className="gex-glow pointer-events-none absolute right-4 bottom-0 h-36 w-36 md:right-16 md:bottom-2 md:h-52 md:w-52">
+          <Image src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" width={1254} height={1254} className="gex-float h-full w-full object-contain mix-blend-screen" />
+        </div>
+        <div className="relative neon-title font-display text-2xl md:text-4xl font-bold uppercase tracking-tight text-balance max-w-lg">
+          {COMMUNITY_STATUS.projects}
         </div>
       </div>
 
@@ -58,15 +53,9 @@ export default function Projects() {
         ))}
       </div>
 
-      {loading ? (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[...Array(6)].map((_, i) => (
-            <div key={i} className="border border-border bg-card h-96 animate-pulse" />
-          ))}
-        </div>
-      ) : filtered.length === 0 ? (
+      {filtered.length === 0 ? (
         <div className="border border-border bg-card p-12 text-center font-mono text-sm text-muted-foreground uppercase tracking-wider">
-          // sin proyectos en esta categoría
+          Sin proyectos en esta categoría
         </div>
       ) : (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

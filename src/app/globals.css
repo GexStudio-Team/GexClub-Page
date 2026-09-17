@@ -89,36 +89,44 @@
 
 .dark {
   --background: oklch(0.14 0 0);
+  --background: oklch(0.15 0.025 270);
   --foreground: oklch(0.98 0 0);
-  --card: oklch(0.18 0 0);
+  --card: oklch(0.19 0.03 270);
   --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.18 0 0);
+  --popover: oklch(0.19 0.03 270);
   --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.87 0.25 130);
-  --primary-foreground: oklch(0.14 0 0);
-  --secondary: oklch(0.22 0 0);
+  --primary: oklch(0.66 0.22 255);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.25 0.05 280);
   --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.22 0 0);
-  --muted-foreground: oklch(0.63 0 0);
-  --accent: oklch(0.87 0.25 130);
-  --accent-foreground: oklch(0.14 0 0);
+  --muted: oklch(0.24 0.035 270);
+  --muted-foreground: oklch(0.72 0.035 270);
+  --accent: oklch(0.61 0.24 305);
+  --accent-foreground: oklch(0.98 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.28 0 0);
-  --input: oklch(0.28 0 0);
-  --ring: oklch(0.87 0.25 130);
+  --border: oklch(0.32 0.045 270);
+  --input: oklch(0.32 0.045 270);
+  --ring: oklch(0.66 0.22 255);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --sidebar: oklch(0.16 0 0);
+  --radius: 0.25rem;
+  --sidebar: oklch(0.17 0.03 270);
   --sidebar-foreground: oklch(0.9 0 0);
-  --sidebar-primary: oklch(0.87 0.25 130);
-  --sidebar-primary-foreground: oklch(0.14 0 0);
-  --sidebar-accent: oklch(0.22 0 0);
+  --sidebar-primary: oklch(0.66 0.22 255);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.25 0.05 280);
   --sidebar-accent-foreground: oklch(0.98 0 0);
   --sidebar-border: oklch(0.28 0 0);
   --sidebar-ring: oklch(0.87 0.25 130);
+  --sidebar-border: oklch(0.32 0.045 270);
+  --sidebar-ring: oklch(0.66 0.22 255);
+  --font-display: 'JetBrains Mono', ui-monospace, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -149,10 +157,294 @@
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
+  .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
   .grid-blueprint {
-    background-image: linear-gradient(to right, var(--border) 1px, transparent 1px);
+    background-image: linear-gradient(to right, color-mix(in oklch, var(--primary) 35%, transparent) 1px, transparent 1px);
     background-size: calc(100% / 12) 100%;
   }
+  .gex-float { animation: gex-float 6s ease-in-out infinite; }
+  .gex-glow { animation: gex-glow 4s ease-in-out infinite; }
+
+  /* Aurora boreal horizontal animada (colores del logo Gex Club) */
+  .aurora-boreal {
+    background-image:
+      radial-gradient(ellipse 55% 40% at 8% 45%, rgba(0, 139, 254, 0.5), transparent 62%),
+      radial-gradient(ellipse 45% 38% at 38% 28%, rgba(139, 92, 246, 0.45), transparent 62%),
+      radial-gradient(ellipse 50% 42% at 72% 62%, rgba(0, 180, 255, 0.42), transparent 62%),
+      radial-gradient(ellipse 38% 34% at 88% 22%, rgba(168, 85, 247, 0.38), transparent 62%),
+      linear-gradient(to right, rgba(0, 139, 254, 0.12), rgba(139, 92, 246, 0.1), rgba(0, 180, 255, 0.12));
+    background-size: 260% 260%, 260% 260%, 260% 260%, 260% 260%, 100% 100%;
+    animation: aurora-drift 16s ease-in-out infinite alternate;
+  }
+
+  /* Aurora viva para fondos de cards: colores pastel Gex en movimiento lento */
+  .aurora-card {
+    background-image:
+      radial-gradient(ellipse 62% 48% at 8% 40%, rgba(0, 139, 254, 0.7), transparent 60%),
+      radial-gradient(ellipse 52% 42% at 36% 22%, rgba(168, 85, 247, 0.62), transparent 60%),
+      radial-gradient(ellipse 56% 46% at 74% 62%, rgba(0, 180, 255, 0.6), transparent 60%),
+      radial-gradient(ellipse 42% 36% at 90% 18%, rgba(232, 121, 249, 0.5), transparent 60%),
+      linear-gradient(to right, rgba(0, 139, 254, 0.2), rgba(168, 85, 247, 0.16), rgba(0, 180, 255, 0.2));
+    background-size: 340% 340%, 300% 300%, 340% 340%, 300% 300%, 100% 100%;
+    animation: aurora-card-drift 7s ease-in-out infinite alternate;
+  }
+
+  /* Barrido de luz que atraviesa la card en diagonal (llamativo) */
+  .aurora-beam {
+    background: linear-gradient(115deg, transparent 32%, rgba(122, 190, 255, 0.18) 44%, rgba(196, 160, 255, 0.26) 50%, rgba(96, 220, 255, 0.18) 56%, transparent 68%);
+    background-size: 230% 230%;
+    animation: aurora-beam-sweep 4.5s ease-in-out infinite;
+  }
+
+  /* ===== Auroras neón fluidas — banner Proyectos =====
+     Fondo negro profundo + ondas etéreas de energía interna en
+     los colores del logo: azul #1687FF, violeta #7747FF, celeste
+     #00B4FF — oscilando suavemente con resplandor. */
+  .aurora-neon {
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 125%, rgba(22, 135, 255, 0.22), transparent 60%),
+      radial-gradient(ellipse 70% 55% at 12% -15%, rgba(119, 71, 255, 0.2), transparent 62%),
+      radial-gradient(ellipse 65% 48% at 92% 8%, rgba(0, 180, 255, 0.22), transparent 60%),
+      linear-gradient(to bottom, #05040e, #000);
+  }
+
+  .aurora-neon-wave {
+    position: absolute;
+    inset: -60% -40%;
+    filter: blur(30px) saturate(1.35);
+    mix-blend-mode: screen;
+    opacity: 0.85;
+    pointer-events: none;
+  }
+
+  .aurora-neon-wave-1 {
+    background: linear-gradient(115deg, rgba(0, 180, 255, 0.5), rgba(119, 71, 255, 0.42) 45%, rgba(22, 135, 255, 0.5));
+    animation: neon-drift-1 12s ease-in-out infinite alternate;
+  }
+
+  .aurora-neon-wave-2 {
+    background: linear-gradient(200deg, rgba(139, 92, 246, 0.42), rgba(0, 180, 255, 0.4) 55%, rgba(22, 135, 255, 0.4));
+    animation: neon-drift-2 16s ease-in-out infinite alternate;
+  }
+
+  .aurora-neon-wave-3 {
+    background: linear-gradient(70deg, rgba(0, 139, 254, 0.44), rgba(119, 71, 255, 0.4) 50%, rgba(0, 180, 255, 0.46));
+    animation: neon-drift-3 20s ease-in-out infinite alternate;
+  }
+
+  /* Núcleo luminoso pulsante (energía interna) */
+  .aurora-neon-core {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 30% 38%, rgba(0, 180, 255, 0.3), transparent 44%),
+      radial-gradient(circle at 72% 55%, rgba(119, 71, 255, 0.3), transparent 44%),
+      radial-gradient(circle at 50% 88%, rgba(22, 135, 255, 0.34), transparent 50%);
+    filter: blur(46px);
+    mix-blend-mode: screen;
+    animation: neon-pulse 7s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+
+  /* Línea superior de luz neón */
+  .aurora-neon-line {
+    background: linear-gradient(to right, transparent, rgba(0, 180, 255, 0.85), rgba(22, 135, 255, 0.85), rgba(119, 71, 255, 0.85), transparent);
+  }
+
+  /* Cuadrícula blueprint reincorporada sobre las auroras del banner */
+  .aurora-neon-grid {
+    background-image:
+      linear-gradient(to right, rgba(22, 135, 255, 0.22) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(119, 71, 255, 0.22) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Tipografía iluminada (resplandor suave) */
+  .neon-title {
+    text-shadow:
+      0 0 14px rgba(0, 139, 254, 0.5),
+      0 0 34px rgba(119, 71, 255, 0.5),
+      0 0 70px rgba(0, 180, 255, 0.35);
+  }
+
+  /* Botón con aura giratoria */
+  .aura-btn { position: relative; isolation: isolate; overflow: hidden; }
+  .aura-btn::before {
+    content: '';
+    position: absolute;
+    inset: -80%;
+    z-index: -1;
+    background: conic-gradient(from 0deg, transparent 0deg, var(--aura-color, rgba(0, 139, 254, 0.75)) 40deg, transparent 90deg, transparent 180deg, rgba(139, 92, 246, 0.55) 220deg, transparent 270deg);
+    animation: aura-spin 5s linear infinite;
+  }
+  .aura-btn-red { --aura-color: rgba(255, 59, 48, 0.85); }
+
+  /* ===== Botón premium: borde vivo + barrido de luz + rebote ===== */
+  .btn-live {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    color: #eaf6ff;
+    background:
+      linear-gradient(#0b0e1c, #0b0e1c) padding-box,
+      linear-gradient(120deg, #00b4ff, #7747ff 38%, #1687ff 72%, #00b4ff) border-box;
+    border: 1px solid transparent;
+    background-size: 100% 100%, 320% 100%;
+    animation: border-flow 7s linear infinite;
+    transition:
+      color 0.35s ease,
+      letter-spacing 0.35s ease,
+      box-shadow 0.45s ease,
+      transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .btn-live::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 36%, rgba(160, 220, 255, 0.45) 46%, rgba(255, 255, 255, 0.85) 50%, rgba(160, 220, 255, 0.45) 54%, transparent 64%);
+    transform: translateX(-140%) skewX(-10deg);
+    transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-live:hover::before { transform: translateX(140%) skewX(-10deg); }
+  .btn-live:hover {
+    color: #ffffff;
+    letter-spacing: 0.3em;
+    box-shadow:
+      0 0 0 1px rgba(0, 180, 255, 0.28),
+      0 0 34px -6px rgba(0, 180, 255, 0.6),
+      0 0 70px -12px rgba(119, 71, 255, 0.55);
+    transform: translateY(-2px);
+  }
+  .btn-live svg {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease;
+  }
+  .btn-live:hover svg {
+    transform: translate(5px, -5px) scale(1.15);
+    filter: drop-shadow(0 0 8px rgba(0, 180, 255, 0.9));
+  }
+
+  /* Variante roja — reto / urgencia */
+  .btn-live-red {
+    color: #ffe9e6;
+    background:
+      linear-gradient(#160a0c, #160a0c) padding-box,
+      linear-gradient(120deg, #ff3b30, #ff9f0a 50%, #ff3b30) border-box;
+    background-size: 100% 100%, 320% 100%;
+    animation: border-flow 7s linear infinite;
+  }
+  .btn-live-red:hover {
+    box-shadow:
+      0 0 0 1px rgba(255, 59, 48, 0.3),
+      0 0 34px -6px rgba(255, 59, 48, 0.6),
+      0 0 70px -12px rgba(255, 159, 10, 0.5);
+  }
+  .btn-live-red:hover svg { filter: drop-shadow(0 0 8px rgba(255, 120, 60, 0.95)); }
+
+  /* ===== Card flotante (video / imagen) ===== */
+  .float-wrap { animation: float-y 7s ease-in-out infinite; }
+  .float-card {
+    position: relative;
+    isolation: isolate;
+    border-radius: 1.25rem;
+    padding: 0.4rem;
+    background:
+      linear-gradient(#0d1020, #0d1020) padding-box,
+      linear-gradient(130deg, rgba(22, 135, 255, 0.95), rgba(119, 71, 255, 0.8) 45%, rgba(0, 180, 255, 0.95)) border-box;
+    border: 1px solid transparent;
+    background-size: 100% 100%, 280% 100%;
+    animation: border-flow 9s linear infinite;
+    box-shadow:
+      0 34px 60px -24px rgba(0, 139, 254, 0.4),
+      0 0 60px -18px rgba(139, 92, 246, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.55s ease;
+  }
+  .float-card:hover {
+    transform: translateY(-6px) rotate(-1.2deg);
+    box-shadow:
+      0 44px 70px -26px rgba(0, 139, 254, 0.55),
+      0 0 80px -16px rgba(139, 92, 246, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* Entrada ascendente escalonable */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+@keyframes aurora-drift {
+  0% { background-position: 0% 45%, 0% 45%, 0% 45%, 0% 45%, 0% 50%; }
+  50% { background-position: 55% 55%, 48% 40%, 60% 50%, 52% 35%, 55% 50%; }
+  100% { background-position: 100% 45%, 100% 45%, 100% 45%, 100% 45%, 100% 50%; }
+}
+
+@keyframes aurora-card-drift {
+  0% { background-position: 0% 30%, 100% 55%, 0% 45%, 100% 20%, 0% 50%; }
+  50% { background-position: 55% 55%, 45% 30%, 60% 28%, 42% 68%, 55% 50%; }
+  100% { background-position: 100% 30%, 0% 55%, 100% 45%, 0% 20%, 100% 50%; }
+}
+
+@keyframes aurora-beam-sweep {
+  0% { background-position: -60% -60%; opacity: 0.25; }
+  30% { opacity: 1; }
+  55% { background-position: 160% 160%; opacity: 0.25; }
+  100% { background-position: 160% 160%; opacity: 0; }
+}
+
+@keyframes neon-drift-1 {
+  0% { transform: translateX(-8%) translateY(-4%) rotate(-2deg); }
+  50% { transform: translateX(6%) translateY(4%) rotate(1.5deg); }
+  100% { transform: translateX(-2%) translateY(-6%) rotate(-1deg); }
+}
+
+@keyframes neon-drift-2 {
+  0% { transform: translateX(6%) translateY(3%) rotate(1deg); }
+  100% { transform: translateX(-7%) translateY(-5%) rotate(-2.5deg); }
+}
+
+@keyframes neon-drift-3 {
+  0% { transform: translateX(-5%) translateY(6%) rotate(2deg); }
+  100% { transform: translateX(9%) translateY(-3%) rotate(-1.5deg); }
+}
+
+@keyframes neon-pulse {
+  0% { opacity: 0.62; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1.04); }
+}
+
+@keyframes aura-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes border-flow {
+  0% { background-position: 0% 50%, 0% 50%; }
+  100% { background-position: 0% 50%, 300% 50%; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes fade-up {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gex-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+
+@keyframes gex-glow {
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(22, 135, 255, 0.24)); }
+  50% { filter: drop-shadow(0 0 28px rgba(139, 61, 255, 0.5)); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,5 +1,9 @@
+'use client';
+
+import Image from 'next/image';
 import SectionHeader from '@/components/layout/SectionHeader';
 import { Cpu, Users2, Rocket, ShieldCheck } from 'lucide-react';
+import { COMMUNITY_STATUS, PROJECTS } from '@/lib/content';
 
 export const metadata = {
   title: 'Sobre Nosotros',
@@ -21,33 +25,35 @@ export default function About() {
 
       <section className="grid lg:grid-cols-2 border border-border mb-24">
         <div
-          className="relative border-b lg:border-b-0 lg:border-r border-border bg-card min-h-[40vh] overflow-hidden"
+          className="hidden lg:block relative border-r border-border bg-card min-h-[40vh] overflow-hidden"
           style={{
             backgroundImage: `
-              linear-gradient(to right, rgba(163, 230, 53, 0.08) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(163, 230, 53, 0.08) 1px, transparent 1px)
+              linear-gradient(to right, rgba(22, 135, 255, 0.14) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(119, 71, 255, 0.14) 1px, transparent 1px)
             `,
             backgroundSize: '32px 32px',
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background/60 to-primary/10" />
-          <div className="absolute bottom-6 left-6 font-mono text-[10px] uppercase tracking-widest text-primary">// since_2024</div>
+          <Image src="/brand/frame2.jpg" alt="Comunidad Gex Club — jóvenes creando tecnología" width={736} height={981} className="h-full w-full object-cover object-center" fetchPriority="high" />
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
         </div>
-        <div className="p-8 lg:p-12 space-y-6">
+        <div className="p-6 sm:p-8 lg:p-12 space-y-6">
+          <div className="lg:hidden relative w-40 sm:w-48 float-right ml-5 mb-3 overflow-hidden rounded-sm border border-primary/20 shadow-[0_0_35px_rgba(22,135,255,0.14)]">
+            <Image src="/brand/frame2.jpg" alt="Comunidad Gex Club — jóvenes creando tecnología" width={736} height={981} className="h-full w-full object-cover" />
+          </div>
           <div className="font-mono text-xs uppercase tracking-widest text-primary">&lt;who_we_are&gt;</div>
           <p className="text-lg leading-relaxed">
-            Somos un ecosistema tecnológico juvenil donde jóvenes de 14 a 18 años
-            desarrollan software, crean videojuegos y compiten en hackathons. No somos
-            un club escolar: somos una comunidad que trata el talento joven con el
-            estándar de la industria.
+            Somos una comunidad tecnológica donde personas de todas las edades desarrollan
+            software, crean videojuegos y se conectan mediante retos y hackathons. No somos
+            un club escolar: somos una comunidad que trata las ideas con el estándar de la industria.
           </p>
           <p className="text-muted-foreground leading-relaxed">
             GEX nació de una convicción simple: el talento no tiene edad. Conectamos a
-            adolescentes apasionados por la tecnología en un entorno donde pueden
+            personas apasionadas por la tecnología en un entorno donde pueden
             equivocarse, aprender rápido y construir cosas que importan.
           </p>
           <div className="grid grid-cols-3 gap-px bg-border border border-border mt-6">
-            {[{ n: '128', l: 'Miembros' }, { n: '34', l: 'Proyectos' }, { n: '12', l: 'Hackathons' }].map((s) => (
+            {[{ n: '✦', l: COMMUNITY_STATUS.members }, { n: String(PROJECTS.length).padStart(2, '0'), l: COMMUNITY_STATUS.projects }, { n: '01', l: COMMUNITY_STATUS.events }].map((s) => (
               <div key={s.l} className="bg-background p-4 text-center">
                 <div className="font-display text-2xl font-bold text-primary">{s.n}</div>
                 <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-1">{s.l}</div>

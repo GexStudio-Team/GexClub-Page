@@ -1,6 +1,7 @@
 import Hero from '@/components/home/Hero';
 import PillarsGrid from '@/components/home/PillarsGrid';
 import MissionSection from '@/components/home/MissionSection';
+import CommunityInviteSection from '@/components/home/CommunityInviteSection';
 import EventsPreview from '@/components/home/EventsPreview';
 import CtaBand from '@/components/home/CtaBand';
 import Reveal from '@/components/layout/Reveal';
@@ -19,6 +20,11 @@ export default function Home() {
       <Reveal><MissionSection /></Reveal>
       <Reveal><EventsPreview /></Reveal>
       <Reveal><CtaBand /></Reveal>
+      <PillarsGrid />
+      <MissionSection />
+      <CommunityInviteSection />
+      <EventsPreview />
+      <CtaBand />
     </>
   );
 }

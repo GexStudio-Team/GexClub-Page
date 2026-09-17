@@ -1,11 +1,15 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { SiInstagram, SiGithub, SiDiscord } from '@icons-pack/react-simple-icons';
+import { SiInstagram, SiGithub } from '@icons-pack/react-simple-icons';
+import { SOCIALS as SOCIAL_LINKS } from '@/lib/content';
 
 const SOCIALS = [
   { label: 'Instagram', href: 'https://www.instagram.com/joingexclub/', icon: SiInstagram },
   { label: 'GitHub', href: 'https://github.com/GexStudio-Team', icon: SiGithub },
   { label: 'Discord', href: 'https://discord.com', icon: SiDiscord },
+  { label: 'Instagram', href: SOCIAL_LINKS.instagram, icon: SiInstagram },
+  { label: 'GitHub', href: SOCIAL_LINKS.github, icon: SiGithub },
 ];
 
 const LINKS = [
@@ -16,17 +20,17 @@ const LINKS = [
   { label: 'Proyectos', href: '/projects' },
   { label: 'Blog', href: '/blog' },
   { label: 'FAQ', href: '/faq' },
+  { label: 'Preguntas frecuentes', href: '/faq' },
+  { label: 'Contacto y alianzas', href: '/contacto' },
 ];
 
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-card">
       <div className="px-6 lg:px-16 py-16">
-        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
-          <div>
-            <div className="font-display text-2xl font-bold tracking-tighter">
-              GEX<span className="text-primary">_CLUB</span>
-            </div>
+        <div className="grid grid-cols-2 gap-x-8 gap-y-12 md:grid-cols-[1.5fr_1fr_1fr]">
+          <div className="col-span-2 md:col-span-1">
+            <Image src="/brand/gex-club-logo-dark.png" alt="GEX_CLUB" width={177} height={89} className="h-10 w-auto object-contain" />
             <p className="mt-4 max-w-sm text-muted-foreground text-sm leading-relaxed">
               Global Ecosystem for eXcellence. Forjamos el futuro construyendo software,
               videojuegos y comunidad, juntos.

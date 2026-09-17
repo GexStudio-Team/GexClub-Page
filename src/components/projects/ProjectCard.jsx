@@ -1,20 +1,49 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowUpRight, FolderOpen } from 'lucide-react';
+
 export default function ProjectCard({ project }) {
   return (
-    <div className="border border-border bg-card overflow-hidden group hover:border-primary/50 transition-colors">
+    <Link href={`/projects/${project.slug}`} className="block border border-border bg-card overflow-hidden group transition-all duration-300 hover:-translate-y-1 hover:border-primary/70 focus-visible:-translate-y-1">
       <div
         className="h-40 relative overflow-hidden"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(163, 230, 53, 0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(163, 230, 53, 0.1) 1px, transparent 1px)
+            linear-gradient(to right, rgba(22, 135, 255, 0.14) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(119, 71, 255, 0.14) 1px, transparent 1px)
           `,
           backgroundSize: '24px 24px',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/40 to-primary/10" />
+        <div className={`absolute inset-0 bg-gradient-to-br ${project.accent}`} />
+        {project.slug === 'gex-os' ? (
+          <div className="absolute inset-0 flex flex-col justify-center px-6 gap-1.5 opacity-80">
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className="h-2 w-2 rounded-full bg-red-500/70" />
+              <span className="h-2 w-2 rounded-full bg-yellow-500/70" />
+              <span className="h-2 w-2 rounded-full bg-green-500/70" />
+              <span className="ml-2 font-mono text-[9px] uppercase tracking-widest text-muted-foreground">gex_os --boot</span>
+            </div>
+            {['> init gex_core ...', '> loading modules [ok]', '> system online'].map((line) => (
+              <span key={line} className="font-mono text-[9px] text-primary/80">{line}</span>
+            ))}
+          </div>
+        ) : (
+          <>
+            <div className="aurora-card absolute inset-0 mix-blend-screen" />
+            <div className="aurora-beam absolute inset-0 mix-blend-screen" />
+          </>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/15 to-transparent" />
+        <Image src="/brand/gex-mark-dark.png" alt="" width={1254} height={1254} className="absolute right-3 bottom-[-1.5rem] h-32 w-32 object-contain opacity-70 mix-blend-screen transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6" />
         <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-widest border border-border px-2 py-0.5 bg-background/70 backdrop-blur">
           {project.category}
         </span>
+        <div className="absolute inset-0 flex items-center justify-center bg-background/90 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+          <span className="inline-flex items-center gap-2 border border-primary/60 bg-primary/10 px-4 py-2 font-mono text-xs uppercase tracking-wider text-primary transition-transform duration-300 translate-y-3 group-hover:translate-y-0 group-focus-visible:translate-y-0">
+            <FolderOpen className="h-4 w-4" /> Abrir ficha
+          </span>
+        </div>
       </div>
       <div className="p-6">
         <h4 className="font-display font-bold text-lg uppercase tracking-tight">{project.name}</h4>
@@ -24,10 +53,14 @@ export default function ProjectCard({ project }) {
             <span key={t} className="font-mono text-[10px] uppercase tracking-wider border border-border px-2 py-0.5 text-muted-foreground">{t}</span>
           ))}
         </div>
-        <div className="mt-4 pt-4 border-t border-border font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-          {project.members} miembros
+        <div className="mt-4 flex items-center justify-between gap-3 border-t border-border pt-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+          <span className="truncate">
+            {project.members}
+            {project.developer ? <span className="text-primary/90"> · {project.developer}</span> : null}
+          </span>
+          <span className="inline-flex items-center gap-1 text-primary shrink-0">Ver ficha <ArrowUpRight className="h-3.5 w-3.5" /></span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

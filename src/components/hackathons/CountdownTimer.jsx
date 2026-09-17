@@ -13,8 +13,14 @@ function getTimeLeft(targetDate) {
 }
 
 export default function CountdownTimer({ targetDate }) {
+  // Estado inicial computado de forma perezosa; el valor puede diferir entre el
+  // server (SSG) y el cliente porque usa Date.now(). La diferencia es intencional
+  // (un reloj en vivo), por eso los numeros llevan suppressHydrationWarning
+  // (escape hatch documentado por React para contenido basado en tiempo).
   const [time, setTime] = useState(() => getTimeLeft(targetDate));
 
+  // Sin setState sincrono en el effect (regla react-hooks/set-state-in-effect):
+  // la actualizacion ocurre solo dentro del callback del intervalo.
   useEffect(() => {
     const id = setInterval(() => setTime(getTimeLeft(targetDate)), 1000);
     return () => clearInterval(id);
@@ -31,7 +37,7 @@ export default function CountdownTimer({ targetDate }) {
     <div className="grid grid-cols-4 gap-px bg-border border border-border">
       {units.map((u) => (
         <div key={u.l} className="bg-background p-4 lg:p-6 text-center">
-          <div className="font-display text-3xl lg:text-5xl font-bold text-primary">{String(u.v).padStart(2, '0')}</div>
+          <div suppressHydrationWarning className="font-display text-3xl lg:text-5xl font-bold text-primary">{String(u.v).padStart(2, '0')}</div>
           <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mt-1">{u.l}</div>
         </div>
       ))}
