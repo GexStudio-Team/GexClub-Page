@@ -46,22 +46,14 @@ export default function DuvanAltamarPage() {
           <div className="flex flex-col bg-background p-8 lg:p-12">
             <p className="font-mono text-xs uppercase tracking-widest text-primary">&lt;quien_soy /&gt;</p>
             <p className="mt-3 text-2xl md:text-3xl font-bold uppercase tracking-tight">Cosas que soy</p>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-6 flex flex-col gap-3">
               {DUVAN_ROLES.map((item) => (
-                <li
-                  key={item}
-                  className={`flex items-center gap-3 border border-border bg-card/50 px-4 py-3 text-sm leading-snug lg:text-[15px] ${
-                    item.startsWith('Técnico') ? 'sm:col-span-2' : ''
-                  }`}
-                >
+                <li key={item} className="flex items-center gap-3 border border-border bg-card/50 px-4 py-3 text-sm leading-snug lg:text-[15px]">
                   <Crown className="h-4 w-4 shrink-0 text-primary" />
                   <span className="text-balance">{item}</span>
                 </li>
               ))}
             </ul>
-            <blockquote className="mt-auto border-l-2 border-primary/60 pl-4 pt-6 text-sm leading-relaxed text-muted-foreground lg:pt-8">
-              {DUVAN_ALTAMAR.role}. Creador del ecosistema Gex Club: comunidad, marca, web y eventos.
-            </blockquote>
           </div>
 
           <div className="flex items-center justify-center bg-background p-8 lg:p-12">
