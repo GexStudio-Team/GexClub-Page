@@ -5,6 +5,7 @@ import SectionHeader from '@/components/layout/SectionHeader';
 import CommunityCta from '@/components/community/CommunityCta';
 import Testimonials from '@/components/community/Testimonials';
 import VideoLoop from '@/components/ui/VideoLoop';
+import AuroraWave from '@/components/ui/AuroraWave';
 import { COMMUNITY_STATUS } from '@/lib/content';
 
 export default function Community() {
@@ -46,8 +47,8 @@ export default function Community() {
           </Link>
         </div>
         <div className="relative overflow-hidden p-6 lg:p-8 flex flex-col justify-center">
-          <div className="aurora-boreal absolute inset-0 opacity-60" />
-          <div className="absolute inset-0 bg-background/70" />
+          <AuroraWave className="absolute inset-0 w-full h-full" />
+          <div className="absolute inset-0 bg-background/55" />
           <div className="relative">
             <span className="font-mono text-xs text-primary">02</span>
             <h3 className="mt-3 font-display font-bold uppercase tracking-tight">{COMMUNITY_STATUS.projects}</h3>
