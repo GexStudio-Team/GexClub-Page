@@ -5,6 +5,12 @@ import SectionHeader from '@/components/layout/SectionHeader';
 import { Cpu, Users2, Rocket, ShieldCheck } from 'lucide-react';
 import { COMMUNITY_STATUS, PROJECTS } from '@/lib/content';
 
+export const metadata = {
+  title: 'Sobre Nosotros',
+  description:
+    'Gex Club es un ecosistema tecnológico juvenil donde jóvenes de 14 a 18 años desarrollan software, crean videojuegos y compiten en hackathons.',
+};
+
 const VALUES = [
   { icon: Cpu, title: 'Excelencia técnica', desc: 'No basta con que funcione: tiene que ser excelente.' },
   { icon: Users2, title: 'Colaboración real', desc: 'El trabajo en equipo es el multiplicador de talento.' },

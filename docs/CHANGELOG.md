@@ -1,0 +1,40 @@
+# CHANGELOG - GexClub
+
+## 14:08:2026
+
+- **docs** (updated - 09:00): Reescrito `SKILL.md` para adaptarlo al stack web (Next.js App Router + FastAPI), reemplazando las reglas de código Love2D por estándares del proyecto (estructura, path alias, Server Components, services layer, tema claro/oscuro, tuteo, accesibilidad).
+
+- **feature** (completed - 08:40): Mejoras de experiencia, contenido y SEO.
+  - Dark mode: paleta clara en `:root` / oscura en `.dark`, `ThemeProvider` con persistencia en `localStorage` y anti-FOUC, y `ThemeToggle` en sidebar, header móvil y menú.
+  - Layout refactorizado: `src/app/layout.js` pasa a Server Component (exporta `metadata` raíz) que renderiza `RootLayoutClient.jsx` con providers y navegación.
+  - Página de perfil `/profile` con datos de sesión y protección de ruta.
+  - Blog (`/blog`, `/blog/[slug]`), FAQ (`/faq`) y enlaces reales de redes en el footer.
+  - Metadata/Open Graph por página, `sitemap.ts` y `robots.ts`.
+  - Accesibilidad y consistencia: idioma unificado a tuteo, `aria-current`/`aria-label`, animación `Reveal` con scroll.
+- **feature** (completed - 08:20): Registro real a hackathons por usuario.
+  - Backend: tabla `Registration` (UNIQUE user+event), columnas `name`, `type`, `status`, `capacity` en `Event`.
+  - Endpoints nuevos: `POST /api/events/{id}/register`, `GET /api/events/{id}`, `GET /api/me/events`, y `registered`/`registered_by_me` en respuestas de eventos.
+  - Dependencia opcional `get_optional_current_user` (token opcional) para listar eventos sin login.
+  - Script de migración/seed `backend/seed.py`.
+  - Frontend: `src/services/api.js` con `eventsService.register` y `meService.getEvents`.
+  - Página `/hackathons` migrada de la API en memoria a FastAPI; registro exige sesión y redirige a `/login`.
+  - `EventList` muestra estado "Registrado" y controla cupos/finalizado.
+  - `ProfilePanel` carga "Mis eventos" reales desde `/api/me/events`.
+- **feature** (completed - 08:20): Galería de eventos en `/community` (`GallerySection`) con placeholders de marca listos para fotos reales en `public/gallery/`.
+- **feature** (completed - 08:20): Sección de hackathons pasados con podio de ganadores en `/hackathons` (`PastEditions` + `src/lib/hackathons.js`).
+
+- **feature** (completed - 07:18): Implementación de las Fases 2 y 3 (Frontend Next.js & Autenticación).
+  - Creado cliente de API HTTP centralizado en `src/services/api.js`.
+  - Creado proveedor de estado global de autenticación `AuthContext` en `src/features/auth/AuthContext.jsx`.
+  - Creados componentes de formulario `LoginForm.jsx` y `RegisterForm.jsx` con estilos temáticos cyber/brutalist.
+  - Creadas las páginas públicas `/login` y `/register` en Next.js.
+  - Actualizado `src/app/layout.js` para envolver la app en `AuthProvider` e integrar indicadores y botones de inicio/cierre de sesión en la navegación móvil y desktop.
+  - Verificada la compilación limpia de Next.js (`npm run build`).
+- **feature** (completed - 07:09): Construcción completa de la Fase 1 del Backend en Python (FastAPI + SQLite).
+  - Configurado entorno `backend/venv` y `backend/requirements.txt`.
+  - Base de datos SQLite `backend/gexclub.db` con modelos SQLAlchemy (`User`, `Event`, `Project`).
+  - Módulo de autenticación segura JWT + Bcrypt (`backend/auth.py`).
+  - Endpoints de autenticación (`/api/auth/register`, `/api/auth/login`, `/api/auth/me`).
+  - Endpoints de recursos (`/api/events`, `/api/projects`).
+  - Suite de pruebas de integración `backend/test_api.py` verificada y funcional.
+- **docs** (completed - 07:09): Creada la documentación completa bajo `docs/` (`ROADMAP.md`, `TDD.md`, `TODO.md`, `CHANGELOG.md`) de acuerdo al estándar `SKILL.md`.

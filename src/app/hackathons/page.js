@@ -1,4 +1,53 @@
 'use client';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import SectionHeader from '@/components/layout/SectionHeader';
+import CountdownTimer from '@/components/hackathons/CountdownTimer';
+import EventList from '@/components/hackathons/EventList';
+import PastEditions from '@/components/hackathons/PastEditions';
+import { eventsService } from '@/services/api';
+import { useAuth } from '@/features/auth/AuthContext';
+import { Rocket } from 'lucide-react';
+
+export default function Hackathons() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [notification, setNotification] = useState(null);
+  const { isAuthenticated } = useAuth();
+  const router = useRouter();
+
+  const loadEvents = () => {
+    setLoading(true);
+    eventsService
+      .getAll()
+      .then(setEvents)
+      .catch(() => setNotification({ title: 'Error', description: 'No se pudieron cargar los eventos.' }))
+      .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    loadEvents();
+  }, []);
+
+  const flagship = events.find((e) => e.status !== 'finalizado');
+
+  const handleRegister = async (ev) => {
+    if (!isAuthenticated) {
+      setNotification({ title: 'Inicia sesión', description: 'Necesitas una cuenta para inscribirte.' });
+      router.push('/login');
+      return;
+    }
+    try {
+      const updated = await eventsService.register(ev.id);
+      setEvents((prev) => prev.map((e) => (e.id === updated.id ? updated : e)));
+      setNotification({ title: 'Registro confirmado', description: `Te inscribiste en "${ev.name}". Nos vemos ahí.` });
+    } catch (err) {
+      const msg = err?.data?.detail || 'No se pudo completar el registro.';
+      setNotification({ title: 'Error', description: msg });
+    } finally {
+      setTimeout(() => setNotification(null), 4000);
+    }
+  };
 
 import SectionHeader from '@/components/layout/SectionHeader';
 import CountdownTimer from '@/components/hackathons/CountdownTimer';
@@ -48,6 +97,11 @@ export default function Hackathons() {
             <span className="text-primary">{EVENTS.length} eventos</span>
           </div>
 
+          <EventList events={events} onRegister={handleRegister} />
+
+          <PastEditions />
+        </>
+      )}
           <EventList events={EVENTS} />
 
           <div className="mt-16 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] gap-8 items-start">
