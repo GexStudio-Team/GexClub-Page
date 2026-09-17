@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, ArrowUpRight, Crown, Terminal } from 'lucide-react';
 import { SiGithub, SiInstagram } from '@icons-pack/react-simple-icons';
-import { DUVAN_ALTAMAR, DUVAN_TECH, DUVAN_LEADERSHIP } from '@/lib/content';
+import { DUVAN_ALTAMAR, DUVAN_ROLES, DUVAN_LEADERSHIP } from '@/lib/content';
 
 export default function DuvanAltamarPage() {
   return (
@@ -40,20 +40,23 @@ export default function DuvanAltamarPage() {
           </div>
         </div>
 
+        <div className="px-8 py-12 lg:px-12 lg:py-14">
+          <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-primary">
+            <span>&gt;_</span>
+            <span>&lt;QUIEN_ES /&gt;</span>
+          </div>
+          <ul className="mt-7 space-y-3.5">
+            {DUVAN_ROLES.map((item) => (
+              <li key={item} className="flex items-start gap-3 font-mono text-sm leading-relaxed lg:text-base">
+                <span className="select-none text-primary">&gt;_</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <div className="grid gap-px bg-border lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
           <div className="grid gap-px bg-border sm:grid-cols-2">
-            <div className="bg-background p-8 lg:p-10">
-              <p className="font-mono text-xs uppercase tracking-widest text-primary">&lt;tech_en_la_terminal /&gt;</p>
-              <ul className="mt-6 space-y-4">
-                {DUVAN_TECH.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base leading-relaxed lg:text-lg">
-                    <Terminal className="mt-1.5 h-5 w-5 shrink-0 text-primary" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             <div className="bg-background p-8 lg:p-10">
               <p className="font-mono text-xs uppercase tracking-widest text-primary">&lt;liderazgo /&gt;</p>
               <ul className="mt-6 space-y-4">
@@ -89,7 +92,7 @@ export default function DuvanAltamarPage() {
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">Autor de la terminal interactiva GEX_OS, desarrollada a mano y embebida en esta web.</p>
             </div>
 
-            <div className="bg-background p-8 lg:p-10 sm:col-span-2">
+            <div className="bg-background p-8 lg:p-10">
               <p className="font-mono text-xs uppercase tracking-widest text-primary">&lt;acerca /&gt;</p>
               <p className="mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">Fundador y desarrollador de GexStudio Team. Combina arquitectura frontend, sistemas de contenido y visión de comunidad para construir el ecosistema tecnológico juvenil de Gex Club.</p>
             </div>

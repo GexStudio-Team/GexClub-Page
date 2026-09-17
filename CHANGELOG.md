@@ -8,6 +8,10 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
 
 ## [Unreleased]
 
+### Changed
+
+- **Perfil de Duvan — bloque `<QUIEN_ES />` al aire libre** (`src/app/aliados/duvan-altamar/page.js`): el bloque que antes era `<tech_en_la_terminal />` pasa a titularse **`<QUIEN_ES />`** y sale de la celda del grid (ya **no está dentro de un cuadro**): ahora es un bloque de contenido abierto (`px-8 py-12 lg:px-12 lg:py-14`, sin `bg` ni borde) colocado **debajo del hero**. Los items se escriben **libremente, uno por línea, con el prompt de terminal `>_`** (encabezado `>_ <QUIEN_ES />` y cada línea con `>_`), usando los **roles reales de Duvan** (`DUVAN_ROLES`): Joven Creativo 2025, Técnico en Sistemas IUB 2026, Candidato a CLJ 2025, Líder de transformación 2026, Fundador de GEX Studio y Gex Club, Programador Joven con iniciativa. El grid de cuadros queda con `<liderazgo />`, `<redes />`, `<showcase />` y `<acerca />` en 2×2 simétrico (se quitó el `sm:col-span-2` de *acerca*) junto al video.
+
 ### Added
 
 - **UI de la sección Comunidad renovada** (`/community`, `src/app/community/page.js`): se elimina la grilla tipo tabla (`grid gap-px bg-border` con celdas `bg-background`) y los **bloques quedan al aire libre**, separados con mucho aire (`mt-28`), líneas divisorias degradadas y **textos sin encasillar** (etiqueta mono `[ 0X ] / slug` + título display grande + párrafo `text-lg`). Los **elementos visuales** (video del programador y foto *Red de pares*) van en **card flotante** (`.float-wrap` + `.float-card`) con marco degradado animado, glow azul/violeta, levitación suave y **hover con inclinación**. Nuevo orden: 01 Aprendizaje compartido + video · 02 Proyectos actuales + botón · 03 Primer hackathon + botón reto · 04 Red de pares + imagen · 05 Una comunidad para crear (pilares al aire con borde izquierdo activo) · 06 Únete al ecosistema · 07 Lo que queremos construir.
