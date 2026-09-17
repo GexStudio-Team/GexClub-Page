@@ -237,6 +237,103 @@
     animation: aura-spin 5s linear infinite;
   }
   .aura-btn-red { --aura-color: rgba(255, 59, 48, 0.85); }
+
+  /* ===== Botón premium: borde vivo + barrido de luz + rebote ===== */
+  .btn-live {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    color: #eaf6ff;
+    background:
+      linear-gradient(#0b0e1c, #0b0e1c) padding-box,
+      linear-gradient(120deg, #00b4ff, #7747ff 38%, #1687ff 72%, #00b4ff) border-box;
+    border: 1px solid transparent;
+    background-size: 100% 100%, 320% 100%;
+    animation: border-flow 7s linear infinite;
+    transition:
+      color 0.35s ease,
+      letter-spacing 0.35s ease,
+      box-shadow 0.45s ease,
+      transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .btn-live::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 36%, rgba(160, 220, 255, 0.45) 46%, rgba(255, 255, 255, 0.85) 50%, rgba(160, 220, 255, 0.45) 54%, transparent 64%);
+    transform: translateX(-140%) skewX(-10deg);
+    transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-live:hover::before { transform: translateX(140%) skewX(-10deg); }
+  .btn-live:hover {
+    color: #ffffff;
+    letter-spacing: 0.3em;
+    box-shadow:
+      0 0 0 1px rgba(0, 180, 255, 0.28),
+      0 0 34px -6px rgba(0, 180, 255, 0.6),
+      0 0 70px -12px rgba(119, 71, 255, 0.55);
+    transform: translateY(-2px);
+  }
+  .btn-live svg {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease;
+  }
+  .btn-live:hover svg {
+    transform: translate(5px, -5px) scale(1.15);
+    filter: drop-shadow(0 0 8px rgba(0, 180, 255, 0.9));
+  }
+
+  /* Variante roja — reto / urgencia */
+  .btn-live-red {
+    color: #ffe9e6;
+    background:
+      linear-gradient(#160a0c, #160a0c) padding-box,
+      linear-gradient(120deg, #ff3b30, #ff9f0a 50%, #ff3b30) border-box;
+    background-size: 100% 100%, 320% 100%;
+    animation: border-flow 7s linear infinite;
+  }
+  .btn-live-red:hover {
+    box-shadow:
+      0 0 0 1px rgba(255, 59, 48, 0.3),
+      0 0 34px -6px rgba(255, 59, 48, 0.6),
+      0 0 70px -12px rgba(255, 159, 10, 0.5);
+  }
+  .btn-live-red:hover svg { filter: drop-shadow(0 0 8px rgba(255, 120, 60, 0.95)); }
+
+  /* ===== Card flotante (video / imagen) ===== */
+  .float-wrap { animation: float-y 7s ease-in-out infinite; }
+  .float-card {
+    position: relative;
+    isolation: isolate;
+    border-radius: 1.25rem;
+    padding: 0.4rem;
+    background:
+      linear-gradient(#0d1020, #0d1020) padding-box,
+      linear-gradient(130deg, rgba(22, 135, 255, 0.95), rgba(119, 71, 255, 0.8) 45%, rgba(0, 180, 255, 0.95)) border-box;
+    border: 1px solid transparent;
+    background-size: 100% 100%, 280% 100%;
+    animation: border-flow 9s linear infinite;
+    box-shadow:
+      0 34px 60px -24px rgba(0, 139, 254, 0.4),
+      0 0 60px -18px rgba(139, 92, 246, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.55s ease;
+  }
+  .float-card:hover {
+    transform: translateY(-6px) rotate(-1.2deg);
+    box-shadow:
+      0 44px 70px -26px rgba(0, 139, 254, 0.55),
+      0 0 80px -16px rgba(139, 92, 246, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* Entrada ascendente escalonable */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
 }
 
 @keyframes aurora-drift {
@@ -282,6 +379,20 @@
 @keyframes aura-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@keyframes border-flow {
+  0% { background-position: 0% 50%, 0% 50%; }
+  100% { background-position: 0% 50%, 300% 50%; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes fade-up {
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes gex-float {
