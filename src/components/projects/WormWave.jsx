@@ -1,24 +1,28 @@
 /**
- * WormWave — Gusano de aurora boreal que barre el banner "Proyectos actuales"
- * de la ventana de Proyectos.
+ * WormWave — Aurora boreal tipo "gusano" que barre horizontalmente el banner
+ * "Proyectos actuales" de la ventana de Proyectos.
  *
- * Banda segmentada (tipo lombriz) en colores pastel de aurora boreal viva
- * (rosa → fucsia → violeta → azul → cian → esmeralda) que cruza el recuadro
- * en diagonal (esquina inferior izquierda → superior derecha), tapa el banner
- * al pasar y se destapa desde donde comenzó. Loop infinito.
+ * Banda segmentada (lombriz) en colores pastel de aurora boreal viva
+ * (rosa → fucsia → violeta → azul → cian → esmeralda) que:
+ *  - entra desde la IZQUIERDA, completamente fuera del recuadro;
+ *  - avanza MUY LENTO y en HORIZONTAL hacia la derecha;
+ *  - su cuerpo ondula como gusano mezclado con onda (protuberancias alternas
+ *    grandes/pequeñas a lo largo de la banda);
+ *  - su grosor vertical supera la altura del recuadro, así que mientras cruza
+ *    TAPA TODO el banner;
+ *  - al llegar al final hace un reset rápido y vuelve a empezar. Loop infinito.
  *
  * IMPORTANTE: el SVG se inyecta como HTML nativo (dangerouslySetInnerHTML)
  * porque React descarta los atributos SMIL (animateTransform, values, dur…)
  * cuando los renderiza como elementos JSX, y la animación nunca se ejecuta.
- * Con HTML string el navegador corre SMIL directamente (compatible con
- * Chrome, Firefox y Safari).
+ * Con HTML string el navegador corre SMIL directamente (Chrome, Firefox, Safari).
  */
 const X0 = -1500;
 const X1 = 1500;
 const Y0 = 650;
 const SEG = 200;
-const AMP1 = 210;
-const AMP2 = 110;
+const AMP1 = 240;
+const AMP2 = 130;
 
 /** Borde superior ondulado (segmentos de gusano) de x0 a x1. */
 function buildTopEdge(x0 = X0, x1 = X1) {
@@ -51,20 +55,22 @@ function buildBody() {
   return `${d} Z`;
 }
 
-// Recorrido del frente sobre el viewBox 1000x1000 (diagonal ±~707)
-const R = 1000 * Math.SQRT1_2;
-const T_START = Math.round(-R - X1); // frente fuera por la izquierda
-const T_END = Math.round(R - X1); // frente fuera por la derecha
+// Barrido horizontal en el sistema de coordenadas local (banda en x∈[X0,X1]):
+//  - Inicio: la banda entera fuera por la IZQUIERDA (borde der. 1500 → ≤ 0).
+//  - Fin:    la banda entera pasada por la DERECHA (borde izq. -1500 → ≥ 1000).
+const T_START = -2300; // completamente fuera a la izquierda
+const T_END = 2600; // completamente pasada a la derecha
 
 function buildSvg() {
   const topD = buildTopEdge();
   const bodyD = buildBody();
+  // Avance lento (92% de la duración) + reset rápido (8%) para el loop
   const values = `${T_START} 0; ${T_END} 0; ${T_START} 0`;
 
   return `
 <svg class="h-full w-full" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
   <defs>
-    <linearGradient id="wormBody" gradientUnits="userSpaceOnUse" gradientTransform="rotate(-45 500 500)" x1="${X0}" y1="0" x2="${X1}" y2="0">
+    <linearGradient id="wormBody" gradientUnits="userSpaceOnUse" x1="${X0}" y1="0" x2="${X1}" y2="0">
       <stop offset="0%" stop-color="#f9a8d4" stop-opacity="0" />
       <stop offset="22%" stop-color="#f9a8d4" stop-opacity="0.6" />
       <stop offset="36%" stop-color="#e879f9" stop-opacity="0.8" />
@@ -74,7 +80,7 @@ function buildSvg() {
       <stop offset="92%" stop-color="#34d399" stop-opacity="0.75" />
       <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.6" />
     </linearGradient>
-    <linearGradient id="wormEdge" gradientUnits="userSpaceOnUse" gradientTransform="rotate(-45 500 500)" x1="${X0}" y1="0" x2="${X1}" y2="0">
+    <linearGradient id="wormEdge" gradientUnits="userSpaceOnUse" x1="${X0}" y1="0" x2="${X1}" y2="0">
       <stop offset="0%" stop-color="#f9a8d4" />
       <stop offset="45%" stop-color="#e879f9" />
       <stop offset="70%" stop-color="#22d3ee" />
@@ -96,16 +102,16 @@ function buildSvg() {
     </filter>
   </defs>
 
-  <g transform="rotate(-45 500 500)">
+  <g>
     <g>
       <animateTransform
         attributeName="transform"
         type="translate"
-        dur="8s"
+        dur="16s"
         repeatCount="indefinite"
         calcMode="spline"
-        keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"
-        keyTimes="0; 0.5; 1"
+        keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
+        keyTimes="0; 0.92; 1"
         values="${values}"
       />
       <path d="${bodyD}" fill="url(#wormBody)" />
