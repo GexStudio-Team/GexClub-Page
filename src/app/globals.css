@@ -209,6 +209,14 @@
     background: linear-gradient(to right, transparent, rgba(0, 229, 255, 0.85), rgba(255, 0, 212, 0.85), rgba(139, 92, 246, 0.85), transparent);
   }
 
+  /* Cuadrícula blueprint reincorporada sobre las auroras del banner */
+  .aurora-neon-grid {
+    background-image:
+      linear-gradient(to right, rgba(22, 135, 255, 0.22) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(119, 71, 255, 0.22) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
   /* Tipografía iluminada (resplandor suave) */
   .neon-title {
     text-shadow:

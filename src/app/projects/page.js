@@ -29,6 +29,7 @@ export default function Projects() {
         <div className="aurora-neon-wave aurora-neon-wave-2 absolute inset-0" />
         <div className="aurora-neon-wave aurora-neon-wave-3 absolute inset-0" />
         <div className="aurora-neon-line absolute inset-x-0 top-0 h-px" />
+        <div className="aurora-neon-grid pointer-events-none absolute inset-0" />
 
         <div className="gex-glow pointer-events-none absolute right-4 bottom-0 h-36 w-36 md:right-16 md:bottom-2 md:h-52 md:w-52">
           <Image src="/brand/gex-mark-dark.png" alt="Isotipo de Gex Club" width={1254} height={1254} className="gex-float h-full w-full object-contain mix-blend-screen" />

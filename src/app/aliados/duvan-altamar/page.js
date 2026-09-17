@@ -43,27 +43,37 @@ export default function DuvanAltamarPage() {
         </div>
 
         <div className="grid gap-px bg-border lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-          <div className="bg-background p-8 lg:p-12">
+          <div className="flex flex-col bg-background p-8 lg:p-12">
             <p className="font-mono text-xs uppercase tracking-widest text-primary">&lt;quien_soy /&gt;</p>
             <p className="mt-3 text-2xl md:text-3xl font-bold uppercase tracking-tight">Cosas que soy</p>
-            <ul className="mt-6 space-y-3.5">
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {DUVAN_ROLES.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-base leading-relaxed lg:text-lg">
-                  <Crown className="mt-1 h-5 w-5 shrink-0 text-primary" />
-                  <span>{item}</span>
+                <li
+                  key={item}
+                  className={`flex items-center gap-3 border border-border bg-card/50 px-4 py-3 text-sm leading-snug lg:text-[15px] ${
+                    item.startsWith('Técnico') ? 'sm:col-span-2' : ''
+                  }`}
+                >
+                  <Crown className="h-4 w-4 shrink-0 text-primary" />
+                  <span className="text-balance">{item}</span>
                 </li>
               ))}
             </ul>
+            <blockquote className="mt-auto border-l-2 border-primary/60 pl-4 pt-6 text-sm leading-relaxed text-muted-foreground lg:pt-8">
+              {DUVAN_ALTAMAR.role}. Creador del ecosistema Gex Club: comunidad, marca, web y eventos.
+            </blockquote>
           </div>
 
-          <div className="bg-background p-8 lg:p-12">
-            <p className="font-mono text-xs uppercase tracking-widest text-primary">&lt;foto /&gt;</p>
-            <div className="mt-5 flex items-center justify-center lg:justify-start">
-              <div className="relative aspect-[3/4] w-52 overflow-hidden border border-primary/30 bg-card/40 shadow-[0_0_35px_rgba(22,135,255,0.12)] sm:w-64 lg:w-72">
-                <Image src="/brand/foto-duvan-altamar.jpeg" alt={`Foto de ${DUVAN_ALTAMAR.name}`} fill sizes="(max-width: 640px) 208px, 288px" className="object-cover object-center" />
+          <div className="flex items-center justify-center bg-background p-8 lg:p-12">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-widest text-primary">&lt;foto /&gt;</p>
+              <div className="mt-5">
+                <div className="relative aspect-[3/4] w-52 overflow-hidden border border-primary/30 bg-card/40 shadow-[0_0_35px_rgba(22,135,255,0.12)] sm:w-50 lg:w-150">
+                  <Image src="/brand/foto-duvan-altamar.jpeg" alt={`Foto de ${DUVAN_ALTAMAR.name}`} fill sizes="(max-width: 640px) 208px, 288px" className="object-cover object-center" />
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Fundador del ecosistema Gex Club. Imagen cortesía del archivo oficial.</p>
               </div>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Fundador del ecosistema Gex Club. Imagen cortesía del archivo oficial.</p>
           </div>
         </div>
 
