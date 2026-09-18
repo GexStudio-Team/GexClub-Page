@@ -10,6 +10,7 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
 
 ### Changed
 
+- **Sobre Nosotros — imagen proporcionada al texto** (`src/app/about/page.js`): se **elimina el `min-h-[40vh]`** de la columna izquierda (era lo que estiraba el recuadro y dejaba espacio vacío debajo del texto) y la imagen `frame2.jpg` pasa de `h-auto`/`h-full` a **anclada con `absolute inset-0 h-full w-full object-cover`**. La columna conserva su ubicación, `border-r`, fondo `bg-card` y la cuadrícula blueprint; ahora la imagen **llena exactamente la altura de la fila definida por el texto** de la derecha, quedando proporcional y sin huecos. El bloque móvil de la imagen (miniatura flotante) no se modifica.
 - **Perfil de Duvan — `<QUIEN_ES />` reemplaza a `<tech_en_la_terminal />`** (`src/app/aliados/duvan-altamar/page.js`): **la UI y los cuadros se mantienen exactamente igual** (misma grilla `sm:grid-cols-2` + columna de video; sin romper el layout). Únicamente la **primera celda** cambia: el título pasa a **`<QUIEN_ES />`** y su contenido son los **roles reales de Duvan** (`DUVAN_ROLES`) — Joven Creativo 2025, Técnico en Sistemas IUB 2026, Candidato a CLJ 2025, Líder de transformación 2026, Fundador de GEX Studio y Gex Club, Programador Joven con iniciativa — escritos **libres uno por línea con el prompt de terminal `>_`** (sin cuadros por separado item a item). El resto de celdas (`<liderazgo />`, `<redes />`, `<showcase />`, `<acerca />`) y el video quedan intactos.
 
 ### Added
