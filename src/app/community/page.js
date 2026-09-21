@@ -2,14 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, BookOpen, Rocket, Share2, Users } from 'lucide-react';
 import SectionHeader from '@/components/layout/SectionHeader';
-import MemberGrid from '@/components/community/MemberGrid';
-import JoinFlow from '@/components/community/JoinFlow';
-import GallerySection from '@/components/gallery/GallerySection';
-
-const TESTIMONIALS = [
-  { quote: 'En un año pasé de no saber programar a ganar mi primer hackathon. Gex cambió mi forma de ver el futuro.', name: 'Valentina R.', role: 'Programadora' },
-  { quote: 'Encontré un equipo que toma en serio a los jóvenes. Aquí mi arte vale tanto como mi edad.', name: 'Mateo G.', role: 'Diseñador de Videojuegos' },
-  { quote: 'No es un club escolar. Es una comunidad que te empuja a sobresalir sin bajar la línea.', name: 'Camila P.', role: 'Artista' },
 import CommunityCta from '@/components/community/CommunityCta';
 import Testimonials from '@/components/community/Testimonials';
 import VideoLoop from '@/components/ui/VideoLoop';
@@ -42,21 +34,6 @@ export default function Community() {
       <SectionHeader
         index="03"
         title="Comunidad"
-        subtitle="Una red de nodos jóvenes conectados por el código. Aquí no eres un alumno: eres un miembro."
-      />
-
-      <section className="mb-16">
-        <div className="grid md:grid-cols-4 gap-px bg-border border border-border">
-          {[
-            { n: '01', t: 'Mentores de la industria', d: 'Aprende de profesionales que trabajan en producto real.' },
-            { n: '02', t: 'Proyectos reales', d: 'Construye software y juegos que se publican, no ejercicios.' },
-            { n: '03', t: 'Hackathons y premios', d: 'Compite, gana y demuestra tu talento.' },
-            { n: '04', t: 'Red de pares', d: 'Conoce a otros jóvenes con tu misma pasión.' },
-          ].map((b) => (
-            <div key={b.n} className="bg-background p-6">
-              <span className="font-mono text-xs text-primary">{b.n}</span>
-              <h3 className="mt-3 font-display font-bold uppercase tracking-tight text-sm">{b.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.d}</p>
         subtitle="Un espacio abierto para crear, aprender y conectar. Aquí no eres un espectador: eres parte de la comunidad."
       />
 
@@ -177,10 +154,6 @@ export default function Community() {
         </div>
       </section>
 
-      <GallerySection />
-
-      <section className="mb-20">
-        <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground mb-6">
       {/* ===== 05 · Una comunidad para crear ===== */}
       <section className="mt-28">
         <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">

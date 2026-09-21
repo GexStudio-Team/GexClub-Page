@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import SectionHeader from '@/components/layout/SectionHeader';
 import { Cpu, Users2, Rocket, ShieldCheck } from 'lucide-react';

@@ -5,9 +5,6 @@ import { SiInstagram, SiGithub } from '@icons-pack/react-simple-icons';
 import { SOCIALS as SOCIAL_LINKS } from '@/lib/content';
 
 const SOCIALS = [
-  { label: 'Instagram', href: 'https://www.instagram.com/joingexclub/', icon: SiInstagram },
-  { label: 'GitHub', href: 'https://github.com/GexStudio-Team', icon: SiGithub },
-  { label: 'Discord', href: 'https://discord.com', icon: SiDiscord },
   { label: 'Instagram', href: SOCIAL_LINKS.instagram, icon: SiInstagram },
   { label: 'GitHub', href: SOCIAL_LINKS.github, icon: SiGithub },
 ];
@@ -20,7 +17,6 @@ const LINKS = [
   { label: 'Proyectos', href: '/projects' },
   { label: 'Blog', href: '/blog' },
   { label: 'FAQ', href: '/faq' },
-  { label: 'Preguntas frecuentes', href: '/faq' },
   { label: 'Contacto y alianzas', href: '/contacto' },
 ];
 

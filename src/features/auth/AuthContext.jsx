@@ -18,17 +18,24 @@ export function AuthProvider({ children }) {
   const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Inicializar sesión desde localStorage al cargar en el cliente
+  const logout = () => {
+    setToken(null);
+    setUser(null);
+    localStorage.removeItem('gex_token');
+    localStorage.removeItem('gex_user');
+  };
+
   useEffect(() => {
     const savedToken = localStorage.getItem('gex_token');
     const savedUser = localStorage.getItem('gex_user');
 
     if (savedToken && savedUser) {
-      try {
-        setToken(savedToken);
-        setUser(JSON.parse(savedUser));
-        
-        // Verificar token contra el backend
+      Promise.resolve().then(() => {
+        Promise.resolve().then(() => {
+      setToken(savedToken);
+      setUser(JSON.parse(savedUser));
+    });
+
         authService.getMe()
           .then((updatedUser) => {
             setUser(updatedUser);
@@ -38,12 +45,10 @@ export function AuthProvider({ children }) {
             logout();
           })
           .finally(() => setLoading(false));
-        return;
-      } catch (e) {
-        logout();
-      }
+      });
+      return;
     }
-    setLoading(false);
+    Promise.resolve().then(() => setLoading(false));
   }, []);
 
   const login = async (email, password) => {
@@ -62,13 +67,6 @@ export function AuthProvider({ children }) {
     localStorage.setItem('gex_token', data.access_token);
     localStorage.setItem('gex_user', JSON.stringify(data.user));
     return data;
-  };
-
-  const logout = () => {
-    setToken(null);
-    setUser(null);
-    localStorage.removeItem('gex_token');
-    localStorage.removeItem('gex_user');
   };
 
   return (

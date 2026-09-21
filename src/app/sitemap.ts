@@ -1,5 +1,7 @@
 const BASE_URL = 'https://gexclub.com';
 
+export const dynamic = 'force-static';
+
 export default function sitemap() {
   const staticRoutes = [
     '',

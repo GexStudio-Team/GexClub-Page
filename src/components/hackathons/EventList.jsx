@@ -1,4 +1,3 @@
-import { Users, Calendar, Check } from 'lucide-react';
 import { Users, Calendar, Clock, MapPin } from 'lucide-react';
 import { formatDateEs } from '@/lib/utils';
 
@@ -7,7 +6,6 @@ export default function EventList({ events }) {
     <div className="border border-border divide-y divide-border">
       {events.map((ev) => {
         const finished = ev.status === 'finalizado';
-        const registered = ev.registered_by_me;
         return (
           <div key={ev.id} className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
@@ -27,25 +25,6 @@ export default function EventList({ events }) {
                 <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> {ev.location}</span>
               </div>
             </div>
-            <button
-              onClick={() => onRegister(ev)}
-              disabled={registered || full || finished}
-              className={`shrink-0 font-mono text-xs uppercase tracking-wider border px-4 py-2 transition-colors disabled:cursor-not-allowed ${
-                registered
-                  ? 'border-primary/50 text-primary bg-primary/5'
-                  : 'border-border hover:border-primary hover:text-primary disabled:opacity-40'
-              }`}
-            >
-              {registered ? (
-                <span className="inline-flex items-center gap-1.5"><Check className="w-3.5 h-3.5" /> Registrado</span>
-              ) : finished ? (
-                'Cerrado'
-              ) : full ? (
-                'Sin cupos'
-              ) : (
-                'Register >'
-              )}
-            </button>
             {finished ? (
               <span className="shrink-0 font-mono text-xs uppercase tracking-wider border border-border px-4 py-2 opacity-40">
                 Cerrado

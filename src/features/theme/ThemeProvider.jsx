@@ -15,11 +15,15 @@ function getSystemTheme() {
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState('dark');
 
+  // Inicializar tema desde preferencia guardada o del sistema (cliente)
   useEffect(() => {
     const saved = localStorage.getItem('gex_theme');
     const initial = saved === 'light' || saved === 'dark' ? saved : getSystemTheme();
-    setTheme(initial);
-    document.documentElement.classList.toggle('dark', initial === 'dark');
+    Promise.resolve()
+      .then(() => setTheme(initial))
+      .then(() => {
+        document.documentElement.classList.toggle('dark', initial === 'dark');
+      });
   }, []);
 
   const toggleTheme = () => {

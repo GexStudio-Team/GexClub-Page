@@ -102,7 +102,7 @@ export default function ProfilePanel({ user }) {
             </div>
           ) : myEvents.length === 0 ? (
             <div className="p-6 font-mono text-sm text-muted-foreground uppercase tracking-wider">
-              // todavía no te inscribiste a ningún evento
+              {'// todavía no te inscribiste a ningún evento'}
             </div>
           ) : (
             myEvents.map((ev) => (
@@ -127,7 +127,7 @@ export default function ProfilePanel({ user }) {
             <FolderGit2 className="w-6 h-6 text-primary" />
             <span className="font-display font-bold uppercase tracking-tight text-sm">Mis proyectos</span>
           </div>
-          <span className="font-mono text-[11px] text-muted-foreground group-hover:text-primary transition-colors">// próximo</span>
+          <span className="font-mono text-[11px] text-muted-foreground group-hover:text-primary transition-colors">{'// próximo'}</span>
         </Link>
       </div>
 
