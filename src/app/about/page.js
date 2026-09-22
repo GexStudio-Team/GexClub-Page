@@ -19,7 +19,7 @@ export default function About() {
 
       <section className="grid lg:grid-cols-2 border border-border mb-24">
         <div
-          className="hidden lg:block relative border-r border-border bg-card min-h-[40vh] overflow-hidden"
+          className="hidden lg:block relative border-r border-border bg-card overflow-hidden"
           style={{
             backgroundImage: `
               linear-gradient(to right, rgba(22, 135, 255, 0.14) 1px, transparent 1px),
@@ -28,7 +28,7 @@ export default function About() {
             backgroundSize: '32px 32px',
           }}
         >
-          <Image src="/brand/frame2.jpg" alt="Comunidad Gex Club — jóvenes creando tecnología" width={736} height={981} className="h-full w-full object-cover object-center" fetchPriority="high" />
+          <Image src="/brand/frame2.jpg" alt="Comunidad Gex Club — jóvenes creando tecnología" width={736} height={981} className="absolute inset-0 h-full w-full object-cover object-center" fetchPriority="high" />
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
         </div>
         <div className="p-6 sm:p-8 lg:p-12 space-y-6">

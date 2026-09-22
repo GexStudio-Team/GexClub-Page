@@ -14,7 +14,7 @@ export default function Statusbar() {
         </div>
         <div className="hidden md:flex items-center gap-5">
           <span>HACKATHON_ACTIVO: {EVENTS.length}</span>
-          <span className="text-primary">v2.6.0</span>
+          <span className="text-primary">v0.4.0</span>
         </div>
       </div>
     </div>

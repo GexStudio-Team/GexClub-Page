@@ -6,10 +6,12 @@ Las marcas de tiempo corresponden a la zona horaria `America/Bogota` (UTC−05:0
 
 ---
 
-## [Unreleased]
+## [0.4.0] — 2026-09-21
 
 ### Changed
 
+- **Módulo Sobre nosotros — imagen proporcionada al texto** (`src/app/about/page.js`): única edición sobre la versión elegida. La imagen del hero ahora se ajusta en proporción al cuadro de texto: se eliminó el `min-h-[40vh]` de la columna izquierda y la imagen pasó a `absolute inset-0 h-full w-full object-cover object-center` (ocupa el panel completo según la altura del bloque de texto, sin clave visual ni `min-h` artificial).
+- **Número de versión en Statusbar** (`src/components/layout/Statusbar.jsx`): el rótulo superior pasa de `v2.6.0` a **`v0.4.0`**, alineado con la release semántica actual de la escalera SemVer del repo (features + estructura desde `v0.3.0` → MINOR).
 - **Perfil de Duvan — `<QUIEN_ES />` reemplaza a `<tech_en_la_terminal />`** (`src/app/aliados/duvan-altamar/page.js`): **la UI y los cuadros se mantienen exactamente igual** (misma grilla `sm:grid-cols-2` + columna de video; sin romper el layout). Únicamente la **primera celda** cambia: el título pasa a **`<QUIEN_ES />`** y su contenido son los **roles reales de Duvan** (`DUVAN_ROLES`) — Joven Creativo 2025, Técnico en Sistemas IUB 2026, Candidato a CLJ 2025, Líder de transformación 2026, Fundador de GEX Studio y Gex Club, Programador Joven con iniciativa — escritos **libres uno por línea con el prompt de terminal `>_`** (sin cuadros por separado item a item). El resto de celdas (`<liderazgo />`, `<redes />`, `<showcase />`, `<acerca />`) y el video quedan intactos.
 
 ### Added
@@ -176,7 +178,8 @@ conservada en ramas de respaldo (`edition`, `main-anterior`, `legacy-*`).
 ---
 
 <!-- Enlaces de comparación entre versiones (se activan al crearse tags):
-[Unreleased]: https://github.com/GexStudio-Team/GexClub-Page/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/GexStudio-Team/GexClub-Page/compare/v0.3.0...HEAD
+[0.3.0]:      https://github.com/GexStudio-Team/GexClub-Page/releases/tag/v0.3.0
 [0.2.0]:      https://github.com/GexStudio-Team/GexClub-Page/releases/tag/v0.2.0
 [0.1.0]:      https://github.com/GexStudio-Team/GexClub-Page/releases/tag/v0.1.0
 -->
