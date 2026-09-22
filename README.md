@@ -1,4 +1,4 @@
-# GEX CLUB — Sitio Oficial (v0.3.0)
+# GEX CLUB — Sitio Oficial (v0.4.0)
 
 > **Crear · Innovar · Conectar**
 
@@ -19,7 +19,7 @@ Sitio web oficial de **Gex Club**, la comunidad de tecnología de **GexStudio Te
 |---|---|
 | `main` | **Fuente oficial y publicada.** Única rama activa; contiene "G 3D", GEX_OS y todo el contenido actual. |
 
-> El historial de versiones está en [Releases](https://github.com/GexStudio-Team/GexClub-Page/releases) (`v0.1.0` → `v0.2.0` → `v0.3.0`).
+> El historial de versiones está en [Releases](https://github.com/GexStudio-Team/GexClub-Page/releases) (`v0.1.0` → `v0.2.0` → `v0.3.0` → `v0.4.0`).
 > Documentación técnica interna: [`public/Docs/DOCUMENTACION_TECNICA.md`](public/Docs/DOCUMENTACION_TECNICA.md).
 
 > El sitio publica una **exportación estática** (`out/`); no requiere Node.js, base de datos ni variables de entorno en producción.
