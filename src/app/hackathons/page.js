@@ -33,7 +33,7 @@ export default function Hackathons() {
                 </div>
                 <h3 className="font-display text-3xl md:text-5xl font-bold uppercase tracking-tight mb-2">{flagship.name}</h3>
                 <p className="text-muted-foreground max-w-2xl mb-10">{flagship.description}</p>
-                <p className="mb-6 font-mono text-xs uppercase tracking-widest text-primary">Sábado 3 de octubre · {flagship.time}</p>
+                <p className="mb-6 font-mono text-xs uppercase tracking-widest text-primary">Sábado 31 de octubre · {flagship.time}</p>
                 <CountdownTimer targetDate={flagship.startAt} />
                 <div className="mt-10">
                   <LumaCheckoutButton className="bg-primary text-primary-foreground border-primary font-bold hover:bg-primary/90 px-6 py-3.5" />
